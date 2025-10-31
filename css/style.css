@@ -1,22 +1,61 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 body {
-  line-height: 1.25;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(248, 246, 246);
+    line-height: 1.25;
+    font-family: "Epilogue", sans-serif;
+    background-color: #F8F6F6;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.logo {
+    display: none;
+}
+
+.delivery-text {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 1rem 1.312rem 2rem 1.312rem;
+    border-top: 1px solid #2216101A ;  
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+} 
+
+
+.menu-item {
+    list-style-type: none;
+    width: 2rem; 
+}
+
+
+.menu-link {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;   
+    text-decoration: none;
+    align-items: center;
+    color: #71717A;
+    font-size: 0.75rem;
+    vertical-align: bottom;
 }
 
 
