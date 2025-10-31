@@ -1,106 +1,143 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 body {
-    line-height: 1.25;
-    font-family: "Epilogue", sans-serif;
-    background-color: #F8F6F6;
+  line-height: 1.25;
+  font-family: "Epilogue", sans-serif;
+  background-color: #F8F6F6;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 
 .logo {
-    display: none;
+  display: none;
 }
 
 .delivery-text {
-    display: none;
+  display: none;
 }
 
 .menu {
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
-    padding: 1rem 1.312rem 2rem 1.312rem;
-    border-top: 1px solid #2216101A ;  
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 1rem 1.312rem 2rem 1.312rem;
+  border-top: 1px solid #2216101A ;  
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 } 
 
 
+
+
 .menu-item {
-    list-style-type: none;
-    width: 2rem; 
+  list-style-type: none;
+  width: 2rem; 
 }
+
+
 
 
 .menu-link {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;   
-    text-decoration: none;
-    align-items: center;
-    color: #71717A;
-    font-size: 0.75rem;
-    vertical-align: bottom;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;   
+  text-decoration: none;
+  align-items: center;
+  color: #71717A;
+  font-size: 0.75rem;
+  vertical-align: bottom;
+}
+
+.menu-link:hover {
+  color: #EC5413;
 }
 
 .delivery-address {
-    text-align: center;
-    padding: 3.375rem 0 1.5rem 0;
-    font-size: 0.75rem;
-    font-weight: bold;
-    color: #EC5413;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  padding: 3.375rem 0 1.5rem 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #EC5413;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .delivery-address i {
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .greeting-user {
-    display: flex;                
-    justify-content: space-between;
-    align-items: center;
+  display: flex;                
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-info p {
-    margin: 0; 
-    font-weight: medium;
-    font-size: 1.25rem;
-    color: #1F2937;
+  margin: 0; 
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #1F2937;
 }
 
 .user-info a {
-    color: #EC5413;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-.user-info a:hover {
-    text-decoration: underline;
+  color: #EC5413;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .user-points {
-    background-color: #ec541314;
-    color: #EC5413;          
-    padding: .5rem .75rem;
-    border-radius: 50px;      
-    font-weight: bold;
-    font-size: 0.875rem;
+  background-color: #ec541314;
+  color: #EC5413;          
+  padding: .5rem .75rem;
+  border-radius: 50px;      
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.header {
+  padding-bottom: 2.125rem;
+}
+
+.promotion-img {
+  width: 288px;
+  height: 160px;
+  border-radius: 12px;
+  margin: .75rem 0 .5rem 0;
+  object-fit: cover;
+}
+
+.bold {
+  font-weight: bold;
+  color: #111827;
+}
+
+h2 {
+  color: #111827;
+}
+
+.container {
+  padding: 0 1rem
+}
+
+.prom-description {
+  padding-top: .5rem;
+  font-size: 0.875rem;
+  color: #4B5563;
+  font-weight: 500;
 }
