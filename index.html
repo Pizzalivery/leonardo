@@ -5,10 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizzalivery</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/dialog.css" />
   </head>
   <body>
-    <h1>Pizzalivery</h1>
+    <nav id="navigation">
+      <h1 class="logo">Pizzalivery</h1>
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link principal-color" href="">
+            <i data-lucide="home"></i>
+            <span>Início</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="search"></i>
+            <span>Busca</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="menu"></i>
+            <span>Menu</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="receipt-text"></i>
+            <span>Pedidos</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="user-round"></i>
+            <span>Perfil</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header">
+      <div class="delivery-address">
+        <span class="delivery-text">Entregando no endereço:</span
+        ><span class="address-text">Rua Mesquita, 248</span>
+        <button id="change-address">
+          <i data-lucide="chevron-down"></i>
+        </button>
+      </div>
+      <div class="greeting-user">
+        <p class="greeting-title">Olá, Daniela</p>
+        <div class="points-item">
+          <p>112 pontos</p>
+        </div>
+        <a href="">Ver meus pontos</a>
+      </div>
+    </header>
+    <main>
+      <section class="special-offer">
+        <h1>Promoções</h1>
+        <img
+          class="special-offer-img" 
+          src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp" 
+          alt="Duas pizzas em uma mesa"
+        />
+        <span class="special-offer-title">Pizza em dobro</span>
+        <span class="special-offer-subtitle">Compre uma pizza e ganhe outra</span>
+      </section>
+      <section class="order-again">
+        <h1>Peça novamente</h1>
+        <img
+          class="order-again-img"
+          src="./images/160572915436349060139189700225-1080p.jpg"
+          alt="Pizza Margherita"
+        />
+
+        <p class="order-again-title">Margherita</p>
+        <p class="order-again-price">R$ 93,00</p>
+        <a class="order-again-add" href="">Adicionar a sacola</a>
+      </section>
+    </main>
+    <section class="address-modal">
+      <button id="close-button" autofocus>Close</button>
+      <p>Greetings, one and all!</p>
+      <form method="dialog">
+        <button>OK</button>
+      </form>
+    </section>
     <script src="./js/script.js"></script>
+    <script src="./js/dialog.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();

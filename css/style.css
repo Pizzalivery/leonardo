@@ -19,4 +19,181 @@ img {
   height: auto;
 }
 
+h1 {
+  font-size: 24px;
+  padding: 2.5vh 0;
+}
 
+.logo {
+  display: none;
+}
+
+#navigation {
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+  background-color: rgb(248, 246, 246);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: 2vh 3vh;
+  padding-bottom: 5vh;
+  border-top: 2px solid #2216101A;
+}
+
+.menu-item {
+  list-style-type: none;
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+  text-decoration: none;
+  color: #71707a;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.principal-color {
+  color: #EC5413;
+}
+
+.delivery-address {
+  text-align: center;
+  padding: 10px 0;
+  padding-top: 6vh;
+  font-size: 15px;
+}
+
+.delivery-text {
+  display: none;
+}
+
+.address-text {
+  color: #EC5413;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#change-address {
+  color: #EC5413;
+  border: none;
+  background: none;
+  vertical-align: bottom;
+  height: 22px;
+}
+
+.greeting-user {
+  padding: 1vh 3vw;
+
+  & a {
+    color: #EC5413;
+  }
+}
+
+.greeting-title {
+  font-size: 28px;
+    color: #1F2937;
+    padding: 6px 0;
+}
+
+.order-again {
+  padding: 2vh 3vw;
+}
+
+.order-again-img {
+  float: left;
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+  margin-right: 1rem;
+  background-color: #D9D9D9;
+}
+
+.special-offer {
+  padding: 2vh 3vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.special-offer-img {
+  float: left;
+  width: 288px;
+  height: 160px;
+  border-radius: 12px;
+  background-color: #D9D9D9;
+}
+
+.special-offer-title {
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.special-offer-subtitle {
+  color: #4B5563;
+  font-size: 14px;
+}
+
+.order-again-title {
+  margin-bottom: 2.5rem;
+  color: #4B5563;
+  font-weight: bold;
+}
+.order-again-price {
+  margin-bottom: 2.5rem;
+  font-size: 14px;
+  font-weight: bold;
+}
+.order-again-add {
+  margin-bottom: 2.5rem;
+  font-size: 14px;
+  text-decoration: none;
+  color: #EC5413;
+  font-weight: bold;
+}
+
+.points-item {
+  align-content: center;
+  float: right;
+  background-color: #EC54131A;
+  height: 30px;
+  width: 100px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #EC5413;
+  border-radius: 12px;
+}
+
+@media (min-width: 1280px) {
+
+  .logo {
+    display: block;
+  }
+
+  .menu-link {
+    flex-direction: row;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .delivery-address {
+    text-align: right;
+  }
+
+  .delivery-text {
+    display: inline;
+  }
+}
