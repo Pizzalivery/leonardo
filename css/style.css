@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -8,15 +9,212 @@ html {
   font-size: 16px;
 }
 
-body {
-  line-height: 1.25;
+
+.body-app {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(248, 246, 246);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+  background-color: #f8f6f6; 
 }
 
 
+.app {
+  max-width: 24.375rem; 
+  padding: 0 0.2rem 6.875rem; 
+  margin: 0 auto;
+}
+
+
+.header {
+  padding-top: 2.25rem; 
+  padding-bottom: 2rem;
+  display: grid;
+  gap: 0.875rem;
+}
+
+.header-address {
+   display: flex;
+  justify-content: center; 
+  align-items: center;     
+  gap: 0.25rem;            
+  color: #ff5a39;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+ }
+
+ .header-icon {
+  width: 1rem;  
+  height: 1rem;
+  stroke-width: 3;
+}
+
+.header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.greeting-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.greeting-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.greeting-link {
+  font-size: 0.85rem;
+  color: #EC5413;
+}
+
+
+.points-badge {
+  margin-top: 0.5rem;
+  color: #EC5413;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  background-color: #EC54131A;
+}
+
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0.375rem 0 0.625rem;
+  padding-bottom: 0.5rem;
+  color: #111827;
+}
+
+
+.promos {
+  display: grid;
+  gap: 0.625rem;
+}
+
+.carousel {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.promo-card {
+  min-width: 100%;
+  scroll-snap-align: start;
+}
+
+.promo-img {
+  width: 100%;
+  height: 11.25rem;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.75rem;
+}
+
+.promo-body {
+  padding: 0.625rem 0.125rem;
+}
+
+.promo-title {
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  color: #111827;
+}
+
+.promo-sub {
+  color: #4B5563;
+  font-size: 0.92rem;
+  padding-bottom: 3rem;
+}
+
+
+.order-again {
+  display: grid;
+  grid-template-columns: 8.625rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.order-again-img {
+  width: 8.625rem;
+  height: 8.625rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.order-again-title {
+  color: #4B5563;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.order-again-price {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #181311;
+}
+
+.order-again-add {
+  color: #EC5413;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eaeaea;
+  padding: 0; 
+  background-color: #f8f6f6;
+  
+}
+
+.menu {
+  display: flex;
+  justify-content: center; 
+  gap: 2rem; 
+  max-width: 24.375rem;
+  margin: 0 auto;
+}
+
+.menu-item {
+  list-style: none;
+  padding: 1rem .5rem 2rem;
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  color: #6a6a6f;
+  font-size: 0.9rem;
+}
+
+.menu-link.is-active {
+  color: #EC5413;
+}
+
+.menu-icon {
+  width: 1.75rem; 
+  height: 1.75rem;
+}
+.card{
+  line-height: 2.75rem;
+}
