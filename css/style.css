@@ -58,4 +58,49 @@ img {
     vertical-align: bottom;
 }
 
+.delivery-address {
+    text-align: center;
+    padding: 3.375rem 0 1.5rem 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #EC5413;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.delivery-address i {
+    width: 1rem;
+    height: 1rem;
+}
+
+.greeting-user {
+    display: flex;                
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info p {
+    margin: 0; 
+    font-weight: medium;
+    font-size: 1.25rem;
+    color: #1F2937;
+}
+
+.user-info a {
+    color: #EC5413;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.user-info a:hover {
+    text-decoration: underline;
+}
+
+.user-points {
+    background-color: #ec541314;
+    color: #EC5413;          
+    padding: .5rem .75rem;
+    border-radius: 50px;      
+    font-weight: bold;
+    font-size: 0.875rem;
+}
