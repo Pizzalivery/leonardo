@@ -40,16 +40,10 @@ img {
   left: 0;
 } 
 
-
-
-
 .menu-item {
   list-style-type: none;
   width: 2rem; 
 }
-
-
-
 
 .menu-link {
   display: flex;
@@ -137,7 +131,40 @@ h2 {
 
 .prom-description {
   padding-top: .5rem;
+  padding-bottom: 3.4rem;
   font-size: 0.875rem;
   color: #4B5563;
   font-weight: 500;
+}
+
+.order-again-title {
+  margin-bottom: 1.75rem;
+}
+
+.order-again-img {
+  float: left;
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+
+.order-again-flavor {
+  margin-bottom: 2.2rem;
+  color: #4B5563;
+  font-weight: 700;
+}
+
+.order-again-price {
+  margin-bottom: 2.2rem;
+  font-weight: 900;
+  color: #181311;
+  font-size: .875rem;
+}
+
+.order-again-add {
+  text-decoration: none;
+  color: #EC5413;
+  font-weight: 600;
+  font-size: .875rem;
 }
