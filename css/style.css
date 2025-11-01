@@ -57,10 +57,27 @@ img {
   display: none;
 }
 
-.greeting-user {}
+
 
 .order-again {
   margin-bottom: 2.5rem;
+}
+
+.promotionImg {
+  width: 288px;
+  height: 160px;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+
+.promotionTitle {
+  text-decoration: solid;
+  font-size: 18px
+}
+
+.promotionPhrase {
+color: #4B5563 ;
+margin-bottom: 14%;
 }
 
 .order-again-img {
@@ -79,7 +96,24 @@ img {
 }
 .order-again-add {
   margin-bottom: 2.5rem;
+
 }
+
+a {
+  color:#EC5413 ;
+}
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 5%;
+}
+.rightCenter {
+  margin-left: auto 0;
+}
+
+.greeting-user{
+}
+
 
 @media (min-width: 1280px) {
 
