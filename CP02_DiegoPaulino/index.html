@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzalivery</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topo">
+    <p class="endereco">
+      Rua Mesquita, 248
+      <i data-lucide="chevron-down"></i>
+    </p>
+  </header>
+
+  <main>
+    <section class="usuario">
+      <h2>Olá, Daniela</h2>
+      <div class="pontos">
+        <a href="#" class="ver-pontos">Ver meus pontos</a>
+        <span class="badge">112 pontos</span>
+      </div>
+    </section>
+
+    <section class="promocoes">
+      <h3>Promoções</h3>
+      <div class="card">
+        <img src="./img/pizzaPromocao.webp" alt="Pizza em dobro">
+        <div class="info">
+          <h4>Pizza em dobro</h4>
+          <p>Compre uma pizza e ganhe outra</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="recomendacoes">
+      <h3>Peça novamente</h3>
+      <div class="card-mini">
+        <img src="./img/pizzaMargherita.jpg" alt="Pizza Margherita">
+        <div class="info">
+          <h4>Margherita</h4>
+          <p class="preco">R$ 93,00</p>
+          <a href="#" class="sacola">Adicionar à sacola</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="menu-inferior">
+    <div class="item ativo">
+      <i data-lucide="home"></i>
+      <p>Início</p>
+    </div>
+    <div class="item">
+      <i data-lucide="search"></i>
+      <p>Busca</p>
+    </div>
+    <div class="item">
+      <i data-lucide="menu"></i>
+      <p>Menu</p>
+    </div>
+    <div class="item">
+      <i data-lucide="shopping-bag"></i>
+      <p>Pedidos</p>
+    </div>
+    <div class="item">
+      <i data-lucide="user"></i>
+      <p>Perfil</p>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
