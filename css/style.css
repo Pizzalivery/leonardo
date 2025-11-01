@@ -55,18 +55,40 @@ img {
   text-decoration: none;
 }
 
+section{
+  margin-bottom: 14%;
+}
 .delivery-address {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; /*esse aq pega todos os itens da div e alinha tudo, n só o texot*/
+  margin-bottom: 5%;
+
 }
 
 .delivery-text {
   display: none;
 }
 
+.adress-text {
+  color: #EC5413;
+  font-size: 12px;
+  font-weight: bold;
+
+}
+
+
+button{
+  background: none;
+  border: none;
+  color: #EC5413;
+  size: 12px;
+}
 
 
 .order-again {
   margin-bottom: 2.5rem;
+  font-weight: bold;
 }
 
 .promotionImg {
@@ -83,8 +105,8 @@ img {
 
 .promotionPhrase {
 color: #4B5563 ;
-margin-bottom: 14%;
 }
+
 
 .order-again-img {
   float: left;
@@ -122,14 +144,43 @@ h1 {
   font-size: 26px;
   margin-bottom: 5%;
 }
-.rightCenter {
-  margin-left: auto 0;
+.points {
+  color: #EC5413;
+  background-color: #ec541324; 
+  font-weight: bold; 
+  border-radius: 50px;
+  width: 100px;
+  height: 30px;
+  padding: 2%;
+  font-size: 14px;
+  text-align: center;
+ margin: 14px 0;
 }
 
-.greeting-user{
+.cabeçalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  margin-bottom: 2rem;
+
 }
 
+.saudacao-verpontos {
+  flex-direction: column;  
+  }
 
+.saudacao-verpontos P {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .saudacao-verpontos a {
+    font-size: 12px;
+  }
+
+
+
+/* 
 @media (min-width: 1280px) {
 
   .logo {
@@ -154,4 +205,4 @@ h1 {
   .delivery-text {
     display: inline;
   }
-}
+} */
