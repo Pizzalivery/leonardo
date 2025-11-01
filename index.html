@@ -1,72 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzalivery</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <nav>
-      <h1 class="logo">Pizzalivery</h1>
-      <ul class="menu">
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="home"></i>
-            <span>Início</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="search"></i>
-            <span>Busca</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="menu"></i>
-            <span>Menu</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="receipt-text"></i>
-            <span>Pedidos</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="user-round"></i>
-            <span>Perfil</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <header class="header">
-      <div class="delivery-address">
-        <span class="delivery-text">Entregando no endereço:</span
-        ><span>Rua Mesquita, 248</span>
-      </div>
-      <div class="greeting-user">
-        <p>Olá, Daniela</p>
-        <a href="">Ver meus pontos</a>
-      </div>
-    </header>
-    <section>
-      <img
-        class="order-again-img"
-        src="./images/160572915436349060139189700225-1080p.jpg"
-        alt="Pizza Margherita"
-      />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pizzalivery</title>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav id="navbar">
+            <h1 class="logo">Pizzalivery</h1>
+            <ul class="menu">
+                <li class="menu-item">
+                    <a class="menu-link" href="">
+                        <i data-lucide="home"></i>
+                        <span>Início</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="">
+                        <i data-lucide="search"></i>
+                        <span>Busca</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="">
+                        <i data-lucide="menu"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="">
+                        <i data-lucide="receipt-text"></i>
+                        <span>Pedidos</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="">
+                        <i data-lucide="user-round"></i>
+                        <span>Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="delivery-address">
+                <span class="delivery-text">Entregando no endereço:</span>
+                <div id="div-delivery-address">
+                    <span>Rua Mesquita, 248</span>
+                    <i data-lucide="chevron-down" id="dropdown-icon"></i>
+                </div>
+            </div>
+            <div class="sub-header">
+                <div class="greeting-user">
+                    <p>Olá, Daniela</p>
+                    <a href="">Ver meus pontos</a>
+                </div>
+                <div id="div-points-info">
+                    <span id="points-info">112 pontos</span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <h2>Promoções</h2>
+            <article id="container-sales">
+                <section>
+                    <div class="sales-image-container">
+                        <img
+                            class="sales-image"
+                            src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+                            alt="Pizza em dobro"
+                        />
+                    </div>
+                    <h3>Pizza em dobro</h3>
+                    <p class="sales-description">
+                        Compre uma pizza e ganhe outra
+                    </p>
+                </section>
 
-      <p class="order-again-title">Margherita</p>
-      <p class="order-again-price">R$ 93,00</p>
-      <a class="order-again-add" href="">Adicionar a sacola</a>
-    </section>
-    <script src="./js/script.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-  </body>
+                <section>
+                    <div class="sales-image-container">
+                        <img
+                            class="sales-image"
+                            src="./images/pizza_coca_cola.png"
+                            alt="Pizza com Coca-Cola"
+                        />
+                    </div>
+                    <h3>Pizza de Calabresa + Coca-Cola</h3>
+                    <p class="sales-description">
+                        Pizza * Coca-Cola às Quintas
+                    </p>
+                </section>
+
+                <section>
+                    <div class="sales-image-container">
+                        <img
+                            class="sales-image"
+                            src="./images/pizza_sobremesa.png"
+                            alt="Pizza com Sobremesa"
+                        />
+                    </div>
+                    <h3>Quarta-feira – Pizza + Sobremesa</h3>
+                    <p class="sales-description">
+                        Às quartas, compre uma pizza e leve a sobremesa de graça
+                    </p>
+                </section>
+            </article>
+
+            <h2>Peça novamente</h2>
+            <article id="container-order-again">
+                <section>
+                    <img
+                        class="order-again-img"
+                        src="./images/160572915436349060139189700225-1080p.jpg"
+                        alt="Pizza Margherita"
+                    />
+                    <div class="order-again-info">
+                        <p class="order-again-title">Margherita</p>
+                        <p class="order-again-price">R$ 93,00</p>
+                        <a class="order-again-add" href=""
+                            >Adicionar a sacola</a
+                        >
+                    </div>
+                </section>
+            </article>
+        </main>
+
+        <script src="./js/script.js"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
 </html>
