@@ -2,13 +2,13 @@
   position: fixed;
   bottom: -100%;
   width: 100vw;
-  height: calc(100vh - 16px);
-  padding: 16px;
-  border: 1px solid rgba(34, 22, 0, 0.1);
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  height: calc(100vh - 1rem);
+  padding: 1rem;
+  border: .0625rem solid rgba(34, 22, 0, 0.1);
+  border-top-left-radius: .75rem;
+  border-top-right-radius: .75rem;
   background-color: rgb(248, 246, 246);
-  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0rem -.25rem .5rem rgba(0, 0, 0, 0.1);
   transition: bottom 0.3s ease-out;
 }
 
