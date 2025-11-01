@@ -20,7 +20,7 @@ img {
 }
 
 h2 {
-  padding: 2vh 0;
+  padding: 1rem 0;
 }
 
 .logo {
@@ -46,7 +46,7 @@ h2 {
 
 .menu {
   border-top: 0.0625rem solid #2216101A;
-  padding: 2vh 2vw;
+  padding: 1rem 1.5rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-around;
@@ -72,7 +72,7 @@ h2 {
   font-size: .75rem;
   text-align: center;
   padding: .625rem 0;
-  padding-top: 5vh;
+  padding-top: 2rem;
 }
 
 .delivery-text {
@@ -80,7 +80,7 @@ h2 {
 }
 
 .greeting-user {
-  padding: 1vh 3vw;
+  padding: 1rem 1rem;
   font-size: 1.25rem;
   color: #1F2937;
 
@@ -129,7 +129,7 @@ h2 {
   padding: .3rem 0;
 }
 
-.promoces-offer {
+.promocoes-offer {
   color: #4B5563;
   font-size: 0.875rem;
   padding: .3rem 0;
