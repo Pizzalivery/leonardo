@@ -178,6 +178,23 @@ h2 {
   margin-bottom: 2.2rem;
 }
 
+#change-address {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: right;
+  vertical-align: middle;
+}
+
+#change-address i {
+  width: .875rem;
+  height: .875rem;
+  color: #EC5413;
+}
+
 @media (min-width: 1280px) {
 
   .logo {
