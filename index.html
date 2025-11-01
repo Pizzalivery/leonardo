@@ -3,15 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Pizzalivery</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <nav>
+    <nav id="nav">
       <h1 class="logo">Pizzalivery</h1>
       <ul class="menu">
         <li class="menu-item">
-          <a class="menu-link" href="">
+          <a id="start" class="menu-link" href="">
             <i data-lucide="home"></i>
             <span>Início</span>
           </a>
@@ -42,27 +50,44 @@
         </li>
       </ul>
     </nav>
-    <header class="header">
+    <header class="header container">
       <div class="delivery-address">
         <span class="delivery-text">Entregando no endereço:</span
-        ><span>Rua Mesquita, 248</span>
+        ><span id="address">Rua Mesquita, 248</span>
       </div>
       <div class="greeting-user">
         <p>Olá, Daniela</p>
         <a href="">Ver meus pontos</a>
       </div>
     </header>
-    <section>
-      <img
-        class="order-again-img"
-        src="./images/160572915436349060139189700225-1080p.jpg"
-        alt="Pizza Margherita"
-      />
+    <main class="container">
+      <article>
+        <section class="promotion">
+          <h2>Promoções</h2>
+          <img
+            src="images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+            alt="Promoções de pizza em dobro"
+          />
 
-      <p class="order-again-title">Margherita</p>
-      <p class="order-again-price">R$ 93,00</p>
-      <a class="order-again-add" href="">Adicionar a sacola</a>
-    </section>
+          <p class="promotion-title">Pizza em dobro</p>
+          <p class="promotion-text">Compre uma pizza e ganhe outra</p>
+        </section>
+      </article>
+      <article id="order-again">
+        <section>
+          <h2>Peça novamente</h2>
+          <img
+            class="order-again-img"
+            src="./images/160572915436349060139189700225-1080p.jpg"
+            alt="Pizza Margherita"
+          />
+
+          <p class="order-again-title">Margherita</p>
+          <p class="order-again-price">R$ 93,00</p>
+          <a class="order-again-add" href="">Adicionar a sacola</a>
+        </section>
+      </article>
+    </main>
     <script src="./js/script.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
