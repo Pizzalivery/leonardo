@@ -12,6 +12,7 @@ body {
   line-height: 1.25;
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(248, 246, 246);
+  margin: 4%;
 }
 
 img {
@@ -29,6 +30,11 @@ img {
   bottom: 0;
   position: fixed;
   width: 100vw;
+  border-top: 2px solid #e5e6e6;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom:8%;
+  padding-top:4% ;
 }
 
 .menu {
@@ -90,17 +96,26 @@ margin-bottom: 14%;
 
 .order-again-title {
   margin-bottom: 2.5rem;
+  color: #4B5563;
+  font-size: 18px;
+  font-weight: bold;
 }
 .order-again-price {
   margin-bottom: 2.5rem;
+  font-weight: bold;
 }
 .order-again-add {
   margin-bottom: 2.5rem;
+ text-decoration: none;
+ font-weight: bold;
+}
 
+#linkcolor {
+  color:#EC5413 ;
 }
 
 a {
-  color:#EC5413 ;
+  color: #71717A;
 }
 
 h1 {
