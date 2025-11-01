@@ -46,27 +46,42 @@
     <header class="header">
       <div class="delivery-address">
         <span class="delivery-text">Entregando no endereço:</span
-        ><span style="color: #EC5413;">Rua Mesquita, 248</span>
+        ><span class="location">Rua Mesquita, 248</span>
         <button id="change-address">
           <i data-lucide="chevron-down"></i>
         </button>
       </div>
       <div class="greeting-user">
         <p>Olá, Daniela</p>
-        <a href="" style="color: #EC5413;">Ver meus pontos</a>
+        <a href="">Ver meus pontos</a>
+        <span class="points">112 pontos</span>
       </div>
     </header>
-    <section class="order-again">
-      <img
-        class="order-again-img"
-        src="./images/160572915436349060139189700225-1080p.jpg"
-        alt="Pizza Margherita"
-      />
-
-      <p class="order-again-title">Margherita</p>
-      <p class="order-again-price">R$ 93,00</p>
-      <a class="order-again-add" href="">Adicionar a sacola</a>
-    </section>
+    <main>
+      <section class="promocoes">
+        <h2 class="promocoes-title">Promoções</h2>
+          <div class="card">
+            <img
+              class="promo-img"
+              src="images/promo.png"
+              alt="Pizza em dobro"
+            />
+            <h3 class="promocoes-text">Pizza em dobro</h3>
+            <p class=".promoces-offer">Compre uma pizza e ganhe outra</p>
+          </div>
+      </section>
+      <section class="order-again">
+        <h2 class="order-again-title">Peça novamente</h2>
+        <img
+          class="order-again-img"
+          src="./images/160572915436349060139189700225-1080p.jpg"
+          alt="Pizza Margherita"
+        />
+        <p class="order-again-text">Margherita</p>
+        <p class="order-again-price">R$ 93,00</p>
+        <a class="order-again-add" href="">Adicionar a sacola</a>
+      </section>
+    </main>
     <section class="address-modal">
       <button id="close-button" autofocus>Close</button>
       <p>Greetings, one and all!</p>
