@@ -82,9 +82,10 @@ img {
 .delivery-text {
   display: none;
 }
-
-.greeting-user {
+.header {
   margin-bottom: 2.125rem;
+}
+.greeting-user {
   & p {
     font-size: 1.25rem;
   }
@@ -104,6 +105,21 @@ img {
 .promotion-text {
   font-size: 0.875rem;
   color: rgb(75, 85, 99);
+}
+
+#points {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#points-decoration {
+  color: rgb(236, 84, 19);
+  background-color: rgba(236, 84, 19, 0.1);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 8px 12px;
 }
 
 .order-again-img {
