@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzalivery</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <h1>Pizzalivery</h1>
-    <script src="./js/script.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzaria</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+</head>
+<body>
+    <header>
+
+      <div class="lugar">
+        <p class="endereço">Rua Mesquita, 248</p>
+      </div>
+
+      <div class="informacoes">
+        <div class="greeting-container">
+          <h1 class="nome">Olá, Daniela</h1>
+          <a href="#" class="pontos-link">Ver meus pontos</a>
+        </div>
+        <div class="bandeira">112 pontos</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="promocao">
+        <h2 class="promocoes">Promoções</h2>
+        <div class="lista">
+          <article class="card-promocao">
+            <img src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp" alt="Pizza em dobro" class="promocao-image">
+            <div class="detalhes">
+              <h3 class="titulo">Pizza em dobro</h3>
+              <p class="descricao">Compre uma pizza e ganhe outra</p>
+            </div>
+          </article>
+
+          <!-- Card de Promoção 2 -->
+          <article class="card-promocao">
+            <img src="./images/pizza_coca_cola.png" alt="Pizza de" class="promocao-image">
+            <div class="detalhes">
+              <h3 class="titulo">Pizza de</h3>
+              <p class="descricao">Pizza + Co</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="pedir">
+        <h2 class="titulo-peca">Peça novamente</h2>
+        <article class="item-pedir">
+          <img src="./images/160572915436349060139189700225-1080p.jpg" alt="Pizza Margherita" class="imagem-pedir">
+          <div class="item-detalhes">
+            <h3 class="item-nome">Margherita</h3>
+            <p class="item-preco">R$ 93,00</p>
+            <button class="adicionar">Adicionar à sacola</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Barra inferior -->
+    <footer class="menu-bottom">
+      <a href="#" class="active"><i class="ri-home-4-line"></i><span>Início</span></a>
+      <a href="#"><i class="ri-search-line"></i><span>Busca</span></a>
+      <a href="#"><i class="ri-restaurant-line"></i><span>Menu</span></a>
+      <a href="#"><i class="ri-file-list-3-line"></i><span>Pedidos</span></a>
+      <a href="#"><i class="ri-user-line"></i><span>Perfil</span></a>
+    </footer>
+</body>
 </html>
