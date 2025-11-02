@@ -1,17 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzalivery</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <h1>Pizzalivery</h1>
-    <script src="./js/script.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizzalivery</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="pagina">
+  <main class="conteudo">
+    <header class="topo">
+      <p class="endereco-topo">
+        Rua Mesquita, 248
+        <i class="icone-seta" data-lucide="chevron-down"></i>
+      </p>
+
+      <div class="linha-topo">
+        <section class="saudacao">
+          <p class="nome-usuario">Olá, Daniela</p>
+          <a class="link-pontos" href="#">Ver meus pontos</a>
+        </section>
+        <span class="selo-pontos">112 pontos</span>
+      </div>
+    </header>
+
+    <section class="lista-promocoes">
+      <h2 class="titulo-secao">Promoções</h2>
+
+      <div class="carrossel">
+        <article class="cartao-promo">
+          <img src="images/PizzaDobro.webp" alt="Pizza em dobro" class="imagem-promo" />
+          <div class="corpo-promo">
+            <h3 class="titulo-promo">Pizza em dobro</h3>
+            <p class="subtitulo-promo">Compre uma pizza e ganhe outra</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="repetir-pedido">
+      <h2 class="titulo-secao">Pedir novamente</h2>
+
+      <article class="pedido-item">
+        <img src="./images/160572915436349060139189700225-1080p.jpg" alt="Pizza Margherita" class="imagem-pedido" />
+        <div class="cartao">
+          <h3 class="nome-pedido">Margherita</h3>
+          <p class="preco-pedido">R$ 92,99</p>
+          <a class="adicionar-pedido" href="#">Adicionar ao carrinho</a>
+        </div>
+      </article>
+    </section>
+  </main>
+  <nav class="barra-inferior">
+    <ul class="navegacao">
+      <li class="item-menu">
+        <a class="link-menu ativo" href="#">
+          <i class="icone-menu" data-lucide="home"></i>
+          <span>Início</span>
+        </a>
+      </li>
+      <li class="item-menu">
+        <a class="link-menu" href="#">
+          <i class="icone-menu" data-lucide="search"></i>
+          <span>Busca</span>
+        </a>
+      </li>
+      <li class="item-menu">
+        <a class="link-menu" href="#">
+          <i class="icone-menu" data-lucide="menu"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      <li class="item-menu">
+        <a class="link-menu" href="#">
+          <i class="icone-menu" data-lucide="receipt-text"></i>
+          <span>Pedidos</span>
+        </a>
+      </li>
+      <li class="item-menu">
+        <a class="link-menu" href="#">
+          <i class="icone-menu" data-lucide="user-round"></i>
+          <span>Perfil</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
 </html>
