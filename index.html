@@ -6,6 +6,9 @@
     <title>Pizzalivery</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/dialog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <nav id="navigation">
@@ -43,7 +46,7 @@
         </li>
       </ul>
     </nav>
-    <header class="header">
+    <header class="header container">
       <div class="delivery-address">
         <span class="delivery-text">Entregando no endereço:</span
         ><span>Rua Mesquita, 248</span>
@@ -51,12 +54,28 @@
           <i data-lucide="chevron-down"></i>
         </button>
       </div>
-      <div class="greeting-user">
-        <p>Olá, Daniela</p>
-        <a href="">Ver meus pontos</a>
+      <div class="intro-user">
+        <div class="greeting-user">
+          <p>Olá, Daniela</p>
+          <a href="">Ver meus pontos</a>
+        </div>
+        <div class="points-user">
+          <p>112 pontos</p>
+        </div>
       </div>
     </header>
-    <section class="order-again">
+    <section class="order-promo container">
+      <h2>Promoções</h2>
+      <img
+        class="order-promo-img"
+        src="./images/pizza_fatiada_carrossel.png"
+        alt="Pizza Margherita"
+      />
+      <p class="order-promo-title">Pizza em dobro</p>
+      <p class="order-promo-subtitle">Compre uma pizza e ganhe outra</p>
+    </section>
+    <section class="order-again container">
+      <h2>Peça novamente</h2>
       <img
         class="order-again-img"
         src="./images/160572915436349060139189700225-1080p.jpg"

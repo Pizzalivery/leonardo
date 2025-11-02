@@ -10,8 +10,12 @@ html {
 
 body {
   line-height: 1.25;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Epilogue", Helvetica, sans-serif;
   background-color: rgb(248, 246, 246);
+}
+
+h1, h2, h3 {
+  color: #111827;
 }
 
 img {
@@ -23,14 +27,6 @@ img {
   display: none;
 }
 
-.header {
-  padding: 0 16px;
-}
-
-.order-again {
-  padding: 0 16px;
-}
-
 .delivery-address {
   display: flex;
   justify-content: center;
@@ -39,7 +35,8 @@ img {
 
 .delivery-address span{
   color: #EC5413;
-  font-weight: bold;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .delivery-address button {
@@ -78,15 +75,79 @@ img {
   text-decoration: none;
 }
 
+.header {
+  margin-top: 53px;
+}
+
+.container {
+  padding: 0 1rem;
+}
+
 .delivery-address {
-  text-align: center;
+  margin: auto 0 1.125rem 0;
 }
 
 .delivery-text {
   display: none;
 }
 
-.greeting-user {}
+.intro-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.12rem;
+}
+
+.points-user {
+  background-color: #ec54131A;
+  border-radius: 50px;
+}
+
+.points-user p {
+  font-size: 0.87rem;
+  color: #EC5413;
+  padding: 7px 12px;
+  font-weight: bold;
+}
+
+.greeting-user p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #1F2937
+}
+
+.greeting-user a {
+  font-size: 0.75rem;
+  color: #EC5413;
+  font-weight: 500;
+}
+
+.order-promo {
+  margin-bottom: 3.43rem;
+}
+
+.order-promo h2 {
+  margin-bottom: 0.75rem;
+}
+
+.order-promo-title {
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.order-promo-subtitle {
+  color: #4B5563;
+  font-size: 0.875rem;
+  font-weight: 500
+}
+
+.order-promo img {
+  width: 288px;
+  height: 160px;
+  border-radius: 12px;
+  margin-bottom: 0.3rem;
+}
 
 .order-again {
   margin-bottom: 2.5rem;
