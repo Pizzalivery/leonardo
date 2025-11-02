@@ -62,6 +62,8 @@ img {
   display: flex;
   justify-content: space-between;
   gap: .5rem;
+  border-top: 1px solid #2216101A;
+  padding: 1rem 1.31rem 2.25rem;
 }
 
 .menu-item {
@@ -72,12 +74,22 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .25rem;
+  gap: .5rem;
   text-decoration: none;
+  color: #71717A;
+  font-weight: 600
+}
+
+.menu-link span {
+  font-size: 0.75rem
+}
+
+.menu-item:first-child .menu-link {
+  color: #EC5413
 }
 
 .header {
-  margin-top: 3.312rem;
+  margin-top: 3rem;
 }
 
 .container {
@@ -124,7 +136,7 @@ img {
 }
 
 .order-promo {
-  margin-bottom: 3.43rem;
+  margin-bottom: 3.8rem;
 }
 
 .order-promo-title {
