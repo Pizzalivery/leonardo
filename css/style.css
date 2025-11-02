@@ -23,6 +23,27 @@ img {
   display: none;
 }
 
+.navigation-space {
+  padding: 1rem 21px;
+  padding-bottom: 2.25rem;
+  border-top: 1px solid #2216101A;
+}
+
+.points {
+  background-color: #ec541324;
+  margin: auto 16px;
+  margin-top: 1.5rem;
+  padding: .5rem;
+  border-radius: 50px;
+  color: #EC5413;
+  font-weight: bold;
+}
+
+.greeting-and-points {
+  display: flex;
+  justify-content: space-between;
+}
+
 #navigation {
   z-index: 10;
   left: 0;
@@ -47,20 +68,53 @@ img {
   align-items: center;
   gap: .25rem;
   text-decoration: none;
+  color: #71717A;
+}
+
+.menu-link-pressed {
+  color: #EC5413;
 }
 
 .delivery-address {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #EC5413;
+  padding-top: 53px;
+}
+
+.delivery-address-streat {
+  font-weight: bold;
 }
 
 .delivery-text {
   display: none;
 }
 
-.greeting-user {}
+.greeting-user {
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+.greeting-user-name {
+  font-size: 1.55rem;
+}
+
+.greeting-user-points {
+  color: #EC5413;
+  padding-top: 1.5rem;
+}
 
 .order-again {
-  margin-bottom: 2.5rem;
+  padding-top: 37px;
+  padding-left: 1rem;
+}
+
+.order-again-text {
+  padding-top: 55px;
+  padding-left: 1rem;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .order-again-img {
@@ -73,14 +127,56 @@ img {
 
 .order-again-title {
   margin-bottom: 2.5rem;
+  color: #4B5563;
+  font-weight: bold;
 }
 .order-again-price {
   margin-bottom: 2.5rem;
-}
-.order-again-add {
-  margin-bottom: 2.5rem;
+  font-weight: 800;
 }
 
+.order-again-add {
+  margin-bottom: 2.5rem;
+  color: #EC5413;
+  text-decoration: none;
+  font-weight: medium;
+}
+
+.promotion {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.promotion-text {
+  padding-top: 34px;
+  padding-left: 1rem;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.promotion-img {
+  float: left;
+  width: 288px;
+  height: 160px;
+  border-radius: 12px;
+  margin-top: .75rem;
+}
+
+.promotion-discription {
+  padding-top: .5rem;
+  font-weight: bold;
+}
+
+.promotion-detail {
+  padding-top: .5rem;
+  color: #4B5563;
+  font-weight: medium;
+}
+
+
+
+/* Responsive UNDER CONSTRUCTION
 @media (min-width: 1280px) {
 
   .logo {
@@ -105,4 +201,4 @@ img {
   .delivery-text {
     display: inline;
   }
-}
+} */

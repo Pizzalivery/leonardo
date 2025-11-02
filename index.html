@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./css/dialog.css" />
   </head>
   <body>
-    <nav id="navigation">
+    <nav class="navigation-space" id="navigation">
       <h1 class="logo">Pizzalivery</h1>
       <ul class="menu">
         <li class="menu-item">
           <a class="menu-link" href="">
-            <i data-lucide="home"></i>
-            <span>Início</span>
+            <i class="menu-link-pressed" data-lucide="home"></i>
+            <span class="menu-link-pressed">Início</span>
           </a>
         </li>
         <li class="menu-item">
@@ -43,20 +43,43 @@
         </li>
       </ul>
     </nav>
-    <header class="header">
+    <header>
       <div class="delivery-address">
-        <span class="delivery-text">Entregando no endereço:</span
-        ><span>Rua Mesquita, 248</span>
-        <button id="change-address">
-          <i data-lucide="chevron-down"></i>
+        <span class="delivery-text">Entregando no endereço:</span>
+        <div class="delivery-address-streat">
+          <span>Rua Mesquita, 248</span>
+        </div>
+          <!-- <button id="change-address"> -->
+        <i data-lucide="chevron-down"></i>
         </button>
       </div>
-      <div class="greeting-user">
-        <p>Olá, Daniela</p>
-        <a href="">Ver meus pontos</a>
+      <div class="greeting-and-points">
+        <div class="greeting-user">
+          <p class="greeting-user-name">Olá, Daniela</p>
+          <a class="greeting-user-points" href="">Ver meus pontos</a>
+        </div>
+        <div class="points">
+          <span>112 pontos</span>
+        </div>
       </div>
     </header>
-    <section class="order-again">
+    <div class="promotion-text">
+      <span>Promoções</span>
+    </div>
+      <section class="promotion">
+      <img
+        class="promotion-img"
+        src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+        alt="Pizzas em promocao"
+      />
+      <p class="promotion-discription">Pizza em dobro</p>
+      <p class="promotion-detail">Compre uma pizza e ganhe outra</p>
+    </section>
+
+    <div class="order-again-text">
+      <span>Peça novamente</span>
+    </div>
+      <section class="order-again">
       <img
         class="order-again-img"
         src="./images/160572915436349060139189700225-1080p.jpg"
@@ -67,6 +90,7 @@
       <p class="order-again-price">R$ 93,00</p>
       <a class="order-again-add" href="">Adicionar a sacola</a>
     </section>
+    
     <section class="address-modal">
       <button id="close-button" autofocus>Close</button>
       <p>Greetings, one and all!</p>
