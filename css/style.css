@@ -59,4 +59,47 @@ img {
 .menu-link:hover {
   color: #EC5413;
 }
+.informacoes-usuario {
+  text-align: center;
+  padding: 3.375rem 0 1.5rem 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #EC5413;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.usuario {
+  display: flex;                
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nome-usuario p {
+  margin: 0; 
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #1F2937;
+}
+
+.nome-usuario a {
+  color: #EC5413;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.pontos-usuario  {
+  background-color: #ec541314;
+  color: #EC5413;          
+  padding: .5rem .75rem;
+  border-radius: 50px;      
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.header {
+  padding-bottom: 2.125rem;
+}
+
 
