@@ -19,6 +19,12 @@ body {
   font-weight: 700;
 }
 
+#seta {
+  vertical-align: middle;
+  max-width: 16px;
+  max-height: 16px;
+}
+
 #arrumar-pontuacao {
   display: flex;
   justify-content: space-between;
@@ -126,7 +132,7 @@ img {
   margin-top: 0.5rem;
 }
 
-.promotion-title {
+.promotion-text {
   font-size: 0.875rem;
   color: rgb(75, 85, 99);
 }
