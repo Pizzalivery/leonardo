@@ -102,4 +102,65 @@ img {
   padding-bottom: 2.125rem;
 }
 
+.foto-promocao {
+  width: 288px;
+  height: 160px;
+  border-radius: 12px;
+  margin: .75rem 0 .5rem 0;
+  object-fit: cover;
+}
+
+.bold {
+  font-weight: bold;
+  color: #111827;
+}
+
+h2 {
+  color: #111827;
+}
+
+.container {
+  padding: 0 1rem
+}
+
+.descricao-promocao {
+  padding-top: .5rem;
+  padding-bottom: 3.4rem;
+  font-size: 0.875rem;
+  color: #4B5563;
+  font-weight: 500;
+}
+
+.order-again-titulo {
+  margin-bottom: 1.75rem;
+}
+
+.order-again-imagem {
+  float: left;
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+
+.order-again-sabor {
+  margin-bottom: 2.2rem;
+  color: #4B5563;
+  font-weight: 700;
+}
+
+.order-again-preco {
+  margin-bottom: 2.2rem;
+  font-weight: 900;
+  color: #181311;
+  font-size: .875rem;
+}
+
+.order-again-add {
+  text-decoration: none;
+  color: #EC5413;
+  font-weight: 600;
+  font-size: .875rem;
+}
+
 
