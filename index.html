@@ -1,17 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzalivery</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <h1>Pizzalivery</h1>
-    <script src="./js/script.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaDelivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <span class="address">Rua Mesquita, 248 </span>
+      <i class="icon-address" data-lucide="chevron-down"></i>
+    </header>
+
+    <main class="container">
+      <section class="greeting">
+        <div class="greeting-info">
+          <h1 class="greeting-name">Olá, Daniela</h1>
+          <a href="" class="greeting-link">Ver meus pontos</a>
+        </div>
+        <div class="points">112 pontos</div>
+      </section>
+
+      <section>
+        <h2 class="title">Promoções</h2>
+        <div class="grid">
+          <article class="card">
+            <img class="card-img" src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp" alt="Pizza em dobro">
+            <div class="card-content">
+              <h3 class="card-title">Pizza em dobro</h3>
+              <p class="card-desc">Compre uma pizza e ganhe outra</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img" src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa mais Coca-Cola">
+            <div class="card-content">
+              <h3 class="card-title">Pizza de Calabresa</h3>
+              <p class="card-desc">Pizza + Coca-Cola</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="title">Peça novamente</h2>
+        <article class="product">
+          <img class="product-img" src="./images/160572915436349060139189700225-1080p.jpg" alt="Pizza de Margherita">
+          <div class="product-info">
+            <h3 class="product-title">Margherita</h3>
+            <p class="product-price">R$ 93,00</p>
+            <a href="" class="product-link">Adicionar a sacola</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <nav class="nav">
+      <button class="nav-btn active">
+        <i class="icon" data-lucide="home"></i>
+        <span class="label">Inicio</span>
+      </button>
+      <button class="nav-btn">
+        <i class="icon" data-lucide="search"></i>
+        <span class="label">Busca</span>
+      </button>
+      <button class="nav-btn">
+        <i class="icon" data-lucide="menu"></i>
+        <span class="label">Menu</span>
+      </button>
+      <button class="nav-btn">
+        <i class="icon" data-lucide="clipboard-list"></i>
+        <span class="label">Pedidos</span>
+      </button>
+      <button class="nav-btn">
+        <i class="icon" data-lucide="user"></i>
+        <span class="label">Perfil</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    lucide.createIcons( );
+  </script>
+</body>
 </html>
+
