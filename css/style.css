@@ -23,6 +23,35 @@ img {
   display: none;
 }
 
+.header {
+  padding: 0 16px;
+}
+
+.order-again {
+  padding: 0 16px;
+}
+
+.delivery-address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delivery-address span{
+  color: #EC5413;
+  font-weight: bold;
+}
+
+.delivery-address button {
+  border: none;
+  fill: none;
+  background: none;
+}
+
+.delivery-address svg {
+  color: #EC5413;  
+}
+
 #navigation {
   z-index: 10;
   left: 0;
