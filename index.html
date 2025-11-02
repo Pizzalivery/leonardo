@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzalivery</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <h1>Pizzalivery</h1>
-    <script src="./js/script.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Pizzalivery</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="delivery-address">
+      <span>Rua Mesquita, 248</span>
+      <i data-lucide="chevron-down" class="icon"></i>
+    </div>
+    <div class="greeting-user">
+      <div class="user-info">
+        <p class="user-name">Olá, Daniela</p>
+        <a href="#" class="user-link">Ver meus pontos</a>
+      </div>
+      <span class="points-pill">112 pontos</span>
+    </div>
+  </header>
+
+  <!-- Promoções -->
+  <section>
+    <h2 class="section-title">Promoções</h2>
+    <div class="promos">
+      <div class="promo-card">
+        <img src="images/depositphotos_15951851-stock-photo-fresh-pizza.webp" alt="Pizza em dobro">
+        <p class="promo-title">Pizza em dobro</p>
+        <p class="promo-sub">Compre uma pizza e ganhe outra</p>
+      </div>
+      <div class="promo-card">
+        <img src="images/pizza_coca_cola.png" alt="Pizza + Combo">
+        <p class="promo-title">Pizza + Combo</p>
+        <p class="promo-sub">Pizza + Refrigerante</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Peça novamente -->
+  <section class="order-again-section">
+    <h2 class="section-title">Peça novamente</h2>
+    <div class="order-again">
+      <div class="order-again-card">
+        <img class="order-again-img" src="images/160572915436349060139189700225-1080p.jpg" alt="Pizza Margherita">
+        <div class="order-again-info">
+          <p class="order-again-title">Margherita</p>
+          <p class="order-again-price">R$ 93,00</p>
+          <a href="#" class="order-again-link">Adicionar à sacola</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <nav id="navigation">
+    <ul class="menu">
+      <li class="menu-item"><a class="menu-link" href="#"><i data-lucide="house"></i>Início</a></li>
+      <li class="menu-item"><a class="menu-link" href="#"><i data-lucide="search"></i>Busca</a></li>
+      <li class="menu-item"><a class="menu-link" href="#"><i data-lucide="menu"></i>Menu</a></li>
+      <li class="menu-item"><a class="menu-link" href="#"><i data-lucide="receipt-text"></i>Pedidos</a></li>
+      <li class="menu-item"><a class="menu-link" href="#"><i data-lucide="user-round"></i>Perfil</a></li>
+    </ul>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
 </html>
