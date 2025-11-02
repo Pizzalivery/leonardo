@@ -19,4 +19,188 @@ img {
   height: auto;
 }
 
+/* Centraliza o "celular" na tela */
+body {
+  background-color: #2b2b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* Moldura do app simulando tela de celular */
+.phone-frame {
+  width: 300px; 
+  height: 700px; 
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Conteúdo interno */
+.top-bar {
+  text-align: center;
+  background: #fff;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  color: #f97316;
+  font-weight: 600;
+}
+
+.user-info {
+  padding: 16px;
+  position: relative;
+}
+
+.user-info h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color:#1F2937;
+}
+
+.user-info strong {
+  font-weight: 700;
+}
+
+.points-link {
+  display: block;
+  color: #f97316;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  text-decoration: none;
+}
+
+.points-badge {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  background: #fef3c7;
+  color: #f97316;
+  font-weight: 600;
+  border-radius: 16px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
+section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 16px;
+}
+
+.promo-cards {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 16px 16px;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.promo-card {
+    flex: 1 1 calc(50% - 12px);
+}
+
+.card {
+  min-width: 180px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card h4 {
+  font-size: 0.95rem;
+  margin: 8px;
+}
+
+.card p {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0 8px 8px;
+}
+
+.reorder {
+  padding: 0 16px 80px;
+}
+
+.pizza-card {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.pizza-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.pizza-info {
+  padding-left: 12px;
+}
+
+.price {
+  margin: 4px 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.add-cart {
+  color: #f97316;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Navegação inferior */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.bottom-nav a .material-icons-outlined {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.bottom-nav a.active {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.bottom-nav a.active .material-icons-outlined {
+  color: #f97316;
+}
 
