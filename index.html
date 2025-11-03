@@ -1,17 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzalivery</title>
     <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <h1>Pizzalivery</h1>
+    <title>Pizzalivery</title>
+</head>
+<body>
+
+    <nav class="main-nav">
+      <h1 class="logo">PizzaLivery</h1>
+      <ul class="menu">
+
+        <li class="menu-item active">
+           <a class="menu-link" href="./index.html">
+             <i data-lucide="home"></i>
+             <span>Início</span>
+           </a>
+        </li>
+
+         <li class="menu-item">
+          <a class="menu-link" href="./busca.html">
+            <i data-lucide="search"></i>
+             <span>Busca</span>
+          </a>
+        </li>
+
+        <li class="menu-item">
+           <a class="menu-link" href="./menu.html">
+            <i data-lucide="menu"></i>
+            <span>Menu</span>
+           </a>
+         </li>
+
+        <li class="menu-item">
+           <a class="menu-link" href="./pedidos.html">
+            <i data-lucide="receipt-text"></i>
+            <span>Pedidos</span>
+          </a>
+         </li>
+
+        <li class="menu-item">
+          <a class="menu-link" href="./perfil.html">
+            <i data-lucide="user-round"></i>
+            <span>Perfil</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <header>
+      <div class="delivery-address">
+        <span class="delivery-text">Entregando no endereço</span>
+        <span class="address">Rua Mesquita, 248</span>
+        <i class="icon-chevron" data-lucide="chevron-down"></i>
+      </div>
+      <div class="container">
+        <div class="greeting-user">
+          <p class="hello-user">Olá, Daniela</p>
+          <a class="view-points" href="">Ver meus pontos</a>
+        </div>
+        <div class="user-points">
+            <p class="points">112 pontos</p>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="sales">Promoções</h2>
+      <div class="carousel">
+        <div class="carousel-item">
+          <img 
+          class="carousel-sale-img"
+          src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp" 
+          alt="Pizza em dobro">
+          <p class="carousel-title">Pizza em dobro</p>
+          <p class="carousel-description">Compre uma pizza e ganhe outra</p>
+        </div>
+
+        <!-- <div class="carousel-item">
+          <img 
+          class="carousel-sale-img"
+          src="./images/pizza_coca_cola.png" 
+          alt="Pizza com Coca-Cola">
+          
+          <p>Pizza de calabresa + Coca-Cola às Quintas</p>
+          <p>Pizza + Coca-Cola</p>
+        </div>
+
+        <div class="carousel-item">
+          <img 
+          class="carousel-sale-img"
+          src="./images/pizza_sobremesa.png" 
+          alt="Pizza + Sobremesa">
+          <p>Quarta-feira + Pizza = Sobremesa</p>
+          <p>Às quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div> -->
+      </div>
+
+    </section>
+
+    <section>
+      <h2 class="order">Peça novamente</h2>
+      <div class="order-again">
+        <img
+        class="order-again-img"
+        src="./images/160572915436349060139189700225-1080p.jpg"
+        alt="Pizza Margherita"/>
+        <p class="order-again-title">Margherita</p>
+        <p class="order-again-price">R$ 93,00</p>
+        <a class="order-again-add" href="">Adicionar a sacola</a>
+      </div>
+    </section>
+
     <script src="./js/script.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
     </script>
-  </body>
+</body>
 </html>
