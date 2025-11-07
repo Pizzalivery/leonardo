@@ -257,10 +257,12 @@ img {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1.125rem;
   }
 
   .delivery-address {
     text-align: right;
+    margin: 0
   }
 
   .delivery-text {
@@ -277,6 +279,12 @@ img {
     & button {
       display: none;
     }
+
+    & a {
+      margin-left: .375rem;
+      color: var(--brand-primary)
+    }
+      
   }
 
   .chip {
