@@ -199,6 +199,9 @@ img {
   color: var(--brand-primary);
 }
 
+.footer {
+  display: none;
+}
  
 
 @media (min-width: 1280px) {
@@ -230,5 +233,44 @@ img {
 
   .delivery-text {
     display: inline;
+  }
+
+  .footer{
+    display: flex;
+    background-color: var(--interface-darkest);
+    height: 11.25rem;
+    width: 100%;
+    color: var(--text-light);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  .footer h2 {
+    padding-bottom: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.5rem;
+  }
+
+  .copy-address p{
+    padding-bottom: .875rem;
+    font-size: .875rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+  }
+
+  .footer-link a {
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 1rem;
   }
 }
