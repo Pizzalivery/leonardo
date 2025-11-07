@@ -303,22 +303,33 @@ img {
   }
 
   #navigation {
-    z-index: 1;
-    top: 1rem;
-    position: relative;
-    margin: 0 auto;
+    position: static;
+    width: 100%;
     border-top: none;
     border-bottom: 1px solid var(--interface-border);
+    padding: 0.75rem 0;
+    background-color: var(--interface-light);
   }
 
   .logo {
-    margin: 0 auto;
-    display: block;
+    display: inline-block;
+    margin: .5rem 2rem;
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 2rem;
   }
 
   .menu-link {
-    flex-direction: column;
-    margin: 0 auto;
+    flex-direction: row;
+    font-size: 0.95rem;
+    gap: 0.5rem;
   }
 
   .to-right{
@@ -329,15 +340,25 @@ img {
     margin: .7rem 2rem;
   }
 
+  .most-desired {
+    width: 90%;
+    padding-top: 1rem;
+  }
+
   .most-desired-card {
-  margin: .8rem 0;
-  padding: 1rem 1rem;
+    background: color var(--interface-light);
+    padding: 1rem;
+    border-right: 1px solid var(--interface-border);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
   
   .most-desired-list {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
   .header {
@@ -345,11 +366,13 @@ img {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 2rem;
+    margin: .5rem 2rem;
   }
 
   .delivery-address {
     text-align: right;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 
   .delivery-text {
