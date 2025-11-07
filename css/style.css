@@ -203,18 +203,36 @@ img {
 
 @media (min-width: 1280px) {
 
-  #navigation {
+ #navigation {
     z-index: 1;
     top: 0;
     position: relative;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #2216101A
   }
 
   .logo {
     display: block;
+    color: #4B5563;
+    font-style: italic;
+    font-weight: 900
+  }
+
+  .menu {
+    margin: 0;
+    gap: 1.75rem;
+    width: auto;
   }
 
   .menu-link {
     flex-direction: row;
+  }
+
+  .menu-item {
+    margin: auto 0;
   }
 
   .header {
