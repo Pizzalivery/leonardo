@@ -169,7 +169,7 @@ img {
   margin: 0 auto 2.5rem auto;
 }
 
-.order-again-img {
+.pizza-mini-img {
   float: left;
   width: 138px;
   height: 138px;
@@ -199,6 +199,19 @@ img {
   color: var(--brand-primary);
 }
 
+.most-desired {
+  border-top: 1px solid var(--interface-border);
+  width: 90%;
+  margin: 0 auto 2.5rem auto;
+}
+
+.most-desired-title{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
  
 
 @media (min-width: 1280px) {
