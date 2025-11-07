@@ -147,6 +147,10 @@ img {
   transform: scale(0.7);
 }
 
+#change-address .button-desktop {
+  display: none;
+}
+
 .greeting-user {
   position: relative;
   width: 90%;
@@ -341,7 +345,28 @@ img {
     display: none;
   }
 
-  #change-adress {
+  #change-address {
+    transform: none;
+    font-size: 0.875rem;
+    font-weight: 700;
+    vertical-align: baseline;
+    margin-left: .25rem;
+  }
+
+  #change-address .button-mobile {
+    display: none;
+  }
+
+  #change-address .button-desktop {
+    display: inline;
+    color: var(--brand-primary);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .greeting-user {
+    width: 95%;
+    margin: 0 2rem;
   }
 
   .delivery-text {
@@ -354,12 +379,9 @@ img {
   & span {
     display: inline-block;
     color: var(--text-dark);
+    font-weight: 500;
   }
 }
-
-  .greeting-user {
-    margin: 0 2rem;
-  }
 
  .container {
     width: 95%;
