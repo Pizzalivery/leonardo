@@ -265,5 +265,26 @@ img {
 
   .delivery-text {
     display: inline;
+    margin: auto 0;
+    font-size: .875rem;
+
+    & span {
+      display: inline;
+      color: var(--text-dark);
+      font-weight: 500;      
+    }
+
+    & button {
+      display: none;
+    }
+  }
+
+  .chip {
+    display: none;
+  }
+
+  .greeting-user{
+    font-weight: 500;
+    color: var(--text-dark)
   }
 }
