@@ -41,8 +41,8 @@
 
 @media (min-width: 1280px) {
   .carousel {
-    width: 90%;
-    margin: 0 auto;
+    width: 99%;
+    margin: 0 2rem;
     position: relative;
     scroll-snap-type: x mandatory;
     anchor-name: --carousel;
