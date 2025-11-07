@@ -209,8 +209,23 @@ img {
     position: relative;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid var(--interface-border);
-    padding: 2rem 4.5rem;
+    width: 90%;
+    margin: 0 auto;    
+  }
+
+  #navigation::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 1px;
+    background-color: var(--interface-border);
+  }
+
+  .header {
+    width: 90%;
     margin: 0 auto;
   }
 
