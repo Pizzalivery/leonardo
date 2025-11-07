@@ -207,11 +207,11 @@ img {
     z-index: 1;
     top: 0;
     position: relative;
-    width: 90%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #2216101A
+    border-bottom: 1px solid var(--interface-border);
+    padding: 2rem 4.5rem;
+    margin: 0 auto;
   }
 
   .logo {
