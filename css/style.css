@@ -230,28 +230,47 @@ img {
   color: var(--text-darkest);
 }
 
-.most-desired-price {
-
-}
+.most-desired-price {}
 
 .footer {
-
+  background-color: black;
+  color: var(--text-light);
+  padding: 2rem 4rem;
 }
 
 .footer-box {
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-.footer-info {
-
+.footer-info p {
+  margin: 0.4rem 0;
+  font-size: 0.987rem;
+  line-height: 1.4;
 }
 
 .footer-logo {
-
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-light);
+  margin-bottom: .7rem;
 }
 
 .footer-link {
-  
+  height: 15vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.footer-link a {
+  font-size: 1rem;
+  color: var(--text-light);
 }
 
 @media (min-width: 1280px) {
