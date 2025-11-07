@@ -169,11 +169,11 @@ img {
   margin: 0 auto 2.5rem auto;
 }
 
-.pizza-mini-img {
+.order-again-img {
   float: left;
-  width: 138px;
-  height: 138px;
-  border-radius: 12px;
+  width: 8.625rem;
+  height: 8.625rem;
+  border-radius: .75rem;
   margin-right: .75rem;
 }
 
@@ -205,12 +205,29 @@ img {
   margin: 0 auto 2.5rem auto;
 }
 
-.most-desired-title{
-  font-size: 1.5rem;
+.most-desired-list {
+
+}
+
+
+.most-desired-img {
+  float: left;
+  width: 8.625rem;
+  height: 8.625rem;
+  border-radius: .75rem;
+  margin-right: .75rem;
+  margin-left: .85rem;
+}
+
+.most-desired-title {
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-darkest);
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
+}
+
+.most-desired-price {
+  
 }
  
 
