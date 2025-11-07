@@ -27,6 +27,8 @@ img {
 
 .logo {
   display: none;
+  margin: 2.25rem 2rem;
+  color: var(--text-base);
 }
 
 .container {
@@ -38,7 +40,6 @@ img {
   width: 138px;
   height: 138px;
   border-radius: 12px;
-
   float: left;
   margin-right: .75rem;
 }
@@ -73,6 +74,7 @@ img {
   font-weight: 700;
   color: var(--text-darkest);
   margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 #navigation {
@@ -205,14 +207,14 @@ img {
   margin: 0 auto 2.5rem auto;
 }
 
-.most-desired-supertitle{
-
+.most-desired-card {
+  margin: .8rem auto;
 }
 
 .most-desired-list {
-
+  display: flex;
+  flex-direction: column;
 }
-
 
 .most-desired-img {
   float: left;
@@ -220,19 +222,31 @@ img {
   height: 8.625rem;
   border-radius: .75rem;
   margin-right: .75rem;
-  margin-left: .85rem;
 }
 
 .most-desired-title {
-  margin-bottom: 2.5rem;
+  margin-bottom: .5rem;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-darkest);
 }
 
-.most-desired-price {}
+.most-desired-text {
+  margin-bottom: .5rem;
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--text-base);
+}
+
+.most-desired-price {
+  padding: .5rem;
+  font-size: .8rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+}
 
 .footer {
+  display: none;
   background-color: black;
   color: var(--text-light);
   padding: 2rem 4rem;
@@ -275,25 +289,40 @@ img {
 
 @media (min-width: 1280px) {
 
+
   #navigation {
     z-index: 1;
-    top: 0;
+    top: 1rem;
     position: relative;
+    margin: 0 auto;
+    border-top: none;
+    border-bottom: 1px solid var(--interface-border);
   }
 
   .logo {
+    margin: 0 auto;
     display: block;
   }
 
   .menu-link {
-    flex-direction: row;
+    flex-direction: column;
+    margin: 0 auto;
   }
 
+  .to-right{
+    display: none;
+  }
+
+  .greeting-user {
+
+  }
+  
   .header {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    margin: 1rem 2rem;
   }
 
   .delivery-address {
@@ -302,5 +331,9 @@ img {
 
   .delivery-text {
     display: inline;
+  }
+
+  .footer {
+    display: block;
   }
 }
