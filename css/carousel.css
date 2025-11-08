@@ -1,0 +1,37 @@
+.carousel {
+  overflow-x: auto;
+  display: flex;
+}
+
+
+.carousel-item {
+  width: 288px;
+  white-space: normal;
+  padding: 0 1rem;
+  flex: 0 0 auto;
+
+  & img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    width: 288px;
+    max-height: 160px;
+    border-radius: 12px;
+  }
+}
+
+.carousel-item-title {
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+}
+
+.carousel-item-description {
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text-base);
+}
+
+@media (min-width: 1280px) {
+  
+}

@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
@@ -10,13 +12,578 @@ html {
 
 body {
   line-height: 1.25;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(248, 246, 246);
+  font-family: "Epilogue", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--interface-light);
 }
 
 img {
   max-width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
+.logo {
+  display: none;
+}
 
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.product-image {
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+
+  float: left;
+  margin-right: .75rem;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--text-base);
+  margin-bottom: .5rem;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: .5rem;
+}
+
+.header {
+  padding: 1.5rem 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
+}
+
+#navigation {
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+  padding: 1rem 0;
+  border-top: 1px solid var(--interface-border);
+  background-color: var(--interface-light);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.menu-item {
+  list-style-type: none;
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+  text-decoration: none;
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--text-light);
+
+  &.active {
+    color: var(--brand-primary);
+  }
+}
+
+.offers {
+  margin: 0 0 2.5rem 0;
+}
+
+.delivery-address {
+  width: 90%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+}
+
+.delivery-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  & span {
+    display: none;
+  }
+}
+
+#change-address {
+  border: 0;
+  font-weight: 700;
+  background: none;
+  color: var(--brand-primary);
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.greeting-user {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+
+  & a {
+    font-size: .75rem;
+    color: var(--brand-primary);
+  }
+}
+
+.to-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform:  translateY(25%);
+}
+
+.order-again {
+  width: 90%;
+  margin: 0 auto 2.5rem auto;
+  overflow: hidden;
+}
+
+.order-again-img {
+  float: left;
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+  margin-right: .75rem;
+}
+
+.order-again-title {
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-base);
+}
+
+.order-again-price {
+  margin-bottom: 2.5rem;
+  font-size: .875rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+}
+
+.order-again-add {
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+/* Seção "As mais desejadas" */
+.favorites {
+  width: 90%;
+  margin: 0 auto 2.5rem auto;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.product-card {
+  padding: 1rem;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+/* Como o .product-image já existe, só garantimos espaçamento no mobile */
+.product-card .product-image {
+  float: left;
+  margin-right: 0.75rem;
+}
+
+.product-card .product-price {
+  margin-top: 0.5rem;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 3rem;
+  background-color: var(--interface-darkest);
+  color: var(--interface-light);
+  padding: 2rem 0;
+}
+
+.footer-inner {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: block;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  font-size: 0.75rem;
+  color: var(--interface-light);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+
+/* Grid de "As mais desejadas" no desktop */
+.favorites {
+  width: 1120px;
+  max-width: 100%;
+  margin: 0 auto 3rem auto;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  padding: 1.5rem;
+  box-shadow: none;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+
+.product-card .product-image {
+  float: none;
+  width: 100%;
+  height: 180px;
+  margin: 0 0 1rem 0;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.product-card .product-description {
+  min-height: 3.5rem;
+}
+
+/* Footer desktop */
+.site-footer {
+  margin-top: 4rem;
+  padding: 3rem 0;
+}
+
+.footer-inner {
+  width: 1120px;
+  max-width: 100%;
+  margin: 0 auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-links {
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-links a {
+  font-size: 0.875rem;
+}
+
+  body {
+    background-color: var(--interface-light);
+  }
+
+  /* Navegação sobe para o topo no desktop */
+  #navigation {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-top: none;
+    border-bottom: 1px solid var(--interface-border);
+    background-color: var(--interface-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .logo {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--interface-dark);
+  }
+
+  .menu {
+    width: auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+
+  .menu-item {
+    list-style-type: none;
+  }
+
+  .menu-link {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .menu-link i {
+    transform: scale(1.1);
+  }
+
+  /* Header com endereço e saudação lado a lado */
+  .header {
+    width: 1120px;
+    max-width: 100%;
+    margin: 2.5rem auto 1.5rem auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .delivery-address {
+    width: auto;
+    margin: 0;
+    text-align: left;
+    order: 2;
+  }
+
+  .delivery-text {
+    justify-content: flex-start;
+  }
+
+  .greeting-user {
+    width: auto;
+    margin: 0;
+    font-size: 1.25rem;
+    order: 1;
+  }
+
+  .greeting-user a {
+    font-size: 0.875rem;
+  }
+
+  .to-right {
+    position: static;
+    transform: none;
+    margin-left: 0.75rem;
+  }
+
+  /* Seções principais centralizadas na tela grande */
+  .offers,
+  .order-again,
+  .address-dialog {
+    width: 1120px;
+    max-width: 100%;
+    margin: 0 auto 2.5rem auto;
+  }
+
+  .offers {
+    margin-top: 1.5rem;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  /* Grid para cards de promoções */
+  .carousel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .carousel-item {
+    width: auto;
+  }
+
+  /* Card de "Peça novamente" mais largo e com cara de destaque */
+  .order-again {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+  }
+
+  .order-again-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 16px;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  .order-again-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .order-again-price {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .order-again-add {
+    font-size: 0.875rem;
+  }
+
+  /* Formulário de endereço mais centralizado e amplo */
+  .address-dialog {
+    padding: 2rem;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+  }
+
+  .dialog-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .input-small {
+    max-width: none;
+  }
+
+  /* Ajustes finais para ficar igual ao layout do Figma */
+
+  /* Promoções com 4 cards alinhados */
+  .carousel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Peça novamente no estilo de card compacto, sem ocupar toda a largura */
+  .order-again {
+    width: 1120px;
+    max-width: 100%;
+    margin: 0 auto 2.5rem auto;
+    padding: 0;
+    display: block;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .order-again-img {
+    float: left;
+    width: 138px;
+    height: 138px;
+    border-radius: 12px;
+    margin-right: .75rem;
+    object-fit: cover;
+  }
+
+  .order-again-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .order-again-price {
+    margin-bottom: 0.25rem;
+  }
+
+  /* As mais desejadas com cards em linha e imagem à esquerda */
+  .favorites {
+    width: 1120px;
+    max-width: 100%;
+    margin: 0 auto 3rem auto;
+  }
+
+  .product-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    width: calc((100% - 3rem) / 3);
+    padding: 1.5rem 1.5rem 1.25rem 1.5rem;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #ffffff;
+  }
+
+  .product-card .product-image {
+    float: left;
+    width: 138px;
+    height: 138px;
+    margin: 0 0.75rem 0 0;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .product-card .product-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-card .product-price {
+    margin-top: 0.75rem;
+  }
+
+}
