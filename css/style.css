@@ -17,6 +17,7 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--interface-light);
+  padding-bottom: 6rem;
 }
 
 img {
@@ -144,6 +145,10 @@ img {
   transform: scale(0.7);
 }
 
+.chevron {
+  display: inline;
+}
+
 .greeting-user {
   position: relative;
   width: 90%;
@@ -199,21 +204,108 @@ img {
   color: var(--brand-primary);
 }
 
+.most-famous {
+  display: flex;
+  overflow-x: auto; /* scroll horizontal */
+  overflow-y: hidden; /* impede conflito com scroll da página */
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge antigo */
+}
+
+.most-famous::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.most-famous-option {
+  flex: 0 0 auto;
+  width: 288px;
+  white-space: normal;
+  padding: 0 1rem;
+}
+
+.most-famous-option img {
+  width: 256px;
+  height: 138px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.most-famous-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-darkest);
+    margin-bottom: 0.25rem;
+}
+
+.most-famous-description {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-base);
+    line-height: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.most-famous-price {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+.most-famous-h2 {
+  padding: 1rem 1rem;
+}
+
 .footer {
   display: none;
 }
- 
+
+.alternate {
+  display: none;
+}
 
 @media (min-width: 1280px) {
 
+
   #navigation {
-    z-index: 1;
-    top: 0;
     position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 4.5rem 1.5rem 4.5rem;
+    border-bottom: 1px solid var(--interface-border);
+    background-color: var(--interface-light);
   }
 
   .logo {
     display: block;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--text-base);
+    margin: 0; 
+  }
+
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+
+
+  nav {
+    border-bottom: 1px solid var(--interface-border);
   }
 
   .menu-link {
@@ -225,6 +317,11 @@ img {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    padding: 1.5rem 4.5rem 2.625rem 4.5rem;
+  }
+
+  .chip {
+    display: none;
   }
 
   .delivery-address {
@@ -273,4 +370,111 @@ img {
     font-weight: bold;
     font-size: 1rem;
   }
+
+  .chevron {
+    display: none;
+  }
+
+  .alternate {
+    display: inline;
+    font-size: .875rem;
+    font-weight: bold;
+    color: var(--brand-primary);
+  }
+
+  .delivery-text {
+    & span {
+      display: inline;
+    }
+  }
+
+  .address-confirm{
+    color: var(--text-dark);
+  }
+
+  .offers {
+    margin-bottom: 0;
+  }
+
+  .order-again {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--interface-border);
+    margin: 0 4.5rem 2.25rem 4.5rem;
+  }
+  
+  .most-famous-h2 {
+    padding: 0 4.5rem 1rem 4.5rem;
+    color: var(--text-dark);
+  }
+  
+  .most-famous {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 3rem;
+    padding: 0 4.5rem;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    white-space: normal !important;
+    scroll-behavior: auto !important;
+    scrollbar-width: auto !important;
+    -ms-overflow-style: auto !important;
+
+  }
+
+  .most-famous-option {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 1rem;
+    width: 442px;
+    padding: 0;
+  }
+
+  .most-famous-img {
+    width: 150px; /* volta ao formato horizontal original */
+    height: 150px; /* altura proporcional */
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 0.75rem;
+  }
+
+
+
+  .most-famous-title {
+    font-size: 0.9375rem; /* levemente menor */
+    font-weight: 700;
+    color: var(--text-darkest);
+    margin-bottom: 0.25rem;
+  }
+
+  .most-famous-description {
+    font-size: 0.8125rem; /* mais compacto */
+    font-weight: 500;
+    color: var(--text-base);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .most-famous-price {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+  }
+
+  .most-famous-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .border-around {
+    padding: 1rem;
+    border-left: 1px solid var(--interface-border);
+    border-right: 1px solid var(--interface-border);
+  }
+
+  .last-option {
+    padding-left: 1rem;
+  }
+
+  
 }
