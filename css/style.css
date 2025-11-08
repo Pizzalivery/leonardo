@@ -329,15 +329,20 @@ img {
   .most-popular {
     display: flex;    
     gap: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .most-popular-item {
     display: flex;
     align-items: center;
-    max-width: 442px;
     padding: 1rem 0.75rem;
     flex: 1;
     gap: 1rem;
+    border-right: 1px solid var(--interface-border)
+  }
+
+  .most-popular-item:last-child  {
+    border: none
   }
 
   .most-popular-title {
@@ -382,5 +387,24 @@ img {
 
   .order-again-add {
     font-size: 1rem
+  }
+
+  .footer {
+    height: 180px;
+    background-color: var(--interface-darkest);
+    padding: 1.5rem 0;
+    color: var(--text-light);
+
+    & h1 {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .enterprise-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
