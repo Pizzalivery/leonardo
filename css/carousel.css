@@ -34,10 +34,75 @@
 }
 
 .carousel-item-description {
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-base);
 }
+
+/* MUDAR PARA ARQUIVO PRÓPRIO */
+.most-wanted {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(34, 22, 0, 0.1);
+}
+
+.carousel-most-wanted {
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  display: flex;
+}
+
+.carousel-most-wanted::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item-most-wanted {
+  width: 442px;
+
+  white-space: normal;
+  padding: 0 1rem;
+
+  flex: 0 0 auto;
+
+  border-right: 1px solid rgba(34, 22, 0, 0.1);
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.most-wanted-img {
+  float: left;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.most-wanted-title {
+  margin-bottom: 0.938rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+}
+.most-wanted-desc {
+  margin-bottom: 0.938rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-base);
+}
+.most-wanted-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+}
+/* --- */
 
 @media (min-width: 1280px) {
   .carousel {
@@ -63,21 +128,21 @@
 
   .carousel-item::scroll-marker {
     content: "";
-    width: .5rem;
-    height: .5rem;
+    width: 0.5rem;
+    height: 0.5rem;
     background-color: var(--interface-base);
     border-radius: 50%;
   }
 
   .carousel-item::scroll-marker:target-current {
     background-color: var(--brand-primary);
-  } 
+  }
 
   .carousel::scroll-button(left),
   .carousel::scroll-button(right) {
     width: 2.5rem;
     height: 2.5rem;
-    padding: .75rem;
+    padding: 0.75rem;
     border: 1px solid var(--interface-border);
     background-color: var(--brand-primary-light);
     color: var(--brand-primary);
@@ -86,10 +151,9 @@
     content: "\279E";
     position: fixed;
     position-anchor: --carousel;
-    
   }
 
-  .carousel::scroll-button(left):disabled ,
+  .carousel::scroll-button(left):disabled,
   .carousel::scroll-button(right):disabled {
     color: var(--text-light);
     opacity: 0.5;
@@ -100,7 +164,6 @@
     transform: rotate(180deg);
     position-area: left center;
     translate: 20%;
-    
   }
   .carousel::scroll-button(right) {
     position-area: right center;

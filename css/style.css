@@ -40,7 +40,7 @@ img {
   border-radius: 12px;
 
   float: left;
-  margin-right: .75rem;
+  margin-right: 0.75rem;
 }
 
 .product-title {
@@ -51,17 +51,17 @@ img {
 }
 
 .product-description {
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--text-base);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .product-price {
   font-size: 1rem;
   font-weight: 800;
   color: var(--brand-primary);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .header {
@@ -89,7 +89,7 @@ img {
 .menu {
   display: flex;
   justify-content: space-between;
-  gap: .5rem;
+  gap: 0.5rem;
   width: 90%;
   margin: 0 auto;
 }
@@ -102,9 +102,9 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .25rem;
+  gap: 0.25rem;
   text-decoration: none;
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--text-light);
 
@@ -121,6 +121,13 @@ img {
   width: 90%;
   margin: 0 auto 1rem auto;
   text-align: center;
+
+  font-size: 0.75rem;
+  color: var(--brand-primary);
+
+  & button {
+    vertical-align: middle;
+  }
 }
 
 .delivery-text {
@@ -129,10 +136,9 @@ img {
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--brand-primary);
-  & span {
-    display: none;
-  }
+
+  display: none;
+  color: var(--text-dark);
 }
 
 #change-address {
@@ -141,7 +147,16 @@ img {
   background: none;
   color: var(--brand-primary);
   cursor: pointer;
-  transform: scale(0.7);
+}
+
+#change {
+  display: none;
+  font-size: 0.75rem;
+
+  vertical-align: top;
+
+  color: var(--brand-primary);
+  text-decoration: underline;
 }
 
 .greeting-user {
@@ -152,7 +167,7 @@ img {
   color: var(--text-dark);
 
   & a {
-    font-size: .75rem;
+    font-size: 0.75rem;
     color: var(--brand-primary);
   }
 }
@@ -161,7 +176,7 @@ img {
   position: absolute;
   top: 0;
   right: 0;
-  transform:  translateY(25%);
+  transform: translateY(25%);
 }
 
 .order-again {
@@ -174,7 +189,7 @@ img {
   width: 138px;
   height: 138px;
   border-radius: 12px;
-  margin-right: .75rem;
+  margin-right: 0.75rem;
 }
 
 .order-again-title {
@@ -186,7 +201,7 @@ img {
 
 .order-again-price {
   margin-bottom: 2.5rem;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 900;
   color: var(--text-darkest);
 }
@@ -194,16 +209,25 @@ img {
 .order-again-add {
   margin-bottom: 2.5rem;
   text-decoration: none;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--brand-primary);
 }
 
- 
+#footer {
+  display: none;
+}
 
 @media (min-width: 1280px) {
-
   #navigation {
+    max-width: 90%;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    border-top: none;
+    border-bottom: 1px solid var(--interface-border);
+
     z-index: 1;
     top: 0;
     position: relative;
@@ -218,17 +242,78 @@ img {
   }
 
   .header {
+    max-width: 90%;
+    margin: auto;
+
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+
+    padding-bottom: 42px;
+  }
+
+  #points {
+    display: none;
   }
 
   .delivery-address {
     text-align: right;
   }
 
+  #change {
+    display: inline;
+  }
+
+  #arrow {
+    display: none;
+  }
+
   .delivery-text {
     display: inline;
+  }
+
+  #footer {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--interface-darkest);
+    color: var(--text-light);
+
+    padding-block: 1.438rem;
+
+    & h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    & p {
+      font-size: 0.875rem;
+      margin-bottom: 0.875rem;
+    }
+
+    & div {
+      flex-direction: column;
+    }
+
+    & ul {
+      display: flex;
+      flex-direction: row;
+
+      height: 100%;
+      align-items: center;
+      justify-content: end;
+
+      gap: 1.5rem;
+
+      & li {
+        list-style: none;
+
+        & a {
+          font-size: 1rem;
+          color: var(--text-light);
+        }
+      }
+    }
   }
 }
