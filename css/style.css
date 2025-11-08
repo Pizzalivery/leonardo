@@ -321,9 +321,23 @@ img {
     border-bottom: 1px solid var(--interface-border);
   }
 
-  .most-popular {
+  .popular {
     width: 90%;
     margin: 0 auto;
+  }
+
+  .most-popular {
+    display: flex;    
+    gap: 1.5rem;
+  }
+
+  .most-popular-item {
+    display: flex;
+    align-items: center;
+    max-width: 442px;
+    padding: 1rem 0.75rem;
+    flex: 1;
+    gap: 1rem;
   }
 
   .most-popular-title {
@@ -344,13 +358,29 @@ img {
     font-size: 1.25rem;    
   }
 
+  .most-popular-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
   .most-popular-img {
     float: left;
     width: 150px;
     height: 150px;
     border-radius: 12px;
-    margin-right: 1rem;
   }
 
+  .order-again-title {
+    font-size: 1.25rem;
+  }
 
+  .order-again-price {
+    font-size: 1rem
+  }
+
+  .order-again-add {
+    font-size: 1rem
+  }
 }
