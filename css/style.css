@@ -275,16 +275,14 @@ img {
       color: var(--text-dark);
       font-weight: 500;      
     }
+  }
 
-    & button {
-      display: none;
-    }
+  #change-address svg {
+    display: none;
+  }
 
-    & a {
-      margin-left: .375rem;
-      color: var(--brand-primary)
-    }
-      
+  .change-text {
+    font-size: .875rem
   }
 
   .chip {
