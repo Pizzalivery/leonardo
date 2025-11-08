@@ -315,4 +315,42 @@ img {
     font-weight: 500;
     color: var(--text-dark);    
   }
+
+  .order-again {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--interface-border);
+  }
+
+  .most-popular {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .most-popular-title {
+    color: var(--text-darkest);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .most-popular-description {
+    color: var(--text-base);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  .most-popular-price {
+    color: var(--brand-primary);
+    font-weight: 800;
+    font-size: 1.25rem;    
+  }
+
+  .most-popular-img {
+    float: left;
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    margin-right: 1rem;
+  }
+
+
 }
