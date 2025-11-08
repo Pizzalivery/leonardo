@@ -39,9 +39,8 @@
   color: var(--text-base);
 }
 
-/* MUDAR PARA ARQUIVO PRÓPRIO */
 .most-wanted {
-  padding-top: 2rem;
+  padding-block: 2rem;
   border-top: 1px solid rgba(34, 22, 0, 0.1);
 }
 
@@ -59,12 +58,16 @@
 }
 
 .carousel-item-most-wanted {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
   width: 442px;
+  flex: 0 0 442px;
+  flex-shrink: 0;
 
   white-space: normal;
   padding: 0 1rem;
-
-  flex: 0 0 auto;
 
   border-right: 1px solid rgba(34, 22, 0, 0.1);
 
@@ -78,11 +81,11 @@
 }
 
 .most-wanted-img {
-  float: left;
   width: 150px;
   height: 150px;
   border-radius: 8px;
-  margin-right: 1rem;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .most-wanted-title {
@@ -102,7 +105,6 @@
   font-weight: 800;
   color: var(--brand-primary);
 }
-/* --- */
 
 @media (min-width: 1280px) {
   .carousel {
@@ -111,7 +113,6 @@
     position: relative;
     scroll-snap-type: x mandatory;
     anchor-name: --carousel;
-    scroll-marker-group: after;
   }
 
   .carousel::scroll-marker-group {
@@ -168,5 +169,9 @@
   .carousel::scroll-button(right) {
     position-area: right center;
     translate: -20%;
+  }
+
+  body {
+    padding-bottom: 0;
   }
 }

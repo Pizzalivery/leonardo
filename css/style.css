@@ -17,6 +17,7 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--interface-light);
+  padding-bottom: 5rem;
 }
 
 img {
@@ -225,6 +226,7 @@ img {
 
     display: flex;
     align-items: center;
+
     border-top: none;
     border-bottom: 1px solid var(--interface-border);
 
@@ -235,6 +237,12 @@ img {
 
   .logo {
     display: block;
+  }
+
+  .menu {
+    width: fit-content;
+    margin: 0 0 0 auto;
+    gap: 28px;
   }
 
   .menu-link {
@@ -294,6 +302,14 @@ img {
 
     & div {
       flex-direction: column;
+
+      &:first-child {
+        margin-left: 5%;
+      }
+
+      &:last-child {
+        margin-right: 5%;
+      }
     }
 
     & ul {
