@@ -426,6 +426,7 @@ img {
   }
 
   .footer {
+    display: block;
     height: 180px;
     background-color: var(--interface-darkest);
     padding: 1.5rem 0;
