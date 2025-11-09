@@ -12,3 +12,9 @@
     font-size: 0.625rem;
   }
 }
+
+@media (min-width: 1280px){
+  .chip{
+    display: none;
+  }
+}
