@@ -19,10 +19,18 @@ body {
   background-color: var(--interface-light);
 }
 
+main {
+    margin-bottom: 6rem;
+}
+
 img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+footer {
+    display: none;
 }
 
 .logo {
@@ -118,9 +126,14 @@ img {
 }
 
 .delivery-address {
-  width: 90%;
-  margin: 0 auto 1rem auto;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  margin-bottom: 1rem;
+  /*Essas mudanças foram necessárias pois eu fechei
+  o span que estava aberto no HTML. Fiz isso pois
+  entendi que fazia parte do exercício ajustar algum
+  HTML que pudesse estar errado.*/
 }
 
 .delivery-text {
@@ -199,7 +212,58 @@ img {
   color: var(--brand-primary);
 }
 
- 
+.top-selling {
+    width: 90%;
+    margin: 0 auto 2.5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-selling-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.top-selling-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.top-selling-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-selling-img {
+    width: 138px;
+    height: 138px;
+    border-radius: 12px;
+    margin-block: auto;
+}
+
+.top-selling-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-darkest);
+}
+
+.top-selling-description {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    color: var(--text-base);
+}
+
+.top-selling-price {
+    font-size: 1rem;
+    color: var(--brand-primary);
+    font-weight: 800;
+}
+
+#change-address-text {
+    display: none;
+}
 
 @media (min-width: 1280px) {
 
@@ -207,10 +271,25 @@ img {
     z-index: 1;
     top: 0;
     position: relative;
+    padding: 2.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: none;
+    border-bottom: 1px solid var(--interface-border);
   }
 
   .logo {
     display: block;
+    font-size: 2rem;
+    color: var(--text-base);
+    font-style: italic;
+    font-weight: 900;
+  }
+
+  .menu {
+      justify-content: flex-end;
+      gap: 1.5rem;
   }
 
   .menu-link {
@@ -218,6 +297,8 @@ img {
   }
 
   .header {
+      padding-inline: 2rem;
+      padding-bottom: 2.5rem;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -225,10 +306,159 @@ img {
   }
 
   .delivery-address {
-    text-align: right;
+      margin: auto;
+      display: flex;
+      justify-content: end;
+      align-items: center;
   }
 
   .delivery-text {
     display: inline;
+  }
+
+    .delivery-text > span {
+        display: inline;
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+
+    #change-address {
+        display: none;
+    }
+
+    #change-address-text {
+        display: inline;
+        color: var(--brand-primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-left: 0.375rem;
+    }
+
+    .offers {
+        margin-bottom: 2rem;
+    }
+
+    .container {
+        width: 100%;
+        padding-inline: 2rem;
+    }
+
+  .order-again {
+      width: 100%;
+      padding-inline: 2rem;
+  }
+
+  .order-again-item {
+      display: flex;
+      margin-top: 0.250rem;
+      /*No Figma a distância entre a imagem e o section-title é 28px
+      neste caso. Alterei apenas nesse bloco (4px de margem superior)
+      pois o section-title (que tem 24px de margem inferior) é usado
+      mais de uma vez no HTML.*/
+  }
+
+  .order-again-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
+  .order-again-title,
+  .order-again-price,
+  .order-again-add {
+      margin: 0;
+  }
+
+  .top-selling {
+      width: calc(100% - 4rem);
+      /*Esse cálculo é feito para que todos os tamanhos de tela
+      acima de 1280px reajam da mesma maneira (simulando 2rem de
+      "margem" pra cada lado). Assim eu consigo estilizar a borda
+      superior sem gambiarra.*/
+      border-top: solid 1px var(--interface-border);
+      padding-top: 2rem;
+
+      & .section-title {
+          margin-bottom: 1rem;
+      }
+  }
+
+  .top-selling-container {
+      flex-direction: row;
+      gap: 1.5rem;
+  }
+
+  .top-selling-item {
+      padding-top: 1rem;
+      padding-bottom: 0.75rem;
+      /*Usei esses paddings de bloco aqui pois a linha de borda é da altura
+      do meu item (contando espaços em branco), e nao apenas da altura
+      dos elementos dentro do item*/
+      padding-inline: 0.75rem;
+      border-right: solid 1px var(--interface-border);
+
+      &:last-child {
+          border-right: none;
+      }
+  }
+
+  .top-selling-img {
+      width: 150px;
+      height: 150px;
+  }
+
+  .top-selling-info {
+      width: 254px;
+  }
+
+  .top-selling-title {
+      font-size: 1.125rem;
+  }
+
+  .top-selling-description {
+      font-size: 1rem;
+  }
+
+  .top-selling-price {
+      font-size: 1.125rem;
+  }
+
+  footer {
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--interface-darkest);
+      color: var(--text-light);
+      height: 11.25rem;
+      padding-inline: 2rem;
+      padding-block: 1.5rem;
+  }
+
+  .footer-container {
+      display: flex;
+      flex-direction: column;
+
+      & h2 {
+          font-size: 1.5rem;
+          font-weight: 900;
+          font-style: italic;
+          margin-bottom: 1.5rem;
+      }
+
+      & p {
+          font-size: 0.875rem;
+          margin-bottom: 0.75rem;
+      }
+  }
+
+  .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      & a {
+        color: var(--text-light);
+        font-weight: 700;
+        font-size: 1rem;
+      }
   }
 }

@@ -41,24 +41,38 @@
 
 @media (min-width: 1280px) {
   .carousel {
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
+    width: 100%;
+    /*position: relative;*/
     scroll-snap-type: x mandatory;
     anchor-name: --carousel;
-    scroll-marker-group: after;
+    /*scroll-marker-group: after;*/
   }
 
-  .carousel::scroll-marker-group {
+  /* Removi todos os estilos relativos à interatividade do carrossel
+  ou que não pareciam fazer qualquer mudança no mobile ou no desktop.
+  Os marcadores do carrossel também não estão no Figma e, além disso,
+  não funcionam em todos os navegadores (no Safari eles quebram, por
+  exemplo)... Com essa mudança, alterei o .carousel acima e o CSS
+  respondeu da mesma forma em todos os navegadores.*/
+
+  /*.carousel::scroll-marker-group {
     padding: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-  }
+  }*/
 
   .carousel-item {
     scroll-snap-align: start;
+
+    &:first-child {
+        padding-left: 2rem;
+    }
+
+    &:last-child {
+        padding-right: 2rem;
+    }
   }
 
   .carousel-item::scroll-marker {
@@ -69,9 +83,9 @@
     border-radius: 50%;
   }
 
-  .carousel-item::scroll-marker:target-current {
+  /*.carousel-item::scroll-marker:target-current {
     background-color: var(--brand-primary);
-  } 
+  }
 
   .carousel::scroll-button(left),
   .carousel::scroll-button(right) {
@@ -86,7 +100,7 @@
     content: "\279E";
     position: fixed;
     position-anchor: --carousel;
-    
+
   }
 
   .carousel::scroll-button(left):disabled ,
@@ -100,10 +114,9 @@
     transform: rotate(180deg);
     position-area: left center;
     translate: 20%;
-    
   }
   .carousel::scroll-button(right) {
     position-area: right center;
     translate: -20%;
-  }
+  }*/
 }

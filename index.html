@@ -58,10 +58,11 @@
     <header class="header">
       <div class="delivery-address">
         <span class="delivery-text"><span>Entregando no endereço:</span>
-        Rua Mesquita, 248
+        Rua Mesquita, 248</span> <!-- Bira, aqui ficou faltando fechar esse span. Estava dando ruim ao codar no meu editor. -->
         <button id="change-address">
           <i data-lucide="chevron-down"></i>
         </button>
+        <a href="/index.html" id="change-address-text">Alterar</a>
       </div>
       <div class="greeting-user">
         <p>Olá, <span id="userName"></span></p>
@@ -69,6 +70,8 @@
         <span class="chip to-right"><span id="userPoints"></span> pontos</span>
       </div>
     </header>
+
+    <main>
     <section class="offers">
       <div class="container">
         <h2 class="section-title">Promoções</h2>
@@ -150,15 +153,19 @@
     </section>
     <section class="order-again">
       <h2 class="section-title">Peça novamente</h2>
+      <div class="order-again-item">
       <img
         class="order-again-img"
         src="./images/160572915436349060139189700225-1080p.jpg"
         alt="Pizza Margherita"
       />
 
+      <div class="order-again-info">
       <p class="order-again-title">Margherita</p>
       <p class="order-again-price">R$ 93,00</p>
       <a class="order-again-add" href="">Adicionar a sacola</a>
+      </div>
+      </div>
     </section>
     <section class="address-dialog">
       <header class="dialog-header">
@@ -203,6 +210,66 @@
         <button class="button primary full">Cadastrar</button>
       </form>
     </section>
+
+    <section class="top-selling">
+        <h2 class="section-title">As mais desejadas</h2>
+        <div class="top-selling-container">
+            <div class="top-selling-item">
+                <img
+                    class="top-selling-img"
+                    src="./images/160572915436349060139189700225-1080p.jpg"
+                    alt="Pizza Margherita"
+                />
+                <div class="top-selling-info">
+                    <p class="top-selling-title">Margherita</p>
+                    <p class="top-selling-description">Muçarela especial, muçarela de búfala rasgada, fatias de tomate  finalizada com folhas de manjericão orgânico e um fio de azeite  aromatizado.</p>
+                    <p class="top-selling-price">R$ 93,00</p>
+                </div>
+            </div>
+            <div class="top-selling-item">
+                <img
+                    class="top-selling-img"
+                    src="./images/16057285666390640459715899877-1080p.jpg"
+                    alt="Pizza Margherita"
+                />
+                <div class="top-selling-info">
+                    <p class="top-selling-title">Calabresa</p>
+                    <p class="top-selling-description">Calabresa especial cozida, em fatias, anéis de cebola, orégano e azeitonas portuguesas.</p>
+                    <p class="top-selling-price">R$ 93,00</p>
+                </div>
+            </div>
+            <div class="top-selling-item">
+                <img
+                    class="top-selling-img"
+                    src="./images/160572872237340571510501432084-1080p.jpg"
+                    alt="Pizza Margherita"
+                />
+                <div class="top-selling-info">
+                    <p class="top-selling-title">Calacheese</p>
+                    <p class="top-selling-description">Leva muçarela de búfala rasgada,  linguicinhas curada e curada apimentada sobre muçarela especial.</p>
+                    <p class="top-selling-price">R$ 99,00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <h2>Pizzalivery</h2>
+            <section>
+                <p>© Copyright 2025 - Pizzalivery - Todos os direitos reservados</p>
+                <p>CNPJ 35.609.792/0001-80 / Rua Elias Mussa Fajuri, 421 - Rio Pequeno - São Paulo -SP
+                    <br>CEP 05364-190
+                </p>
+            </section>
+        </div>
+        <section class="footer-links">
+            <a href="/index.html">Termos e condições de uso</a>
+            <a href="/index.html">Privacidade</a>
+            <a href="/index.html">Dicas de segurança</a>
+        </section>
+    </footer>
     <script src="./js/script.js"></script>
     <script src="./js/dialog.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>

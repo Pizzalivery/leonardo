@@ -6,9 +6,15 @@
   background-color: var(--brand-primary-light);
   color: var(--brand-primary);
   border-radius: 2rem;
-  
+
   &.small {
     padding: .375rem 0.625rem;
     font-size: 0.625rem;
   }
+}
+
+@media (min-width: 1280px) {
+    .chip {
+        display: none;
+    }
 }
