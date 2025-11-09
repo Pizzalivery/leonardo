@@ -76,7 +76,7 @@ img {
   margin-bottom: 1.5rem;
 }
 
-navigation {
+#navigation {
   z-index: 10;
   left: 0;
   bottom: 0;
@@ -145,6 +145,10 @@ navigation {
   transform: scale(0.7);
 }
 
+.chevron {
+  display: inline;
+}
+
 .greeting-user {
   position: relative;
   width: 90%;
@@ -157,6 +161,12 @@ navigation {
     color: var(--brand-primary);
   }
 }
+
+  & a {
+    font-size: .75rem;
+    color: var(--brand-primary);
+  }
+
 
 .to-right {
   position: absolute;
