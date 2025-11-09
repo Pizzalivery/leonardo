@@ -4,11 +4,275 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizzalivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/dialog.css" />
+    <link rel="stylesheet" href="./css/carousel.css" />
+    <link rel="stylesheet" href="./css/chip.css" />
+    <link rel="stylesheet" href="./css/input.css" />
+    <link rel="stylesheet" href="./css/button.css" />
+    <link rel="stylesheet" href="./css/icon-button.css" />
   </head>
   <body>
-    <h1>Pizzalivery</h1>
+    <nav id="navigation">
+      <h1 class="logo">Pizzalivery</h1>
+      <ul class="menu">
+        <li class="menu-item">
+          <a class="menu-link active" href="">
+            <i data-lucide="home"></i>
+            <span>Início</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="search"></i>
+            <span>Busca</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="menu"></i>
+            <span>Menu</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="receipt-text"></i>
+            <span>Pedidos</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="">
+            <i data-lucide="user-round"></i>
+            <span>Perfil</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header">
+      <div class="delivery-address">
+        <span class="delivery-text"><span>Entregando no endereço:</span>
+        Rua Mesquita, 248</span>
+        <button id="change-address">
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <a href="/index.html" id="change-address-text">Alterar</a>
+      </div>
+      <div class="greeting-user">
+        <p>Olá, <span id="userName">Daniela</span></p>
+        <a href="">Ver meus pontos</a>
+      </div>
+    </header>
+
+    <main>
+    <section class="offers">
+      <div class="container">
+        <h2 class="category-title">Promoções</h2>
+      </div>
+      <div class="carousel">
+        <div class="carousel-item">
+          <img
+            src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carousel-item-title">Pizza em dobro</h3>
+          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
+          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
+          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
+          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carousel-item-title">Pizza em dobro</h3>
+          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
+          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
+          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
+          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carousel-item-title">Pizza em dobro</h3>
+          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
+          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
+          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
+          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carousel-item-title">Pizza em dobro</h3>
+          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
+          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
+          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
+          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="repeat-order">
+      <h2 class="category-title">Peça novamente</h2>
+      <div class="repeat-order-item">
+      <img
+        class="repeat-order-img"
+        src="./images/160572915436349060139189700225-1080p.jpg"
+        alt="Pizza Margherita"
+      />
+      <div class="repeat-order-info">
+      <p class="repeat-order-title">Margherita</p>
+      <p class="repeat-order-price">R$ 93,00</p>
+      <a class="repeat-order-add" href="">Adicionar a sacola</a>
+      </div>
+      </div>
+    </section>
+    
+    <section class="address-dialog">
+      <header class="dialog-header">
+        <h2 class="dialog-title">Alterar endereço de entrega</h2>
+        <button id="close-button" class="icon-button" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </header>
+      <form>
+        <div class="form-input">
+          <label class="sr-only" for="cep">Cep</label>
+          <input class="text-field" type="text" id="cep" name="cep" placeholder="Digite o CEP" value="09060-050">
+        </div>
+        <div class="form-input">
+          <label class="sr-only" for="street">Rua</label>
+          <input class="text-field" type="text" id="street" name="street" required disabled value="Rua Xingu">
+        </div>
+        <div class="form-grid">
+          <div class="form-input input-small">
+            <label class="sr-only" for="number">Número</label>
+            <input class="text-field" type="text" id="number" name="number" required disabled value="12354">
+          </div>
+          <div class="form-input">
+            <label class="sr-only" for="additional">Complemento</label>
+            <input class="text-field" type="text" id="additional" name="additional" required disabled value="Apto 101">
+          </div>
+        </div>
+        <div class="form-input">
+          <label class="sr-only" for="neighborhood">Bairro</label>
+          <input class="text-field" type="text" id="neighborhood" name="neighborhood" required disabled value="Vila Xingu">
+        </div>
+        <div class="form-grid">
+          <div class="form-input">
+            <label class="sr-only" for="city">Cidade</label>
+            <input class="text-field" type="text" id="city" name="city" required disabled value="São Paulo">
+          </div>
+          <div class="form-input input-small">
+            <label class="sr-only" for="state">Estado</label>
+            <input class="text-field" type="text" id="state" name="state" required disabled value="SP">
+          </div>
+        </div>
+        <button class="button primary full">Cadastrar</button>
+      </form>
+    </section>
+
+    <section class="popular-items">
+        <h2 class="category-title">As mais desejadas</h2>
+        <div class="popular-items-container">
+            <div class="popular-items-item">
+                <img
+                    class="popular-items-img"
+                    src="./images/160572915436349060139189700225-1080p.jpg"
+                    alt="Pizza Margherita"
+                />
+                <div class="popular-items-info">
+                    <p class="popular-items-title">Margherita</p>
+                    <p class="popular-items-description">Muçarela especial, muçarela de búfala rasgada, fatias de tomate finalizada com folhas de manjericão orgânico e um fio de azeite aromatizado.</p>
+                    <p class="popular-items-price">R$ 93,00</p>
+                </div>
+            </div>
+            <div class="popular-items-item">
+                <img
+                    class="popular-items-img"
+                    src="./images/16057285666390640459715899877-1080p.jpg"
+                    alt="Pizza Margherita"
+                />
+                <div class="popular-items-info">
+                    <p class="popular-items-title">Calabresa</p>
+                    <p class="popular-items-description">Calabresa especial cozida, em fatias, anéis de cebola, orégano e azeitonas portuguesas.</p>
+                    <p class="popular-items-price">R$ 93,00</p>
+                </div>
+            </div>
+            <div class="popular-items-item">
+                <img
+                    class="popular-items-img"
+                    src="./images/160572872237340571510501432084-1080p.jpg"
+                    alt="Pizza Margherita"
+                />
+                <div class="popular-items-info">
+                    <p class="popular-items-title">Calacheese</p>
+                    <p class="popular-items-description">Leva muçarela de búfala rasgada, linguicinhas curada e curada apimentada sobre muçarela especial.</p>
+                    <p class="popular-items-price">R$ 99,00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <h2>Pizzalivery</h2>
+            <div class="footer-copyright-info"> 
+                <p>© Copyright 2025 - Pizzalivery - Todos os direitos reservados</p>
+                <div class="footer-contact-info">
+                    CNPJ 35.609.792/0001-80 / Rua Elias Mussa Fajuri, 421 - Rio Pequeno - São Paulo -SP
+                    <br>CEP 05364-190
+                </div>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="/index.html">Termos e condições de uso</a>
+            <a href="/index.html">Privacidade</a>
+            <a href="/index.html">Dicas de segurança</a>
+        </div>
+    </footer>
     <script src="./js/script.js"></script>
+    <script src="./js/dialog.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
