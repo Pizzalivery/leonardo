@@ -17,6 +17,7 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--interface-light);
+  padding-bottom: 6rem;
 }
 
 img {
@@ -75,7 +76,7 @@ img {
   margin-bottom: 1.5rem;
 }
 
-#navigation {
+navigation {
   z-index: 10;
   left: 0;
   bottom: 0;
