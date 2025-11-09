@@ -20,7 +20,7 @@
   & img {
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    width: 288px;
+    width: 100%;
     max-height: 160px;
     border-radius: 12px;
   }
@@ -41,69 +41,23 @@
 
 @media (min-width: 1280px) {
   .carousel {
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
-    scroll-snap-type: x mandatory;
-    anchor-name: --carousel;
-    scroll-marker-group: after;
-  }
-
-  .carousel::scroll-marker-group {
-    padding: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
+    width: 110%;
+    margin-right: 20px;
+    scroll-snap-type: none; 
+    anchor-name: none;
+    scroll-marker-group: none;
   }
 
   .carousel-item {
-    scroll-snap-align: start;
+    width: 25%; 
+    padding: 0 0.5rem;
+    scroll-snap-align: none; 
   }
-
-  .carousel-item::scroll-marker {
-    content: "";
-    width: .5rem;
-    height: .5rem;
-    background-color: var(--interface-base);
-    border-radius: 50%;
-  }
-
-  .carousel-item::scroll-marker:target-current {
-    background-color: var(--brand-primary);
-  } 
-
+  
+  .carousel::scroll-marker-group,
+  .carousel-item::scroll-marker,
   .carousel::scroll-button(left),
   .carousel::scroll-button(right) {
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: .75rem;
-    border: 1px solid var(--interface-border);
-    background-color: var(--brand-primary-light);
-    color: var(--brand-primary);
-    border-radius: 50%;
-    cursor: pointer;
-    content: "\279E";
-    position: fixed;
-    position-anchor: --carousel;
-    
-  }
-
-  .carousel::scroll-button(left):disabled ,
-  .carousel::scroll-button(right):disabled {
-    color: var(--text-light);
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .carousel::scroll-button(left) {
-    transform: rotate(180deg);
-    position-area: left center;
-    translate: 20%;
-    
-  }
-  .carousel::scroll-button(right) {
-    position-area: right center;
-    translate: -20%;
+    display: none;
   }
 }

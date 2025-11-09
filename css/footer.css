@@ -21,12 +21,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 1.5rem;
 }
 
 .footer-link {
   color: #71717A;
   font-weight: 500;
+  padding-top: 5px;
 }
 
 @media (min-width: 1280px) {
@@ -39,6 +39,7 @@
   .footer-links {
     flex-direction: row;
     gap: 1.5rem;
-    margin-top: 0;
+    margin: auto;
+    
   }
 }
