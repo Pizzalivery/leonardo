@@ -82,7 +82,7 @@ img {
   position: fixed;
   width: 100vw;
   padding: 1rem 0;
-  border-top: 1px solid var(--interface-border);
+  border-bottom: 1px solid var(--interface-border);
   background-color: var(--interface-light);
 }
 
@@ -203,14 +203,49 @@ img {
 
 @media (min-width: 1280px) {
 
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .menu-link {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    color: var(--text-base);
+    padding: .375rem .5rem;
+    border-radius: .5rem;
+  } 
+
+  .header,
+  .offers,
+  .order-again {
+    padding-block: 1.5rem;         /* respiro semelhante ao Figma */
+  }
+
+  .section-title {
+    font-size: 1.25rem;            /* ligeiro up só no desktop */
+    margin-bottom: 1rem;
+  }
+
   #navigation {
+    padding-top: 36px;
     z-index: 1;
     top: 0;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .logo {
     display: block;
+    color: #4B5563;
+    font-weight: 800;
   }
 
   .menu-link {
