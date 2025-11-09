@@ -203,6 +203,55 @@ img {
 
 @media (min-width: 1280px) {
 
+  
+
+  /* ////////////////////////////////////////////////////// */
+  .order-again::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--interface-border);
+    margin-top: 1rem;
+  }
+
+  /* /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto;  /* esquerda = greeting | direita = endereço */
+    align-items: start;
+    gap: 1rem;
+    padding-block: 1.25rem;
+  }
+
+  /* 3.2) Alinhamentos e escalas leves */
+  .greeting-user {
+    width: 100%;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-darkest);
+  }
+  .greeting-user a { font-size: .875rem; }
+
+  .delivery-address {
+    width: 100%;
+    margin: 0;
+    text-align: right;
+  }
+
+  /* 3.3) Botão “alterar” mais discreto */
+  #change-address {
+    transform: none;
+    padding-left: .25rem;
+  }
+
+  /* 3.4) Chip de pontos alinhado à direita da área de saudação */
+  .to-right {
+    position: static;
+    margin-left: .5rem;
+  }
+  
   .menu {
     display: flex;
     align-items: center;
