@@ -34,7 +34,7 @@
 }
 
 .carousel-item-description {
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-base);
 }
@@ -63,21 +63,21 @@
 
   .carousel-item::scroll-marker {
     content: "";
-    width: .5rem;
-    height: .5rem;
+    width: 0.5rem;
+    height: 0.5rem;
     background-color: var(--interface-base);
     border-radius: 50%;
   }
 
   .carousel-item::scroll-marker:target-current {
     background-color: var(--brand-primary);
-  } 
+  }
 
   .carousel::scroll-button(left),
   .carousel::scroll-button(right) {
     width: 2.5rem;
     height: 2.5rem;
-    padding: .75rem;
+    padding: 0.75rem;
     border: 1px solid var(--interface-border);
     background-color: var(--brand-primary-light);
     color: var(--brand-primary);
@@ -86,10 +86,9 @@
     content: "\279E";
     position: fixed;
     position-anchor: --carousel;
-    
   }
 
-  .carousel::scroll-button(left):disabled ,
+  .carousel::scroll-button(left):disabled,
   .carousel::scroll-button(right):disabled {
     color: var(--text-light);
     opacity: 0.5;
@@ -100,7 +99,6 @@
     transform: rotate(180deg);
     position-area: left center;
     translate: 20%;
-    
   }
   .carousel::scroll-button(right) {
     position-area: right center;
