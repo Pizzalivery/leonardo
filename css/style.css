@@ -235,29 +235,24 @@ img {
   padding: 1rem 0.75rem;
   flex: 1;
   gap: 1rem;
-  border-right: 1px solid var(--interface-border)
 }
-
-.most-popular-item:last-child  {
-    border: none
-  }
 
 .most-popular-title {
   color: var(--text-darkest);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .most-popular-description {
   color: var(--text-base);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: .875rem;
 }
 
 .most-popular-price {
   color: var(--brand-primary);
   font-weight: 800;
-  font-size: 1.25rem;    
+  font-size: .875rem;    
 }
 
 .most-popular-info {
@@ -379,16 +374,13 @@ img {
     border-bottom: 1px solid var(--interface-border);
   }
 
+  
+
   .most-popular {
     flex-direction: row;
   }
 
-  .most-popular-item {
-    display: flex;
-    align-items: center;
-    padding: 1rem 0.75rem;
-    flex: 1;
-    gap: 1rem;
+  .most-popular-item {    
     border-right: 1px solid var(--interface-border)
   }
 
@@ -397,20 +389,14 @@ img {
   }
 
   .most-popular-title {
-    color: var(--text-darkest);
-    font-weight: 700;
     font-size: 1.25rem;
   }
 
   .most-popular-description {
-    color: var(--text-base);
-    font-weight: 500;
     font-size: 1rem;
   }
 
   .most-popular-price {
-    color: var(--brand-primary);
-    font-weight: 800;
     font-size: 1.25rem;    
   }
 
