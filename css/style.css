@@ -226,13 +226,13 @@ img {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 6rem;
 }
 
 .most-popular-item {
   display: flex;
   align-items: center;
-  padding: 1rem 0.75rem;
+  padding: 0;
   flex: 1;
   gap: 1rem;
 }
@@ -374,14 +374,13 @@ img {
     border-bottom: 1px solid var(--interface-border);
   }
 
-  
-
   .most-popular {
     flex-direction: row;
   }
 
-  .most-popular-item {    
-    border-right: 1px solid var(--interface-border)
+  .most-popular-item {
+    border-right: 1px solid var(--interface-border);
+    padding: 1rem 0.75rem;
   }
 
   .most-popular-item:last-child  {
