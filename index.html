@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzalivery</title>
+    <title>PizzaDelivery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,189 +21,244 @@
     <link rel="stylesheet" href="./css/icon-button.css" />
   </head>
   <body>
-    <nav id="navigation">
-      <h1 class="logo">Pizzalivery</h1>
-      <ul class="menu">
-        <li class="menu-item">
-          <a class="menu-link active" href="">
+    <nav id="nav">
+      <h1 class="brand"><em>PizzaDelivery</em></h1>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link active" href="">
             <i data-lucide="home"></i>
             <span>Início</span>
           </a>
         </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
+        <li class="nav-item">
+          <a class="nav-link" href="">
             <i data-lucide="search"></i>
             <span>Busca</span>
           </a>
         </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
+        <li class="nav-item">
+          <a class="nav-link" href="">
             <i data-lucide="menu"></i>
             <span>Menu</span>
           </a>
         </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
+        <li class="nav-item">
+          <a class="nav-link" href="">
             <i data-lucide="receipt-text"></i>
             <span>Pedidos</span>
           </a>
         </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
+        <li class="nav-item">
+          <a class="nav-link" href="">
             <i data-lucide="user-round"></i>
             <span>Perfil</span>
           </a>
         </li>
       </ul>
     </nav>
-    <header class="header">
-      <div class="delivery-address">
-        <span class="delivery-text"><span>Entregando no endereço:</span>
-        Rua Mesquita, 248
-        <button id="change-address">
-          <i data-lucide="chevron-down"></i>
-        </button>
-      </div>
-      <div class="greeting-user">
-        <p>Olá, <span id="userName"></span></p>
-        <a href="">Ver meus pontos</a>
-        <span class="chip to-right"><span id="userPoints"></span> pontos</span>
+    <header class="top">
+      <div class="wrap top-wrap">
+        <div class="address">
+          <span class="address-label"><span>Entregando no endereço:</span>
+          Rua Mesquita, 248
+          <button id="change-addr">
+            <i data-lucide="chevron-down"></i>
+          </button>
+        </div>
+        <div class="welcome">
+          <p>Olá, <span id="name"></span></p>
+          <a href="">Ver meus pontos</a>
+          <span class="badge right"><span id="points"></span> pontos</span>
+        </div>
       </div>
     </header>
-    <section class="offers">
-      <div class="container">
-        <h2 class="section-title">Promoções</h2>
+    <section class="promo">
+      <div class="wrap">
+        <h2 class="title">Promoções</h2>
       </div>
-      <div class="carousel">
-        <div class="carousel-item">
+      <div class="slider">
+        <div class="slide">
           <img
             src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
             alt="Duas pizzas em cima de uma mesa"
           />
-          <h3 class="carousel-item-title">Pizza em dobro</h3>
-          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+          <h3 class="slide-title">Pizza em dobro</h3>
+          <p class="slide-desc">Compre uma pizza e ganhe outra</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
-          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
-          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+          <h3 class="slide-title">Pizza de Calabresa + Coca</h3>
+          <p class="slide-desc">Pizza + Coca-Cola as Quintas</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
-          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
-          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+          <h3 class="slide-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="slide-desc">As quartas compre uma pizza e leve a sobremesa de graça</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img
             src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
             alt="Duas pizzas em cima de uma mesa"
           />
-          <h3 class="carousel-item-title">Pizza em dobro</h3>
-          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+          <h3 class="slide-title">Pizza em dobro</h3>
+          <p class="slide-desc">Compre uma pizza e ganhe outra</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
-          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
-          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+          <h3 class="slide-title">Pizza de Calabresa + Coca</h3>
+          <p class="slide-desc">Pizza + Coca-Cola as Quintas</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
-          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
-          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+          <h3 class="slide-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="slide-desc">As quartas compre uma pizza e leve a sobremesa de graça</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img
             src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
             alt="Duas pizzas em cima de uma mesa"
           />
-          <h3 class="carousel-item-title">Pizza em dobro</h3>
-          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+          <h3 class="slide-title">Pizza em dobro</h3>
+          <p class="slide-desc">Compre uma pizza e ganhe outra</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
-          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
-          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+          <h3 class="slide-title">Pizza de Calabresa + Coca</h3>
+          <p class="slide-desc">Pizza + Coca-Cola as Quintas</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
-          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
-          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+          <h3 class="slide-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="slide-desc">As quartas compre uma pizza e leve a sobremesa de graça</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img
             src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
             alt="Duas pizzas em cima de uma mesa"
           />
-          <h3 class="carousel-item-title">Pizza em dobro</h3>
-          <p class="carousel-item-description">Compre uma pizza e ganhe outra</p>
+          <h3 class="slide-title">Pizza em dobro</h3>
+          <p class="slide-desc">Compre uma pizza e ganhe outra</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_coca_cola.png" alt="Pizza de Calabresa + Coca-Cola em cima de uma mesa" />
-          <h3 class="carousel-item-title">Pizza de Calabresa + Coca</h3>
-          <p class="carousel-item-description">Pizza + Coca-Cola as Quintas</p>
+          <h3 class="slide-title">Pizza de Calabresa + Coca</h3>
+          <p class="slide-desc">Pizza + Coca-Cola as Quintas</p>
         </div>
-        <div class="carousel-item">
+        <div class="slide">
           <img src="./images/pizza_sobremesa.png" alt="Pizza + Sobremesa em cima de uma mesa" />
-          <h3 class="carousel-item-title">Quarta: Pizza + Sobremesa</h3>
-          <p class="carousel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+          <h3 class="slide-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="slide-desc">As quartas compre uma pizza e leve a sobremesa de graça</p>
         </div>
       </div>
     </section>
-    <section class="order-again">
-      <h2 class="section-title">Peça novamente</h2>
-      <img
-        class="order-again-img"
-        src="./images/160572915436349060139189700225-1080p.jpg"
-        alt="Pizza Margherita"
-      />
+    <section class="repeat wrap">
+      <h2 class="title">Peça novamente</h2>
+      <div class="repeat-wrap">
+          <div class="repeat-card">
+          <img class="repeat-img" src="./images/160572915436349060139189700225-1080p.jpg" alt="Pizza Margherita" />
+          <div class="repeat-info">
+            <p class="repeat-name">Margherita</p>
+            <p class="repeat-price">R$ 93,00</p>
+            <a class="repeat-btn" href="">Adicionar a sacola</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <p class="order-again-title">Margherita</p>
-      <p class="order-again-price">R$ 93,00</p>
-      <a class="order-again-add" href="">Adicionar a sacola</a>
+    <section class="popular">
+      <h2 class="title">As mais desejadas</h2>
+      <div class="item-list">
+        <div class="item">
+          <img class="item-img" src="./images/160572915436349060139189700225-1080p.jpg" alt="Pizza Margherita">
+          <div class="item-data">
+            <h3 class="item-name">Margherita</h3>
+            <p class="item-desc">Muçarela especial, muçarela de búfala rasgada, fatias de tomate finalizada com folhas de manjericão orgânico e um fio de azeite aromatizado.</p>
+            <p class="item-price">R$ 93,00</p>
+          </div>
+        </div>
+        <div class="item">
+          <img class="item-img" src="./images/16057285666390640459715899877-1080p.jpg" alt="Pizza Calabresa">
+          <div class="item-data">
+            <h3 class="item-name">Calabresa</h3>
+            <p class="item-desc">Calabresa especial cozida, em fatias, anéis de cebola, orégano e azeitonas portuguesas.</p>
+            <p class="item-price">R$ 93,00</p>
+          </div>
+        </div>
+        <div class="item">
+          <img class="item-img" src="./images/160572872237340571510501432084-1080p.jpg" alt="Pizza Calacheese">
+          <div class="item-data">
+            <h3 class="item-name">Calacheese</h3>
+            <p class="item-desc">Leva muçarela de búfala rasgada, linguicinhas curada e curada apimentada sobre muçarela especial.</p>
+            <p class="item-price">R$ 93,00</p>
+          </div>
+        </div>
+      </div>
     </section>
-    <section class="address-dialog">
-      <header class="dialog-header">
-        <h2 class="dialog-title">Alterar endereço de entrega</h2>
-        <button id="close-button" class="icon-button" aria-label="Fechar">
+    <section class="modal">
+      <header class="modal-top">
+        <h2 class="modal-title">Alterar endereço de entrega</h2>
+        <button id="close-btn" class="icon-btn" aria-label="Fechar">
           <i data-lucide="x"></i>
         </button>
       </header>
       <form>
-        <div class="form-input">
+        <div class="field">
           <label class="sr-only" for="cep">Cep</label>
-          <input class="text-field" type="text" id="cep" name="cep" placeholder="Digite o CEP" value="09060-050">
+          <input class="input" type="text" id="cep" name="cep" placeholder="Digite o CEP" value="09060-050">
         </div>
-        <div class="form-input">
+        <div class="field">
           <label class="sr-only" for="street">Rua</label>
-          <input class="text-field" type="text" id="street" name="street" required disabled value="Rua Xingu">
+          <input class="input" type="text" id="street" name="street" required disabled value="Rua Xingu">
         </div>
-        <div class="form-grid">
-          <div class="form-input input-small">
+        <div class="field-group">
+          <div class="field small">
             <label class="sr-only" for="number">Número</label>
-            <input class="text-field" type="text" id="number" name="number" required disabled value="12354">
+            <input class="input" type="text" id="number" name="number" required disabled value="12354">
           </div>
-          <div class="form-input">
+          <div class="field">
             <label class="sr-only" for="additional">Complemento</label>
-            <input class="text-field" type="text" id="additional" name="additional" required disabled value="Apto 101">
+            <input class="input" type="text" id="additional" name="additional" required disabled value="Apto 101">
           </div>
         </div>
-        <div class="form-input">
+        <div class="field">
           <label class="sr-only" for="neighborhood">Bairro</label>
-          <input class="text-field" type="text" id="neighborhood" name="neighborhood" required disabled value="Vila Xingu">
+          <input class="input" type="text" id="neighborhood" name="neighborhood" required disabled value="Vila Xingu">
         </div>
-        <div class="form-grid">
-          <div class="form-input">
+        <div class="field-group">
+          <div class="field">
             <label class="sr-only" for="city">Cidade</label>
-            <input class="text-field" type="text" id="city" name="city" required disabled value="São Paulo">
+            <input class="input" type="text" id="city" name="city" required disabled value="São Paulo">
           </div>
-          <div class="form-input input-small">
+          <div class="field small">
             <label class="sr-only" for="state">Estado</label>
-            <input class="text-field" type="text" id="state" name="state" required disabled value="SP">
+            <input class="input" type="text" id="state" name="state" required disabled value="SP">
           </div>
         </div>
-        <button class="button primary full">Cadastrar</button>
+        <button class="btn primary full">Cadastrar</button>
       </form>
     </section>
+    <footer class="foot">
+      <div class="wrap foot-wrap">
+        <div class="foot-info">
+          <h2 class="brand"><em>PizzaDelivery</em></h2>
+          <p class="foot-text">
+            © Copyright 2025 - Pizzalivery - Todos os direitos reservados
+          </p>
+          <p class="foot-text">
+            CNPJ 35.609.792/0001-80 / Rua Elias Mussa Fajuri, 421 - Rio Pequeno - São Paulo - SP
+          </p>
+          <p class="foot-text">
+            CEP 05364-190
+          </p>
+        </div>
+        <div class="foot-links">
+          <a href="">Termos e condições de uso</a>
+          <a href="">Privacidade</a>
+          <a href="">Dicas de segurança</a>
+        </div>
+      </div>
+    </footer>
+
     <script src="./js/script.js"></script>
     <script src="./js/dialog.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>

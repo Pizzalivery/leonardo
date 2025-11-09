@@ -1,6 +1,6 @@
-const addressDialog = document.querySelector(".address-dialog");
-const closeButton = addressDialog.querySelector("#close-button");
-const changeAddressButton = document.getElementById("change-address");
+const addressDialog = document.querySelector(".modal");
+const closeButton = addressDialog.querySelector("#close-btn");
+const changeAddressButton = document.getElementById("change-addr");
 
 closeButton.addEventListener("click", function () {
   addressDialog.classList.toggle("open");

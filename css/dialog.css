@@ -1,4 +1,4 @@
-.address-dialog {
+.modal {
   z-index: 20;
   position: fixed;
   bottom: -100%;
@@ -17,14 +17,14 @@
   bottom: 0; 
 }
 
-.dialog-header{
+.modal-top{
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: .5rem;
 }
 
-.dialog-title{
+.modal-title{
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-darkest);
@@ -36,7 +36,7 @@
   body {
     width: 100vw;
   }
-  .address-dialog {
+  .modal {
     z-index: 20;
     position: fixed;
     right: -30vw;

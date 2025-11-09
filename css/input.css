@@ -1,14 +1,14 @@
-.form-input {
+.field {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
 }
 
-.input-small {
+.small {
   width: 30vw;
 }
 
-.text-field {
+.input {
   width: 100%;
   padding: 1rem 1.5rem;
   border: 1px solid var(--interface-base);
@@ -35,18 +35,18 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0); /* Deprecated, but often included for older browser support */
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }
 
-.form-grid {
+.field-group {
   display: flex;
   gap: 1rem;
 }
 
 @media (min-width: 1280px) {
-  .input-small {
+  .small {
     width: 8rem;
   }
 }
