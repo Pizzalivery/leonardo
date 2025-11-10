@@ -45,6 +45,20 @@
     transition: right 0.5s ease-in-out;
     border-radius: 0;
     box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0.5rem;
+  }
+
+  .text-field {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .form-grid {
+    flex-direction: column;
+  }
+
+  .input-small {
+    width: 100%;
   }
 
   .open {
