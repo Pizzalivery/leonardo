@@ -21,39 +21,41 @@
   </head>
   <body>
     <nav id="navigation">
-      <h1 class="logo">Pizzalivery</h1>
-      <ul class="menu">
-        <li class="menu-item">
-          <a class="menu-link active" href="">
-            <i data-lucide="home"></i>
-            <span>Início</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="search"></i>
-            <span>Busca</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="menu"></i>
-            <span>Menu</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="receipt-text"></i>
-            <span>Pedidos</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="">
-            <i data-lucide="user-round"></i>
-            <span>Perfil</span>
-          </a>
-        </li>
-      </ul>
+      <div class="navigation-wrapper">
+        <h1 class="logo">Pizzalivery</h1>
+        <ul class="menu">
+          <li class="menu-item">
+            <a class="menu-link active" href="">
+              <i data-lucide="home"></i>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="">
+              <i data-lucide="search"></i>
+              <span>Busca</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="">
+              <i data-lucide="menu"></i>
+              <span>Menu</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="">
+              <i data-lucide="receipt-text"></i>
+              <span>Pedidos</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="">
+              <i data-lucide="user-round"></i>
+              <span>Perfil</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <header class="header">
       <div class="delivery-address">
@@ -61,6 +63,7 @@
         Rua Mesquita, 248
         <button id="change-address">
           <i data-lucide="chevron-down"></i>
+          <span>Alterar</span>
         </button>
       </div>
       <div class="greeting-user">
@@ -182,6 +185,24 @@
         </section>
       </div>
     </article>
+    <footer class="footer">
+      <div class="container">
+        <h4 class="footer-title">Pizzalivery</h4>
+        <div class="footer-wrapper">
+          <section class="footer-info-section">
+            <p class="footer-info">© Copyright 2025 - Pizzalivery - Todos os direitos reservados</p>
+            <p class="footer-info">CNPJ 35.609.792/0001-80 / Rua Elias Mussa Fajuri, 421 - Rio Pequeno - São Paulo - SP<br />CEP 05364-190</p>
+          </section>
+          <nav class="footer-nav-section">
+            <ul class="footer-link">
+              <li class="footer-link-item"><a href="">Termos e condições de uso</a></li>
+              <li class="footer-link-item"><a href="">Privacidade</a></li>
+              <li class="footer-link-item"><a href="">Dicas de segurança</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
     <section class="address-dialog">
       <header class="dialog-header">
         <h2 class="dialog-title">Alterar endereço de entrega</h2>
