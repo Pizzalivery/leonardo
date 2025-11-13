@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 html {
@@ -22,16 +21,18 @@ img {
 }
 
 .logo {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  color: #4e4e4e;
   display: none;
 }
 
 #navigation {
-  position: fixed;
+  display: flex;
+  justify-content: space-between;
   bottom: 0;
   left: 0;
-  width: 100vw;
-  background-color: white;
-  border-top: 1px solid #ddd;
   z-index: 10;
 }
 
@@ -40,6 +41,7 @@ img {
   justify-content: space-around;
   padding: 0.5rem 0;
   margin: 0;
+  gap: 2rem;
 }
 
 .menu-item {
@@ -52,6 +54,7 @@ img {
   align-items: center;
   color: #555;
   text-decoration: none;
+  gap: .75rem;
   font-size: 0.75rem;
 }
 
@@ -62,7 +65,7 @@ img {
 .header{
   margin-bottom: 2.5rem;
   color: #EC5413;
-  font-weight: bold;
+  
 }
 
 
@@ -72,9 +75,11 @@ img {
   justify-content: center;
 }
 
-.delivery-address i {
-  
+.delivery-address a{
+  font-weight: bold;
+  color: #EC5413;
 }
+
 
 .delivery-address button {
   background: none;
@@ -83,63 +88,53 @@ img {
 }
 
 .delivery-text {
+  border-radius: none;
+  color: #000000;
   display: none;
 }
 
+#change-address{
+  border: 0;
+  font-weight: 700;
+  background: none;
+  color: #EC5413;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
 .greeting-user {
-  margin-top: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: lighter;
-  color: black;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  margin-top:2rem;
+  font-size: 1.25rem;
+  color: rgb(0, 0, 0);
 }
 
 .greeting-user a{
-  font-size: 1.0rem;
-  font-weight: bold;
-  color: #EC5413;
+  font-size: .75rem;
+  color:#EC5413; 
+}
+
+.line{
+  border-top: 1px solid #ddd;
 }
 
 .point {
   float: right;
-  background: #FFE7DB;
-  color: #EC5413;
   font-weight: bold;
   font-size: 1.0rem;
   border-radius: 15px;
   padding: 0.25rem 0.75rem;
 }
 
-.promocoes{
-  margin-bottom: 2.5rem;
+.column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.promo-container {
-  display: flex;
-  gap: 10px;
-}
-
-.promo-item {
-  flex: 0 0 70%;
-  border-radius: 12px;
-}
-
-.promo-item img {
-  width: 350px;
-  height: 188px; 
-  border-radius: 12px;
-  display: inline-block;
-}
-
-.promo-title {
-  font-weight: bold;
-  margin-top: 0.5rem;
-  color: #000;
-}
-
-.promo-desc {
-  color: grey;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+.section-title{
+  padding: 1.5rem;
 }
 
 .order-again {
@@ -167,11 +162,71 @@ img {
   color: #EC5413;
 }
 
+.order-title {
+  margin-bottom: 1rem;
+}
+.order-text {
+  margin-bottom: .75rem;
+  border: none;
+  color: #555;
+}
+.order-price {
+  text-decoration: none;
+  color: #EC5413;
+}
+
+.column {
+  grid-template-columns: 1fr;
+  justify-items: center; 
+  gap: 1rem;
+}
+
+.pizza-card {
+  width: 90%;
+}
+
+
+footer {
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: #1d1d1d;
+  color: #7d7d7d;
+}
+
+.footer-content {
+  margin: auto;
+}
+
+.footer-content .logo {
+  color: #7d7d7d;
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+.footer-links a {
+  color: #7d7d7d;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+
 @media (min-width: 1280px) {
 
   .logo {
     display: block;
   }
+  
 
   .menu-link {
     flex-direction: row;
@@ -184,11 +239,32 @@ img {
     align-items: center;
   }
 
-  .delivery-address {
-    text-align: right;
-  }
-
   .delivery-text {
     display: inline;
+  }
+
+  .delivery-address button {
+    display: none;
+  }
+
+  .point{
+    display: none;
+  }
+
+  .column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem;
+  }
+
+  .pizza-card {
+    width: 100%; 
+  }
+
+}
+
+@media screen and (max-width: 1280px) {
+  footer {
+    display: none;
   }
 }

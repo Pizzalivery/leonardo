@@ -4,8 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizzalivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/dialog.css" />
+    <link rel="stylesheet" href="./css/carrossel.css" />
+    <link rel="stylesheet" href="./css/chip.css" />
+    <link rel="stylesheet" href="./css/input.css" />
+    <link rel="stylesheet" href="./css/button.css" />
   </head>
   <body>
     <nav id="navigation">
@@ -29,7 +38,7 @@
             <span>Menu</span>
           </a>
         </li>
-        <li class="menu-item"></li>
+        <li class="menu-item">
           <a class="menu-link" href="">
             <i data-lucide="receipt-text"></i>
             <span>Pedidos</span>
@@ -50,40 +59,114 @@
         <button id="change-address">
           <i data-lucide="chevron-down"></i>
         </button>
+        <a class="delivery-text" href="">Alterar</a>
       </div>
       <div class="greeting-user">
-        <p>Olá, Daniela</p>
+        <p>Olá, <span id="userName"></span></p>
         <a href="">Ver meus pontos</a>
         <div class="point">
-           <p >112 pontos</p>
+           <p class="chip to-right"><span id="userPoints"></span> pontos</p>
         </div>
       </div>
     </header>
 
-    <section class="promocoes">
-      <h1>Promoções</h1>
-      <div class="promo-container">
-        <div class="promo-item">
+    <section class="offers">
+      <div class="container">
+      <h2 class="section-title">Promoções</h2>
+      </div>
+      <div class="carrossel">
+        <div class="carrossel-item">
           <img
             src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
-            alt="Pizza em dobro"
+            alt="Duas pizzas em cima de uma mesa"
           />
-          <p class="promo-title">Pizza em dobro</p>
-          <p class="promo-desc">Compre uma pizza e ganhe outra</p>
+          <h3 class="carrossel-item-title">Pizza em dobro</h3>
+          <p class="carrossel-item-description">Compre uma pizza e ganhe outra</p>
         </div>
-
-        <div class="promo-item">
+        <div class="carrossel-item">
           <img
             src="./images/pizza_coca_cola.png"
-            alt="Pizza + Coca-Cola"
+            alt="Pizza de Calabresa + Coca-cola em cima de uma mesa"
           />
-          <p class="promo-title">Pizza + Coca-Cola</p>
-          <p class="promo-desc">A combinação perfeita</p>
+          <h3 class="promo-title">Pizza de Calabresa + Coca</h3>
+          <p class="promo-desc">Pizza + Cola-Cola as Quintas</p>
         </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/pizza_sobremesa.png"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carrossel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carrossel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/pizza_coca_cola.png"
+            alt="Pizza de Calabresa + Coca-cola em cima de uma mesa"
+          />
+          <h3 class="promo-title">Pizza de Calabresa + Coca</h3>
+          <p class="promo-desc">Pizza + Cola-Cola as Quintas</p>
+        </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/pizza_sobremesa.png"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carrossel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carrossel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carrossel-item-title">Pizza em dobro</h3>
+          <p class="carrossel-item-description">Compre uma pizza e ganhe outra</p>
+        </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/pizza_coca_cola.png"
+            alt="Pizza de Calabresa + Coca-cola em cima de uma mesa"
+          />
+          <h3 class="promo-title">Pizza de Calabresa + Coca</h3>
+          <p class="promo-desc">Pizza + Cola-Cola as Quintas</p>
+        </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/pizza_sobremesa.png"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carrossel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carrossel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>
+         <div class="carrossel-item">
+          <img
+            src="./images/depositphotos_15951851-stock-photo-fresh-pizza.webp"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carrossel-item-title">Pizza em dobro</h3>
+          <p class="carrossel-item-description">Compre uma pizza e ganhe outra</p>
+        </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/pizza_coca_cola.png"
+            alt="Pizza de Calabresa + Coca-cola em cima de uma mesa"
+          />
+          <h3 class="promo-title">Pizza de Calabresa + Coca</h3>
+          <p class="promo-desc">Pizza + Cola-Cola as Quintas</p>
+        </div>
+        <div class="carrossel-item">
+          <img
+            src="./images/pizza_sobremesa.png"
+            alt="Duas pizzas em cima de uma mesa"
+          />
+          <h3 class="carrossel-item-title">Quarta: Pizza + Sobremesa</h3>
+          <p class="carrossel-item-description">As quartas compre uma pizza e leve a sobremesa de graça</p>
+        </div>     
       </div>
     </section>
     <section class="order-again">
-      <h1>Peça novamente</h1>
+      <h2 class="section-title">Peça novamente</h2>
       <img
         class="order-again-img"
         src="./images/160572915436349060139189700225-1080p.jpg"
@@ -93,7 +176,43 @@
       <p class="order-again-price">R$ 93,00</p>
       <a class="order-again-add" href="">Adicionar a sacola</a>
     </section>
-    <section class="address-modal">
+    <div class="line"></div>
+    <section class="order-again">
+      <h2 class="section-title">As mais desejadas</h2>
+      <div>
+        <div class="column card-line">
+          <div class="pizza-card">
+            <img
+              class="order-again-img"
+              src="./images/160572915436349060139189700225-1080p.jpg"
+              alt="Pizza Margherita"
+            />
+            <p class="order-title">Margherita</p>
+            <p class="order-text">Muçarela especial, muçarela de búfala rasgada, fatias de tomate  finalizada com folhas de manjericão orgânico e um fio de azeite  aromatizado.</p>
+            </div>
+            <div class="pizza-card">
+            <img
+              class="order-again-img"
+              src="./images/160572915436349060139189700225-1080p.jpg"
+              alt="Pizza Margherita"
+            />
+            <p class="order-title">Calabresa</p>
+            <p class="order-text">Calabresa especial cozida, em fatias, anéis de cebola, orégano e azeitonas portuguesas.</p>
+            <p class="order-price" href="">R$ 93,00</p>
+            </div>
+            <div class="pizza-card">
+            <img
+              class="order-again-img"
+              src="./images/160572915436349060139189700225-1080p.jpg"
+              alt="Pizza Margherita"
+            />
+            <p class="order-title">Calacheese</p>
+            <p class="order-text">Leva muçarela de búfala rasgada,  linguicinhas curada e curada apimentada sobre muçarela especial.</p>
+            <p class="order-price" href="">R$ 99,00</p>
+            </div>
+            </div>
+    </section>
+    <section  class="address-modal">
       <button id="close-button" autofocus>Close</button>
       <p>Greetings, one and all!</p>
       <form method="dialog">
@@ -106,5 +225,17 @@
     <script>
       lucide.createIcons();
     </script>
+      <footer>
+    <div class="footer-content">
+      <h3 class="logo">Pizzalivery</h3>
+      <p>© Copyright 2025 – Pizzalivery – Todos os direitos reservados</p>
+      <p>CNPJ 35.609.792/0001-80 / Rua Elias Mussa Fajuri, 421 – Rio Pequeno – São Paulo – SP<br>CEP 05364-190</p>
+      <ul class="footer-links">
+        <li><a href="#">Termos e condições de uso</a></li>
+        <li><a href="#">Privacidade</a></li>
+        <li><a href="#">Dicas de segurança</a></li>
+      </ul>
+    </div>
+  </footer>
   </body>
 </html>

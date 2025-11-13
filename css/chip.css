@@ -1,0 +1,14 @@
+.chip {
+    width: max-content;
+    padding: .5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color:#FFE7DB;
+    color: #EC5413;
+    border-radius: 2rem;
+
+    &.small {
+        padding: .375rem 0.625;
+        font-size: 0.625rem;
+    }
+}

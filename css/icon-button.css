@@ -1,0 +1,13 @@
+.icon-button {
+    border: 0;
+    background-color: transparent;
+    padding: 0.5rem;
+    color: white;
+    cursor: pointer;
+    transform: scale(0.8);
+    transition: background-color 0.2s ease-in;
+
+    &:hover{
+        background-color: color-mix(in srgb, color black, color white 10%);
+    }
+}
