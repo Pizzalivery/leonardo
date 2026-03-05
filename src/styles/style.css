@@ -30,3 +30,11 @@ img {
   width: 90%;
 }
 
+a {
+  text-decoration: none;
+  color: var(--text-base); 
+ &.active {
+    color: var(--brand-primary);
+  }
+}
+

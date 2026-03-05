@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "../../components/Button/Button";
-
+import { NavLink, Link } from "react-router";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
 
 const getData = async () => {
@@ -46,6 +45,19 @@ function Home() {
           />
         ))}
       </Carousel>
+      <Link to="/">Home</Link>
+      <NavLink
+        to="/login"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        Login
+      </NavLink>
+      <NavLink
+        to="/orders"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        Pedidos
+      </NavLink>
     </>
   );
 }
