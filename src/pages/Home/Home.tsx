@@ -3,6 +3,10 @@ import "../../styles/style.css";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
 import { Menu } from "../../components/Menu/Menu";
 import { MenuItem } from "../../components/Menu/Menu";
+import { User, UserAdress } from "../../components/User/User";
+import { Repurchase } from "../../components/Repurchase/Repurchase";
+
+import repurchaseImage from "../../assets/160572915436349060139189700225-1080p.jpg";
 
 const getData = async () => {
   try {
@@ -50,7 +54,10 @@ function Home() {
         </div>
       </nav>
 
-      <header></header>
+      <header className="header">
+        <UserAdress userAdress={"Rua Mesquita, 248"} />
+        <User userName={"Daniela"} />
+      </header>
 
       <section className="offers">
         <div className="container">
@@ -68,7 +75,17 @@ function Home() {
         </Carousel>
       </section>
 
-      <section></section>
+      <section className="order-again">
+        <h2 className="section-title">Peça novamente</h2>
+        <Repurchase
+          title="Margherita"
+          price="93,00"
+          image={{
+            src: repurchaseImage,
+            alt: "Imagem de uma pizza de Margherita que está como sugestão para compra novamente",
+          }}
+        />
+      </section>
 
       <article></article>
 

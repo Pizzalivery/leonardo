@@ -1,0 +1,37 @@
+.order-again {
+  width: 90%;
+  margin: 0 auto 2.5rem auto;
+}
+
+.order-again-img {
+  float: left;
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+  margin-right: 0.75rem;
+}
+
+.order-again-title {
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-base);
+}
+
+.order-again-price {
+  margin-bottom: 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: var(--text-darkest);
+}
+
+.order-again-add {
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+@media (min-width: 1280px) {
+}
