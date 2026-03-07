@@ -1,10 +1,10 @@
 import "./MostWanted.css"
-// criar o children
+// criar o children, é os filhos dessa section q tem que ser preenchidos com as props na página home
 interface MostWantedProps {
   children: React.ReactNode;
 }
 
-//especificar os valores que o children vai receber de cada atributo
+//aqui a gente especifica qual as props, quais atributos o children vai receber
 
 export interface MostWantedItemProps {
    image: {
@@ -16,7 +16,7 @@ export interface MostWantedItemProps {
   price: number;
 }
 
-//esse aqui chama o children pra ser usado no mostwanted
+//esse aqui chama o children pra ser usado no mostwanted, faz a função e usa o children
 export const MostWanted = ({ children }: MostWantedProps) => {
   return (
     <div className= "most-wanted">
