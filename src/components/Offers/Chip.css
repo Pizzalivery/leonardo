@@ -1,0 +1,14 @@
+.chip {
+  width: min-content;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: rgba(236, 84, 19, 0.1);
+  color: rgb(236, 84, 19);
+  border-radius: 32px;
+  
+  &.small {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+}

@@ -1,5 +1,7 @@
 import { X } from "lucide-react"
 import "./Dialog.css"
+import "./Input.css"
+import "./IconButton.css"
 
 interface DialogProps {
   title: string
