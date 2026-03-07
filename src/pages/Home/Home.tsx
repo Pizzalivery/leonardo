@@ -7,6 +7,7 @@ import {
 } from "../../components/Navigation/Navigation";
 import { HomeIcon, Menu, ReceiptText, Search, UserRound } from "lucide-react";
 import { Header } from "../../components/Header/Header";
+import { OffersSection } from "../../components/OffersSection/OffersSection";
 
 const getData = async () => {
   try {
@@ -55,16 +56,21 @@ function Home() {
 
       <Header userName="Daniela" enderecoEntrega=" Rua Mesquita, 248 " />
 
-      <Carousel>
-        {offers.map((offer) => (
-          <CarouselItem
-            key={offer.id}
-            title={offer.title}
-            description={offer.description}
-            image={offer.image}
-          />
-        ))}
-      </Carousel>
+      <OffersSection
+        title={"Promoções"}
+        items={
+          <Carousel>
+            {offers.map((offer) => (
+              <CarouselItem
+                key={offer.id}
+                title={offer.title}
+                description={offer.description}
+                image={offer.image}
+              />
+            ))}
+          </Carousel>
+        }
+      />
     </>
   );
 }
