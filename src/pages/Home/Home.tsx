@@ -4,6 +4,8 @@ import { Header } from "../../components/Header/Header";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
+import { OrderAgain } from "../../components/OrderAgain/OrderAgain"; 
+
 
 const getData = async () => {
   try {
@@ -54,6 +56,7 @@ function Home() {
         ))}
       </Carousel>
       <SectionTitle>Peça Novamente</SectionTitle>
+      <OrderAgain />
       <SectionTitle>As mais desejadas</SectionTitle>
     </>
   );
