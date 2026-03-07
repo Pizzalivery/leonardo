@@ -8,6 +8,9 @@ import {
 import { HomeIcon, Menu, ReceiptText, Search, UserRound } from "lucide-react";
 import { Header } from "../../components/Header/Header";
 import { OffersSection } from "../../components/OffersSection/OffersSection";
+import { OrderAgain } from "../../components/OrderAgain/OrderAgain";
+
+import fotoMargherita from "../../assets/160572915436349060139189700225-1080p.jpg";
 
 const getData = async () => {
   try {
@@ -71,6 +74,8 @@ function Home() {
           </Carousel>
         }
       />
+
+      <OrderAgain item="Margherita" price="R$ 93,00" img={fotoMargherita} />
     </>
   );
 }
