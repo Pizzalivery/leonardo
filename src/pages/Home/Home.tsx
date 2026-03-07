@@ -6,6 +6,7 @@ import { Navigation } from "../../components/Navigation/Navigation";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { OrderAgain } from "../../components/OrderAgain/OrderAgain"; 
 import { MostWanted, MostWantedItem } from "../../components/MostWanted/MostWanted";
+import { Footer } from "../../components/Footer/Footer";
 
 const getData = async () => {
   try {
@@ -85,8 +86,8 @@ function Home() {
           description="Leva muçarela de búfala rasgada, linguicinhas curada e curada apimentada sobre muçarela especial."
           price={ 99.00}
         />
-        
       </MostWanted>
+      <Footer/>
     </>
   );
 }
