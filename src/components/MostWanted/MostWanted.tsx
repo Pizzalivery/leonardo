@@ -1,5 +1,4 @@
 import "./MostWanted.css"
-import { SectionTitle } from "../SectionTitle/SectionTitle";
 // criar o children
 interface MostWantedProps {
   children: React.ReactNode;

@@ -7,6 +7,7 @@ import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { OrderAgain } from "../../components/OrderAgain/OrderAgain"; 
 import { MostWanted, MostWantedItem } from "../../components/MostWanted/MostWanted";
 import { Footer } from "../../components/Footer/Footer";
+import "../../styles/style.css"
 
 const getData = async () => {
   try {
@@ -43,6 +44,7 @@ function Home() {
 
   return (
     <>
+    
     <Navigation />
     <Header />
     <SectionTitle>Promoções</SectionTitle>
@@ -56,7 +58,7 @@ function Home() {
           />
         ))}
       </Carousel>
-      <SectionTitle>Peça Novamente</SectionTitle>
+      <SectionTitle>Peça novamente</SectionTitle>
       <OrderAgain />
       <MostWanted>
         <MostWantedItem
@@ -86,8 +88,9 @@ function Home() {
           description="Leva muçarela de búfala rasgada, linguicinhas curada e curada apimentada sobre muçarela especial."
           price={ 99.00}
         />
-      </MostWanted>
+      </MostWanted> 
       <Footer/>
+      
     </>
   );
 }
