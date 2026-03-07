@@ -1,6 +1,4 @@
-import { Icon } from "lucide-react";
 import "./Menu.css";
-import { DynamicIcon } from "lucide-react/dynamic";
 import type { ReactElement } from "react";
 
 interface MenuProps {

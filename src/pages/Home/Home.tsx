@@ -15,15 +15,7 @@ import margherita from "../../assets/160572915436349060139189700225-1080p.jpg";
 import calabresa from "../../assets/16057285666390640459715899877-1080p.jpg";
 import calacheese from "../../assets/160572872237340571510501432084-1080p.jpg";
 import { Footer } from "../../components/Footer/Footer";
-import {
-  HomeIcon,
-  MenuIcon,
-  Receipt,
-  ReceiptText,
-  Search,
-  SearchAlert,
-  User2,
-} from "lucide-react";
+import { HomeIcon, MenuIcon, ReceiptText, Search, User2 } from "lucide-react";
 
 const getData = async () => {
   try {
