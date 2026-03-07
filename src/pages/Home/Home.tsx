@@ -11,6 +11,9 @@ import { OffersSection } from "../../components/OffersSection/OffersSection";
 import { OrderAgain } from "../../components/OrderAgain/OrderAgain";
 
 import fotoMargherita from "../../assets/160572915436349060139189700225-1080p.jpg";
+import fotoCalabresa from "../../assets/16057285666390640459715899877-1080p.jpg";
+import fotoCalacheese from "../../assets/160572872237340571510501432084-1080p.jpg";
+import { TopSales, TopSalesItem } from "../../components/TopSales/TopSales";
 
 const getData = async () => {
   try {
@@ -76,6 +79,27 @@ function Home() {
       />
 
       <OrderAgain item="Margherita" price="R$ 93,00" img={fotoMargherita} />
+
+      <TopSales>
+        <TopSalesItem
+          name="Margherita"
+          description="Muçarela especial, muçarela de búfala rasgada, fatias de tomate finalizada com folhas de manjericão orgânico e um fio de azeite  aromatizado."
+          img={fotoMargherita}
+          price="R$ 93,00"
+        />
+        <TopSalesItem
+          name="Calabresa"
+          description="Calabresa especial cozida, em fatias, anéis de cebola, orégano e azeitonas portuguesas."
+          img={fotoCalabresa}
+          price="R$ 93,00"
+        />
+        <TopSalesItem
+          name="Calacheese"
+          description="Leva muçarela de búfala rasgada, linguicinhas curada e curada apimentada sobre muçarela especial."
+          img={fotoCalacheese}
+          price="R$ 99,00"
+        />
+      </TopSales>
     </>
   );
 }
