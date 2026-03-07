@@ -1,0 +1,26 @@
+.offers {
+  margin-top: 1.5rem;
+}
+
+.offers .container {
+  width: 90%;
+  margin: 0 auto 1rem;
+}
+
+.offers .section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-base);
+}
+
+@media (min-width: 1280px) {
+  .offers {
+    margin: 2rem 0 3rem;
+  }
+
+  .offers .offers-title {
+    font-size: 1.5rem;
+    
+  }
+}
+

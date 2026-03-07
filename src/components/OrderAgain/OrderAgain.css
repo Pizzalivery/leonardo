@@ -1,0 +1,51 @@
+.order-again {
+  width: 90%;
+  margin: 0 auto 2.5rem auto;
+}
+
+.order-again .section-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+}
+
+.order-again-card {
+  display: flex;
+  align-items: flex-start;
+}
+
+.order-again-img {
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+  margin-right: 0.75rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.order-again-info {
+  height: 138px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-again-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-base);
+}
+
+.order-again-price {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: var(--text-darkest);
+}
+
+.order-again-add {
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
