@@ -15,6 +15,15 @@ import margherita from "../../assets/160572915436349060139189700225-1080p.jpg";
 import calabresa from "../../assets/16057285666390640459715899877-1080p.jpg";
 import calacheese from "../../assets/160572872237340571510501432084-1080p.jpg";
 import { Footer } from "../../components/Footer/Footer";
+import {
+  HomeIcon,
+  MenuIcon,
+  Receipt,
+  ReceiptText,
+  Search,
+  SearchAlert,
+  User2,
+} from "lucide-react";
 
 const getData = async () => {
   try {
@@ -53,11 +62,11 @@ function Home() {
         <div className="navigation-wrapper">
           <h2 className="logo">Pizzalivery</h2>
           <Menu>
-            <MenuItem page={"Inicio"} iconName={"home"} variant="active" />
-            <MenuItem page={"Busca"} iconName={"search"} />
-            <MenuItem page={"Menu"} iconName={"menu"} />
-            <MenuItem page={"Pedidos"} iconName={"receipt-text"} />
-            <MenuItem page={"Perfil"} iconName={"user-round"} />
+            <MenuItem page={"Inicio"} icon={<HomeIcon />} variant="active" />
+            <MenuItem page={"Busca"} icon={<Search />} />
+            <MenuItem page={"Menu"} icon={<MenuIcon />} />
+            <MenuItem page={"Pedidos"} icon={<ReceiptText />} />
+            <MenuItem page={"Perfil"} icon={<User2 />} />
           </Menu>
         </div>
       </nav>

@@ -1,5 +1,7 @@
+import { Icon } from "lucide-react";
 import "./Menu.css";
 import { DynamicIcon } from "lucide-react/dynamic";
+import type { ReactElement } from "react";
 
 interface MenuProps {
   children: React.ReactNode;
@@ -8,7 +10,7 @@ interface MenuProps {
 interface MenuItemProps {
   page: String;
   variant?: "default" | "active";
-  iconName: any;
+  icon: ReactElement;
 }
 
 export const Menu = ({ children }: MenuProps) => {
@@ -19,12 +21,12 @@ export const Menu = ({ children }: MenuProps) => {
   );
 };
 
-export const MenuItem = ({ page, variant, iconName }: MenuItemProps) => {
+export const MenuItem = ({ page, variant, icon }: MenuItemProps) => {
   return (
     <>
       <li className="menu-item">
         <a className={`menu-link ${variant}`} href="">
-          <DynamicIcon name={iconName} />
+          {icon}
           <span>{page}</span>
         </a>
       </li>
