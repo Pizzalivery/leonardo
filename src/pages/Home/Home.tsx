@@ -6,6 +6,7 @@ import {
   NavigationMenuItem,
 } from "../../components/Navigation/Navigation";
 import { HomeIcon, Menu, ReceiptText, Search, UserRound } from "lucide-react";
+import { Header } from "../../components/Header/Header";
 
 const getData = async () => {
   try {
@@ -51,6 +52,8 @@ function Home() {
         <NavigationMenuItem name="Pedidos" icon={<ReceiptText />} />
         <NavigationMenuItem name="Perfil" icon={<UserRound />} />
       </Navigation>
+
+      <Header userName="Daniela" enderecoEntrega=" Rua Mesquita, 248 " />
 
       <Carousel>
         {offers.map((offer) => (
