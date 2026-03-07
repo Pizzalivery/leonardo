@@ -47,3 +47,10 @@
     color: var(--brand-primary);
   }
 }
+
+@media (min-width: 1280px) {
+  .header {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

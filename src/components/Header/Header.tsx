@@ -8,12 +8,11 @@ export const Header = () => {
         <span className="delivery-text">
           <span>Entregando no endereço:</span>
           Rua Mesquita, 248
-        </span>
-
-        <button id="change-address">
+          <button id="change-address">
           <i data-lucide="chevron-down"></i>
           <span>Alterar</span>
         </button>
+        </span>
       </div>
 
       <div className="greeting-user">
