@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../../components/Button/Button";
 import { Header } from "../../components/Header/Header";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
+import { Navigation } from "../../components/Navigation/Navigation";
 
 
 const getData = async () => {
