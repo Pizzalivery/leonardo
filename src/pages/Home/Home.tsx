@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import { Button } from "../../components/Button/Button";
 
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
+import {
+  Navigation,
+  NavigationMenuItem,
+} from "../../components/Navigation/Navigation";
+import { HomeIcon, Menu, ReceiptText, Search, UserRound } from "lucide-react";
 
 const getData = async () => {
   try {
@@ -36,6 +40,18 @@ function Home() {
 
   return (
     <>
+      <Navigation>
+        <NavigationMenuItem
+          variant="active"
+          name="Início"
+          icon={<HomeIcon />}
+        />
+        <NavigationMenuItem name="Busca" icon={<Search />} />
+        <NavigationMenuItem name="Menu" icon={<Menu />} />
+        <NavigationMenuItem name="Pedidos" icon={<ReceiptText />} />
+        <NavigationMenuItem name="Perfil" icon={<UserRound />} />
+      </Navigation>
+
       <Carousel>
         {offers.map((offer) => (
           <CarouselItem
