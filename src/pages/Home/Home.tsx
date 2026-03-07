@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import { Button } from "../../components/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Header } from "../../components/Header/Header";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
 import { Navigation } from "../../components/Navigation/Navigation";
@@ -7,7 +7,9 @@ import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { OrderAgain } from "../../components/OrderAgain/OrderAgain"; 
 import { MostWanted, MostWantedItem } from "../../components/MostWanted/MostWanted";
 import { Footer } from "../../components/Footer/Footer";
-import "../../styles/style.css"
+import { Dialog } from "../../components/Dialog/Dialog";
+import "../../styles/style.css";
+
 
 const getData = async () => {
   try {
@@ -33,6 +35,7 @@ type Offer = {
 
 function Home() {
   const [offers, setOffers] = useState<Array<Offer>>([]);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     getData().then((data) => {
@@ -44,9 +47,11 @@ function Home() {
 
   return (
     <>
-    
     <Navigation />
-    <Header />
+
+     <Header onChangeAdress={() => setDialogOpen(true)} />
+      <Dialog isOpen={dialogOpen} onClose={() => setDialogOpen(false)} />
+
     <SectionTitle>Promoções</SectionTitle>
       <Carousel>
         {offers.map((offer) => (

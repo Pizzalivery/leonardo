@@ -1,6 +1,5 @@
 import "./styles/variables.css";
 import "./styles/style.css";
-
 import Home from "./pages/Home/Home";
 
 function App() {
