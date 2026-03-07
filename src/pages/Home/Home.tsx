@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Button } from "../../components/Button/Button";
-
+import { Header } from "../../components/Header/Header";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
+
 
 const getData = async () => {
   try {
@@ -32,10 +33,14 @@ function Home() {
     getData().then((data) => {
       setOffers(data);
     });
+    // @ts-ignore
+    lucide.createIcons();
   }, []);
 
   return (
     <>
+    <Navigation />
+    <Header />
       <Carousel>
         {offers.map((offer) => (
           <CarouselItem
