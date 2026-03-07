@@ -9,10 +9,6 @@
   background-color: var(--interface-light);
 }
 
-.logo {
-  display: none;
-}
-
 .menu {
   display: flex;
   justify-content: space-between;
