@@ -22,11 +22,12 @@ export const CarouselItem = ({
   description,
   image,
 }: CarouselItemProps) => {
-  return (
-    <div className="carousel-item">
-      <img src={image.src} alt={image.alt} />
-      <h3 className="carousel-item-title">{title}</h3>
-      <p className="carousel-item-description">{description}</p>
-    </div>
+  return ( 
+      <div className="carousel-item">
+        <img src={image.src} alt={image.alt} />
+        <h3 className="carousel-item-title">{title}</h3>
+        <p className="carousel-item-description">{description}</p>
+      </div>   
+    
   );
 };

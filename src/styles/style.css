@@ -30,3 +30,15 @@ img {
   width: 90%;
 }
 
+.logo {
+  display: none;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
+}
+
+
