@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Button } from "../../components/Button/Button";
+// import { Button } from "../../components/Button/Button";
 import { Header } from "../../components/Header/Header";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
 import { Navigation } from "../../components/Navigation/Navigation";
-
+import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 
 const getData = async () => {
   try {
@@ -42,6 +42,7 @@ function Home() {
     <>
     <Navigation />
     <Header />
+    <SectionTitle>Promoções</SectionTitle>
       <Carousel>
         {offers.map((offer) => (
           <CarouselItem
@@ -52,6 +53,8 @@ function Home() {
           />
         ))}
       </Carousel>
+      <SectionTitle>Peça Novamente</SectionTitle>
+      <SectionTitle>As mais desejadas</SectionTitle>
     </>
   );
 }

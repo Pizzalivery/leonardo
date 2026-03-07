@@ -1,0 +1,14 @@
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
+}
+.offers {
+  margin: 0 0 2.5rem 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
