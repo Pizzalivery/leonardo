@@ -8,6 +8,7 @@
 
 html {
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -17,6 +18,11 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--interface-light);
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
 }
 
 img {
@@ -29,4 +35,3 @@ img {
   margin: 0 auto;
   width: 90%;
 }
-
