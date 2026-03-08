@@ -1,12 +1,16 @@
 import { ChevronDown } from "lucide-react";
 
-function Header() {
+type HeaderProps = {
+  onOpenAddress: () => void;
+};
+
+function Header({ onOpenAddress }: HeaderProps) {
   return (
     <header className="header">
       <div className="delivery-address">
         <span className="delivery-text">
           <span>Entregando no endereço:</span> Rua Mesquita, 248
-          <button id="change-address" type="button">
+          <button id="change-address" type="button" onClick={onOpenAddress}>
             <ChevronDown size={18} />
             <span>Alterar</span>
           </button>
