@@ -1,8 +1,10 @@
+/* No mobile o dialog sobe do rodapé; no desktop ele entra pela lateral direita
+   para reproduzir o comportamento off-canvas da interface original. */
 .address-dialog {
   z-index: 20;
   position: fixed;
-  /* bottom: -100%; */
-  bottom: 0;
+  left: 0;
+  bottom: -100%;
   width: 100%;
   height: calc(100vh - 16px);
   padding: 1rem;
@@ -11,24 +13,21 @@
   border-top-right-radius: 12px;
   background-color: var(--interface-light);
   box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(100%);
-  /* transition: bottom 0.3s ease-out; */
-  transition: transform 0.3s ease-out;
+  transition: bottom 0.3s ease-out;
 }
 
 .open {
-  /* bottom: 0; */
-  transform: translateY(0);
+  bottom: 0;
 }
 
-.dialog-header{
+.dialog-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-.dialog-title{
+.dialog-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-darkest);
@@ -43,24 +42,23 @@
   cursor: pointer;
   transform: scale(0.8);
   transition: background-color 0.2s ease-in;
-
-
-  &:hover {
-    background-color: color-mix(in srgb, var(--interface-border), white 10%);
-  }
 }
 
-
+.icon-button:hover {
+  background-color: color-mix(in srgb, var(--interface-border), white 10%);
+}
 
 @media (min-width: 1280px) {
-
   body {
     width: 100vw;
   }
+  /* No desktop o mesmo dialog troca o eixo da animação para não cobrir a tela inteira. */
   .address-dialog {
     z-index: 20;
     position: fixed;
+    left: auto;
     right: -30vw;
+    bottom: 0;
     width: 30vw;
     height: 100vh;
     transition: right 0.5s ease-in-out;
@@ -69,6 +67,6 @@
   }
 
   .open {
-    right: 0; 
+    right: 0;
   }
 }

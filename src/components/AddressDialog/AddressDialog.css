@@ -1,0 +1,60 @@
+.address-dialog form {
+  display: block;
+}
+
+.address-dialog .form-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.address-dialog .input-small {
+  width: 30vw;
+}
+
+.address-dialog .text-field {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--interface-base);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  background-color: transparent;
+  color: var(--text-darkest);
+}
+
+.address-dialog .text-field::placeholder {
+  color: var(--text-light);
+}
+
+.address-dialog .text-field:read-only,
+.address-dialog .text-field:disabled {
+  background-color: var(--interface-disabled);
+}
+
+.address-dialog .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.address-dialog .form-grid {
+  display: flex;
+  gap: 1rem;
+}
+
+.address-dialog .button {
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .address-dialog .input-small {
+    width: 8rem;
+  }
+}
