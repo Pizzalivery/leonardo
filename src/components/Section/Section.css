@@ -1,0 +1,32 @@
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
+}
+
+.order-again {
+    width: 90%;
+    margin: 0 auto 2.5rem auto;
+}
+
+.most-wanted {
+    width: 90%;
+    margin: 0 auto 5rem auto;
+}
+
+.offers {
+    margin: 0 0 2.5rem 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+@media (min-width: 1280px) {
+    .most-wanted {
+        padding-top: var(--spacing-2xlarge);
+        border-top: 1px solid var(--interface-border);
+    }
+}
