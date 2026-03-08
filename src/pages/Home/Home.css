@@ -1,0 +1,47 @@
+.home-page {
+  background-color: var(--interface-light);
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-bottom: 4rem;
+}
+
+.promo-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 0 1.5rem 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.promo-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.products-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .promo-carousel {
+    gap: 1rem;
+  }
+}

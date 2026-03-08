@@ -1,0 +1,42 @@
+.promo-card {
+  min-width: 300px;
+  max-width: 300px;
+  background-color: var(--common-light);
+  border-radius: 1rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.promo-card:hover {
+  transform: translateY(-4px);
+}
+
+.promo-image-container {
+  width: 100%;
+  height: 160px;
+}
+
+.promo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.promo-content {
+  padding: 1rem 0;
+}
+
+.promo-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 0.25rem;
+}
+
+.promo-description {
+  font-size: 0.875rem;
+  color: var(--text-base);
+  line-height: 1.4;
+}

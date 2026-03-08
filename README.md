@@ -2,9 +2,12 @@
 
 A client-side web application that allows users to browse the menu and place pizza orders online.
 
+<<<<<<< HEAD
 # React + Typescript
 This project now uses React with Typescript.
 
+=======
+>>>>>>> origin/main
 ## Figma
 
 UI design and user flow for the web application.
