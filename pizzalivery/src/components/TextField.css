@@ -1,0 +1,40 @@
+.form-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.input-small {
+  width: 30vw;
+}
+
+.text-field {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--interface-base);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  background-color: transparent;
+  color: var(--text-darkest);
+}
+
+.text-field::placeholder {
+  color: var(--text-light);
+}
+
+.text-field:read-only,
+.text-field:disabled {
+  background-color: var(--interface-disabled);
+}
+
+.form-grid {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .input-small {
+    width: 8rem;
+  }
+}

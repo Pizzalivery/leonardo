@@ -8,6 +8,7 @@
   text-align: center;
 }
 
+
 .delivery-text {
   display: flex;
   align-items: center;
@@ -37,11 +38,11 @@
   display: none;
 }
 
-.greeting-user {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 1.25rem;
-  color: var(--text-dark);
+.greeting-user a {
+  font-size: .75rem;
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .greeting-user a {
