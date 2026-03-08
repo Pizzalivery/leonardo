@@ -1,0 +1,32 @@
+.ButtonAddress {
+  border: 0;
+  font-weight: 800;
+  background: none;
+  color: var(--brand-primary);
+  cursor: pointer;
+  text-decoration: underline;
+
+  & svg {
+  transform: scale(0.7);
+  }
+
+  & span {
+    display: none;
+  }
+}
+
+
+@media (min-width: 1280px) {
+  #ButtonAddress {
+    & svg {
+      display: none;
+    }
+    & span {
+      display: block;
+      text-decoration: underline;
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+    }
+  }
+}
