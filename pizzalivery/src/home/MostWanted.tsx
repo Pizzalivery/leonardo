@@ -1,3 +1,4 @@
+import "./MostWanted.css";
 import SectionTitle from "../components/SectionTitle";
 import ProductCard from "../components/ProductCard";
 

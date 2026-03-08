@@ -1,0 +1,22 @@
+.most-wanted {
+  width: min(100% - 32px, var(--container-width));
+  margin: 0 auto 40px;
+}
+
+.most-wanted-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .most-wanted-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .most-wanted-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

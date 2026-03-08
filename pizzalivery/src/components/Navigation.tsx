@@ -1,6 +1,6 @@
+import "./Navigation.css";
 import { Home, Search, Menu, ReceiptText, UserRound } from "lucide-react";
 import NavItem from "./NavItem";
-
 function Navigation() {
   return (
     <nav id="navigation">

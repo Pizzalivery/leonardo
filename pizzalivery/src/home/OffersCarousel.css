@@ -1,0 +1,12 @@
+.offers {
+  width: min(100% - 32px, var(--container-width));
+  margin: 0 auto 32px;
+}
+
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}

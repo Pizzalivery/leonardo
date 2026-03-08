@@ -1,3 +1,4 @@
+import "./Header.css";
 import { ChevronDown } from "lucide-react";
 
 type HeaderProps = {

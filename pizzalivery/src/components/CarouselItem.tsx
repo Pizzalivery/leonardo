@@ -1,3 +1,5 @@
+import "./CarouselItem.css";
+
 type CarouselItemProps = {
   image: string;
   alt: string;

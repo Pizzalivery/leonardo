@@ -1,3 +1,4 @@
+import "./OffersCarousel.css";
 import SectionTitle from "../components/SectionTitle";
 import CarouselItem from "../components/CarouselItem";
 

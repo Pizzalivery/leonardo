@@ -1,3 +1,5 @@
+import "./ProductCard.css";
+
 type ProductCardProps = {
   image: string;
   alt: string;
