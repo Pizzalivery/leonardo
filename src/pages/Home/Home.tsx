@@ -15,6 +15,12 @@ import fotoCalabresa from "../../assets/16057285666390640459715899877-1080p.jpg"
 import fotoCalacheese from "../../assets/160572872237340571510501432084-1080p.jpg";
 import { TopSales, TopSalesItem } from "../../components/TopSales/TopSales";
 import { Footer, FooterLinkItem } from "../../components/Footer/Footer";
+import {
+  Dialog,
+  DialogFormGrid,
+  DialogFormInput,
+} from "../../components/Dialog/Dialog";
+import { Button } from "../../components/Button/Button";
 
 const getData = async () => {
   try {
@@ -138,6 +144,66 @@ function Home() {
           </>
         }
       />
+
+      <Dialog title="Alterar endereço de entrega">
+        <DialogFormInput
+          value="09060-050"
+          labelFor="cep"
+          labelName="Cep"
+          placeholder="Digite o CEP"
+          disabled={false}
+          required={false}
+        />
+        <DialogFormInput value="Rua Xingu" labelFor="street" labelName="Rua" />
+        <DialogFormGrid>
+          {
+            <>
+              <DialogFormInput
+                value="12354"
+                labelFor="number"
+                labelName="Número"
+                variant="input-small"
+              />
+              <DialogFormInput
+                value="Apto 101"
+                labelFor="additional"
+                labelName="Complemento"
+              />
+            </>
+          }
+        </DialogFormGrid>
+        <DialogFormInput
+          value="Vila Xingu"
+          labelFor="neighborhood"
+          labelName="Bairro"
+        />
+        <DialogFormGrid>
+          {
+            <>
+              <DialogFormInput
+                value="São Paulo"
+                labelFor="city"
+                labelName="Cidade"
+              />
+              <DialogFormInput
+                value="SP"
+                labelFor="state"
+                labelName="Estado"
+                variant="input-small"
+              />
+            </>
+          }
+        </DialogFormGrid>
+        <Button
+          variant="primary"
+          size="full"
+          onClick={() => {
+            return;
+          }}
+        >
+          Cadastrar
+        </Button>
+      </Dialog>
     </>
   );
 }
