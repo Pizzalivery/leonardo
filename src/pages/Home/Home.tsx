@@ -14,6 +14,7 @@ import fotoMargherita from "../../assets/160572915436349060139189700225-1080p.jp
 import fotoCalabresa from "../../assets/16057285666390640459715899877-1080p.jpg";
 import fotoCalacheese from "../../assets/160572872237340571510501432084-1080p.jpg";
 import { TopSales, TopSalesItem } from "../../components/TopSales/TopSales";
+import { Footer, FooterLinkItem } from "../../components/Footer/Footer";
 
 const getData = async () => {
   try {
@@ -74,6 +75,30 @@ function Home() {
                 image={offer.image}
               />
             ))}
+            {offers.map((offer) => (
+              <CarouselItem
+                key={offer.id}
+                title={offer.title}
+                description={offer.description}
+                image={offer.image}
+              />
+            ))}
+            {offers.map((offer) => (
+              <CarouselItem
+                key={offer.id}
+                title={offer.title}
+                description={offer.description}
+                image={offer.image}
+              />
+            ))}
+            {offers.map((offer) => (
+              <CarouselItem
+                key={offer.id}
+                title={offer.title}
+                description={offer.description}
+                image={offer.image}
+              />
+            ))}
           </Carousel>
         }
       />
@@ -100,6 +125,19 @@ function Home() {
           price="R$ 99,00"
         />
       </TopSales>
+
+      <Footer
+        anoCopyright="2025"
+        endereco="Rua Elias Mussa Fajuri, 421 - Rio Pequeno - São Paulo - SP"
+        cep="05364-190"
+        links={
+          <>
+            <FooterLinkItem name="Termos e condições de uso" />
+            <FooterLinkItem name="Privacidade" />
+            <FooterLinkItem name="Dicas de segurança" />
+          </>
+        }
+      />
     </>
   );
 }
