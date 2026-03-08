@@ -1,0 +1,10 @@
+.offers {
+  margin: 0 0 2.5rem 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
+}
