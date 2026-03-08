@@ -5,6 +5,7 @@ interface ButtonProps {
   variant?: "default" | "primary" | "secondary" | "change-address";
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  full?: boolean;
 }
 
 export function Button({
@@ -12,9 +13,10 @@ export function Button({
   variant = "default",
   onClick,
   type = "button",
+  full = false,
 }: ButtonProps) {
   return (
-    <button type={type} onClick={onClick} className={`button ${variant}`}>
+    <button type={type} onClick={onClick} className={`button ${variant} ${full ? "full" : ""}`}>
       {children}
     </button>
   );

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
-import { Dialog } from "../../components/Dialog/Dialog";
+import { AddressDialog } from "../../components/AddressDialog/AddressDialog";
 import { Header } from "../../components/Header/Header";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { OrderAgain } from "../../components/OrderAgain/OrderAgain";
 import { MostWanted, MostWantedItem } from "../../components/MostWanted/MostWanted";
 import { Footer } from "../../components/Footer/Footer";
+
 
 import margheritaImg from "../../assets/160572915436349060139189700225-1080p.jpg";
 import calabresaImg from "../../assets/16057285666390640459715899877-1080p.jpg";
@@ -118,7 +119,7 @@ function Home() {
       </main>
       <Footer />
 
-      <Dialog isOpen={isDialogOpen} onClose={handleCloseDialog} />
+      <AddressDialog isOpen={isDialogOpen} onClose={handleCloseDialog} />
     </>
   );
 }
