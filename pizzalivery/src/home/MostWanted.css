@@ -1,22 +1,32 @@
 .most-wanted {
-  width: min(100% - 32px, var(--container-width));
-  margin: 0 auto 40px;
+  width: 90%;
+  margin: 0 auto 5rem auto;
 }
 
 .most-wanted-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: column;
 }
 
-@media (min-width: 768px) {
-  .most-wanted-wrapper {
-    grid-template-columns: repeat(2, 1fr);
+@media (min-width: 1280px) {
+  .most-wanted {
+    padding-top: var(--spacing-2xlarge);
+    border-top: 1px solid var(--interface-border);
   }
-}
 
-@media (min-width: 1024px) {
   .most-wanted-wrapper {
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .most-wanted-item {
+    width: 33%;
+  }
+
+  .most-wanted-item:nth-child(2) {
+    padding: 0 var(--spacing-xlarge);
+    border-left: 1px solid var(--interface-border);
+    border-right: 1px solid var(--interface-border);
   }
 }

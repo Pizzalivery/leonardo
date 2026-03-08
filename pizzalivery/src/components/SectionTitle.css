@@ -1,6 +1,6 @@
 .section-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 16px;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
 }

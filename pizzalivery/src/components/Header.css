@@ -1,54 +1,95 @@
 .header {
-  width: min(100% - 32px, var(--container-width));
-  margin: 24px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 1.5rem 0;
 }
 
 .delivery-address {
-  padding: 16px;
-  background-color: var(--surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  width: 90%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
 }
 
 .delivery-text {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  color: var(--text-medium);
-  font-size: 0.95rem;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-primary);
 }
 
 .delivery-text span {
-  font-weight: 600;
-  color: var(--text-dark);
+  display: none;
 }
 
 #change-address {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+  border: 0;
+  font-weight: 700;
+  background: none;
   color: var(--brand-primary);
-  font-weight: 600;
+  cursor: pointer;
+}
+
+#change-address svg {
+  transform: scale(0.7);
+}
+
+#change-address span {
+  display: none;
 }
 
 .greeting-user {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.greeting-user p {
-  font-size: 1.8rem;
-  font-weight: 700;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.25rem;
   color: var(--text-dark);
 }
 
 .greeting-user a {
-  color: var(--brand-secondary);
-  font-weight: 600;
+  font-size: .75rem;
+  color: var(--brand-primary);
+}
+
+@media (min-width: 1280px) {
+  .header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .delivery-address {
+    width: auto;
+    margin: 0;
+    text-align: right;
+  }
+
+  .delivery-text {
+    display: inline;
+    font-size: .875rem;
+  }
+
+  .delivery-text span {
+    display: inline;
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+
+  #change-address svg {
+    display: none;
+  }
+
+  #change-address span {
+    display: inline;
+    text-decoration: underline;
+    font-size: .875rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+  }
+
+  .greeting-user {
+    width: auto;
+    margin: 0;
+  }
 }

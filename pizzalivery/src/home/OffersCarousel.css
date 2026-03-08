@@ -1,12 +1,26 @@
 .offers {
-  width: min(100% - 32px, var(--container-width));
-  margin: 0 auto 32px;
+  margin: 0 0 2.5rem 0;
 }
 
 .carousel {
   display: flex;
-  gap: 16px;
+  gap: 0;
   overflow-x: auto;
-  padding-bottom: 8px;
-  scrollbar-width: thin;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-left: 5%;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .carousel {
+    width: 100%;
+    margin: 0;
+    padding-left: 5%;
+  }
 }
