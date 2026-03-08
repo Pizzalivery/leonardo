@@ -1,0 +1,37 @@
+/* components/PromotionList.css */
+.promo-container {
+  display: flex; /* Coloca os cards lado a lado */
+  gap: 15px;     /* Espaçamento entre os cards */
+  overflow-x: auto; /* Permite scroll se a tela for pequena */
+  padding: 20px;
+}
+
+.promo-card {
+  flex: 0 0 300px; /* Garante que cada card tenha 300px de largura fixa */
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-card img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+/* src/components/PromotionCard/PromotionCard.css */
+.promo-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.promo-title { font-size: 1.1rem; margin: 10px 0 5px; }
+.promo-desc { font-size: 0.9rem; color: #666; }

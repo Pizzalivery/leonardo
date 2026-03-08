@@ -1,0 +1,87 @@
+.promotion-card {
+  display: flex; /* Alinha imagem e texto lado a lado */
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  gap: 15px;
+  max-width: 400px; /* Ajuste conforme necessário */
+  transition: transform 0.2s;
+}
+
+.promotion-image-container {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0; /* Impede que a imagem diminua */
+}
+
+.promotion-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.promotion-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.promotion-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.promotion-price {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.promotion-button {
+  background: none;
+  border: none;
+  color: #ff5a00; /* Cor laranja do botão */
+  font-weight: bold;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.promotion-button:hover {
+  text-decoration: underline;
+}
+
+
+.promo-card {
+  width: 280px; /* Ajuste conforme necessário */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.promo-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  border-radius: 16px; /* Borda arredondada igual à foto */
+}
+
+.promo-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+}
+
+.promo-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+

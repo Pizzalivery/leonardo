@@ -1,0 +1,29 @@
+.pizza-card{
+  display:flex;
+  width:320px;
+  margin-bottom:20px;
+}
+
+.pizza-card img{
+  width:110px;
+  border-radius:9px;
+  margin: 0 0 2.5rem 0;
+}
+
+.pizza-info{
+  padding-left:20px;
+}
+
+.pizza-info h3{
+  margin:0;
+}
+
+.pizza-info p{
+  font-size:13px;
+  color:#777;
+}
+
+.price{
+  color:#ff5a1f;
+  font-weight:bold;
+}

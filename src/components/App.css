@@ -1,0 +1,74 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: #e65c00; /* Laranja da marca */
+}
+
+/* Seção de Usuário */
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5%;
+  font-size: 0.85rem;
+}
+
+.points-link, .change-link {
+  color: #e65c00;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Grid de Promoções */
+.promos-section {
+  padding: 0 5%;
+}
+
+.promos-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.promo-card {
+  min-width: 250px;
+  flex: 0 0 auto;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px; /* O toque arredondado da imagem 2 */
+}
+
+.card-content h3 {
+  font-size: 1rem;
+  margin: 8px 0 4px 0;
+}
+
+.card-content p {
+  font-size: 0.8rem;
+  color: #777;
+}

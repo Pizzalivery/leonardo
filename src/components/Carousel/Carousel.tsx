@@ -14,7 +14,7 @@ export interface CarouselItemProps {
 }
 
 export const Carousel = ({ children }: CarouselProps) => {
-  return <div className="carousel">{children}</div>;
+  return <div className="carousel-container">{children}</div>;
 };
 
 export const CarouselItem = ({

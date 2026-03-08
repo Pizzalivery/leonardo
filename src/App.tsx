@@ -2,9 +2,17 @@ import "./styles/variables.css";
 import "./styles/style.css";
 
 import Home from "./pages/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-  return <Home />;
+  return (
+    <>
+      <Home />
+      <Footer />
+    </>
+  );
 }
+
+
 
 export default App;
