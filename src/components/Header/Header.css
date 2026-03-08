@@ -1,0 +1,75 @@
+.app-header {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  font-style: italic;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-item.active {
+  color: #ff6600;
+  background-color: #fff5f0;
+}
+
+.nav-item:hover {
+  color: #ff6600;
+}
+
+.delivery-address-desktop {
+  font-size: 13px;
+  color: #333;
+}
+
+.delivery-address-desktop a {
+  color: #ff6600;
+  text-decoration: none;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.delivery-address-desktop a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  .navigation {
+    display: none;
+  }
+}
+

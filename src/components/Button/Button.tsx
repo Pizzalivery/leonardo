@@ -2,18 +2,20 @@ import "./Button.css";
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: "default" | "primary" | "secondary";
-  onClick: () => void;
+  onClick?: () => void;
+  className?: string;
+  variant?: "default" | "primary";
+  full?: boolean;
 }
 
-export const Button = ({
-  children,
-  variant = "default",
-  onClick,
-}: ButtonProps) => {
+export function Button({ children, onClick, className = "", variant = "default", full = false }: ButtonProps) {
   return (
-    <button onClick={onClick} className={`button ${variant}`}>
+    <button
+      className={`button ${variant !== "default" ? variant : ""} ${full ? "full" : ""} ${className}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
-};
+}
+

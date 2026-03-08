@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Button } from "../../components/Button/Button";
-
-import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
+import Promotions from "../../components/Promotions/Promotions";
+import OrderAgain from "../../components/OrderAgain/OrderAgain";
+import Favorites from "../../components/Favorites/Favorites";
 
 const getData = async () => {
   try {
     const response = await fetch(
       "https://burgerlivery-esposito-api.onrender.com/offer-gallery",
-    );
+     );
     const data = await response.json();
     return data;
   } catch (error) {
@@ -34,18 +34,13 @@ function Home() {
     });
   }, []);
 
+  console.log(offers);
+
   return (
     <>
-      <Carousel>
-        {offers.map((offer) => (
-          <CarouselItem
-            key={offer.id}
-            title={offer.title}
-            description={offer.description}
-            image={offer.image}
-          />
-        ))}
-      </Carousel>
+      <Promotions />
+      <OrderAgain />
+      <Favorites />
     </>
   );
 }
