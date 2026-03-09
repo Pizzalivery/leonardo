@@ -1,21 +1,36 @@
-import { X } from "lucide-react"
-import "./Dialog.css"
+import { X } from "lucide-react";
+import "./Dialog.css";
 
 interface DialogProps {
-  title: string
-  children: React.ReactNode
+  title: string;
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
 }
 
-export const Dialog = ({ title, children }: DialogProps) => {
+export function Dialog({
+  title,
+  isOpen,
+  onClose,
+  children,
+}: DialogProps) {
   return (
-    <section className="address-dialog">
+    <section className={`address-dialog ${isOpen ? "open" : ""}`}>
       <header className="dialog-header">
         <h2 className="dialog-title">{title}</h2>
-        <button id="close-button" className="icon-button" aria-label="Fechar">
+
+        <button
+          id="close-button"
+          className="icon-button"
+          aria-label="Fechar"
+          onClick={onClose}
+          type="button"
+        >
           <X />
         </button>
       </header>
-      <div>{children}</div>
+
+      <div className="dialog-content">{children}</div>
     </section>
-  )
+  );
 }
