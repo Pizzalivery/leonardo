@@ -2,8 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 html {
@@ -12,6 +16,7 @@ html {
 
 body {
   line-height: 1.25;
+  padding-bottom: 80px;
   font-family: "Epilogue", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -30,3 +35,34 @@ img {
   width: 90%;
 }
 
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 1.5rem;
+}
+
+.offers {
+  margin: 0 0 2.5rem 0;
+}
+
+.product-description {
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--text-base);
+  margin-bottom: .5rem;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: .5rem;
+}

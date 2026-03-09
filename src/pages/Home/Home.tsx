@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
-import { Button } from "../../components/Button/Button";
+
+import { Navigation } from "../../components/Navigation/Navigation";
+import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
+import { Dialog } from "../../components/Dialog/Dialog";
 
 import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
+import { MostWanted, MostWantedItem } from "../../components/MostWanted/MostWanted";
+import { OrderAgain } from "../../components/OrderAgain/OrderAgain";
 
 const getData = async () => {
   try {
     const response = await fetch(
-      "https://burgerlivery-esposito-api.onrender.com/offer-gallery",
+      "https://burgerlivery-esposito-api.onrender.com/offer-gallery"
     );
     const data = await response.json();
     return data;
@@ -26,6 +32,7 @@ type Offer = {
 };
 
 function Home() {
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
 
   useEffect(() => {
@@ -36,16 +43,61 @@ function Home() {
 
   return (
     <>
-      <Carousel>
-        {offers.map((offer) => (
-          <CarouselItem
-            key={offer.id}
-            title={offer.title}
-            description={offer.description}
-            image={offer.image}
-          />
-        ))}
-      </Carousel>
+      <Navigation />
+
+     <Header onChangeAdress={() => setDialogOpen(true)} />
+      <Dialog isOpen={dialogOpen} onClose={() => setDialogOpen(false)} />
+
+
+        <Carousel>
+          {offers.map((offer) => (
+            <CarouselItem
+              key={offer.id}
+              title={offer.title}
+              description={offer.description}
+              image={offer.image}
+            />
+          ))}
+        </Carousel>
+        <OrderAgain
+          image={{
+            src: "/src/assets/160572915436349060139189700225-1080p.jpg",
+            alt: "Pizza Margherita"
+          }}
+          title="Margherita"
+          price="R$ 93,00"
+        />
+      <MostWanted>
+        <MostWantedItem
+          image={{
+            src: "./src/assets/160572915436349060139189700225-1080p.jpg",
+            alt: "Pizza Margherita"
+          }}
+          title="Margherita"
+          description="Muçarela especial, muçarela de búfala rasgada, fatias de tomate finalizada com folhas de manjericão orgânico e um fio de azeite aromatizado."
+          price={93.00}
+        />
+        <MostWantedItem
+          image={{
+            src: "./src/assets/16057285666390640459715899877-1080p.jpg",
+            alt: "Calabresa"
+          }}
+          title="Calabresa"
+          description="Calabresa especial cozida, em fatias, anéis de cebola, orégano e azeitonas portuguesas."
+          price={93.00}
+        />
+        <MostWantedItem
+          image={{
+            src: "./src/assets/160572872237340571510501432084-1080p.jpg",
+            alt: "Calacheese"
+          }}
+          title="Calacheese"
+          description="Leva muçarela de búfala rasgada, linguicinhas curada e curada apimentada sobre muçarela especial."
+          price={ 99.00}
+        />
+      </MostWanted> 
+      
+      <Footer />
     </>
   );
 }

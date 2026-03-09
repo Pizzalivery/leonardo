@@ -1,4 +1,5 @@
 import "./Carousel.css";
+import "/src//styles/style.css";
 
 interface CarouselProps {
   children: React.ReactNode;
@@ -14,7 +15,16 @@ export interface CarouselItemProps {
 }
 
 export const Carousel = ({ children }: CarouselProps) => {
-  return <div className="carousel">{children}</div>;
+  return (
+    <section className="offers">
+      <div className="container">
+        <h2 className="section-title">Promoções</h2>
+      </div>
+      <div className="carousel">
+          {children}
+      </div>
+    </section>
+  );
 };
 
 export const CarouselItem = ({

@@ -8,31 +8,46 @@
   color: var(--text-base);
   transition: background-color 0.2s ease-in;
   cursor: pointer;
+}
 
-  &.full {
-    width: 100%;
-  }
+.button.full {
+  width: 100%;
+}
 
-  &:hover {
-    background-color: color-mix(in srgb, var(--interface-border), white 10%);
-  }
+.button:hover {
+  background-color: color-mix(in srgb, var(--interface-border), white 10%);
+}
 
-  &:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-    opacity: 0.8;
-  }
+.button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.8;
 }
 
 .primary {
-    background-color: var(--brand-primary);
-    color: var(--common-light);
+  background-color: var(--brand-primary);
+  color: var(--common-light);
+}
 
-    &:hover {
-      background-color: color-mix(in srgb, var(--brand-primary), var(--interface-darkest) 10%);
-    }
+.primary:hover {
+  background-color: color-mix(in srgb, var(--brand-primary), var(--interface-darkest) 10%);
+}
 
-    &:disabled {
-      background-color: color-mix(in srgb, var(--brand-primary), white 50%);
-    }
-  }
+.primary:disabled {
+  background-color: color-mix(in srgb, var(--brand-primary), white 50%);
+}
+
+.icon-button {
+  border: 0;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--interface-dark);
+  cursor: pointer;
+  transform: scale(0.8);
+  transition: background-color 0.2s ease-in;
+}
+
+.icon-button:hover {
+  background-color: color-mix(in srgb, var(--interface-border), white 10%);
+}
