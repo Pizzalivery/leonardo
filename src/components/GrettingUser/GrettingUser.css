@@ -1,0 +1,11 @@
+.greeting-user {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+
+  & a {
+    font-size: .75rem;
+    color: var(--brand-primary);
+  }
+}

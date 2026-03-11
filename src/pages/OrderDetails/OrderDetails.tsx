@@ -1,15 +1,18 @@
-import { useParams } from "react-router";
+import { useOutletContext, useParams } from "react-router";
 
 function OrderDetails() {
   const params = useParams();
+  const { setTitle, setNavigationHistory } = useOutletContext();
+
+  setTitle("Detalhes do Pedido");
+  setNavigationHistory("/orders");
 
   console.log(params);
 
   return (
-    <>
-      <h1>Order Details</h1>
+    <article className="container">
       <p>Detalhes do pedido: {params.orderId}</p>
-    </>
+    </article>
   );
 }
 

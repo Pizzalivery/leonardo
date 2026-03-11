@@ -23,7 +23,7 @@
 
 .dialog-header{
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   margin-bottom: .5rem;
 }
@@ -34,7 +34,7 @@
   color: var(--text-darkest);
 }
 
-.icon-button {
+.dialog-icon-button {
   border: 0;
   background-color: transparent;
   padding: 0.5rem;

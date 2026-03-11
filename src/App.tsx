@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import "./styles/variables.css";
 import "./styles/style.css";
+import OrderLayout from "./components/Layouts/OrderLayout/OrderLayout";
 
 // import Home from "./pages/Home/Home";
 const Home = lazy(() => import("./pages/Home/Home")); // lazy loading
@@ -27,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
-          <Route path="orders">
+          <Route path="orders" element={<OrderLayout />}>
             <Route index element={<Orders />} />
             <Route path=":orderId" element={<OrderDetails />} />
           </Route>

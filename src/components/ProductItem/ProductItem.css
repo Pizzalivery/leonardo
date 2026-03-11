@@ -1,0 +1,29 @@
+.product-item-image {
+  width: 138px;
+  height: 138px;
+  border-radius: 12px;
+
+  float: left;
+  margin-right: .75rem;
+}
+
+.product-item-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin-bottom: 0.5rem;
+}
+
+.product-item-description {
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--text-base);
+  margin-bottom: .5rem;
+}
+
+.product-item-price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: .5rem;
+}

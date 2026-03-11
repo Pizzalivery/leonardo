@@ -1,0 +1,30 @@
+#navigation {
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+  padding: 1rem 0;
+  border-top: 1px solid var(--interface-border);
+  background-color: var(--interface-light);
+}
+
+@media (min-width: 1280px) {
+
+  #navigation {
+    z-index: 1;
+    top: 0;
+    position: relative;
+    border-top: none;
+    border-bottom: 1px solid var(--interface-border);
+  }
+
+  .navigation-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,62 @@
+.delivery-address {
+  width: 90%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+}
+
+.delivery-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  & span {
+    display: none;
+  }
+}
+
+#change-address {
+  border: 0;
+  font-weight: 700;
+  background: none;
+  color: var(--brand-primary);
+  cursor: pointer;
+
+  & svg {
+  transform: scale(0.7);
+  }
+
+  & span {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .delivery-address {
+    text-align: right;
+  }
+
+  .delivery-text {
+    display: inline;
+    font-size: .875rem;
+    & span {
+      display: inline;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+  }
+
+  #change-address {
+    & svg {
+      display: none;
+    }
+    & span {
+      display: block;
+      text-decoration: underline;
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+    }
+  }
+}

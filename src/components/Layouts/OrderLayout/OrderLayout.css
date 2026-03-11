@@ -1,0 +1,11 @@
+.order-layout-header {
+  display: grid;
+  grid-template-columns: 1fr 80% 1fr;
+  width: 90%;
+  margin: 1.5rem auto;
+}
+
+.order-layout-title {
+  text-align: center;
+  font-size: 1.125rem;
+}

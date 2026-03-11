@@ -1,0 +1,40 @@
+.header {
+  padding: 1.5rem 0;
+}
+
+.offers {
+  margin: 0 0 2.5rem 0;
+}
+
+.most-wanted {
+  width: 90%;
+  margin: 0 auto 5rem auto;
+}
+
+.most-wanted-wrapper {
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: column;
+}
+
+@media (min-width: 1280px) {
+  .most-wanted {
+    padding-top: var(--spacing-2xlarge);
+    border-top: 1px solid var(--interface-border);
+  }
+
+  .most-wanted-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > .product-item {
+      width: 33%;
+
+      &:nth-child(2) {
+        padding: 0 var(--spacing-xlarge);
+        border-left: 1px solid var(--interface-border);
+        border-right: 1px solid var(--interface-border);
+      }
+    }
+  }
+}
