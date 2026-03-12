@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 
-import "./styles/variables.css";
+// import "./styles/variables.css";
 import "./styles/style.css";
 import OrderLayout from "./components/Layouts/OrderLayout/OrderLayout";
 

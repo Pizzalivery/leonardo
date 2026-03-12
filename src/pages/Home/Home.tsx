@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
-
 import { mainMenuItems } from "../../utils/mainMenu";
-import { Carousel, CarouselItem } from "../../components/Carousel/Carousel";
-import { MainMenu, MainMenuItem } from "../../components/MainMenu/MainMenu";
-import { Navigation } from "../../components/Navigation/Navigation";
-import { Logo } from "../../components/Logo/Logo";
-import { OrderAgain } from "../../components/OrderAgain/OrderAgain";
-import { Heading } from "../../components/Heading/Heading";
-import { ProductItem } from "../../components/ProductItem/ProductItem";
-import { Footer } from "../../components/Footer/Footer";
-import "./Home.css";
+import {
+  Carousel,
+  CarouselItem,
+  MainMenu,
+  MainMenuItem,
+  Navigation,
+  Logo,
+  OrderAgain,
+  Heading,
+  ProductItem,
+  Footer,
+  Dialog,
+  DeliveryAddress,
+  GrettingUser,
+} from "../../components";
 
 import MargueritaImage from "../../assets/160572915436349060139189700225-1080p.jpg";
 import CalabresaImage from "../../assets/16057285666390640459715899877-1080p.jpg";
 import CalacheeseImage from "../../assets/160572872237340571510501432084-1080p.jpg";
-import { Dialog } from "../../components/Dialog/Dialog";
-import { DeliveryAddress } from "../../components/DeliveryAddress/DeliveryAddress";
-import { GrettingUser } from "../../components/GrettingUser/GrettingUser";
+import "./Home.css";
 
 const getData = async () => {
   try {

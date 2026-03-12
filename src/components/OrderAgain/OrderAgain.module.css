@@ -32,3 +32,11 @@
   font-weight: 600;
   color: var(--brand-primary);
 }
+
+.add {
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+}

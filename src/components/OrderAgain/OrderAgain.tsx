@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import { Heading } from "../Heading/Heading";
-import "./OrderAgain.css";
+// import "./OrderAgain.css"
+import Style from "./OrderAgain.module.css";
 
 interface OrderAgainProps {
   title: string;
@@ -11,13 +12,13 @@ interface OrderAgainProps {
 
 export const OrderAgain = ({ title, name, price, image }: OrderAgainProps) => {
   return (
-    <section className="order-again">
+    <section className={Style["order-again"]}>
       <Heading component="h2">{title}</Heading>
-      <img className="order-again-img" src={image} alt={name} />
+      <img className={Style["order-again-img"]} src={image} alt={name} />
 
-      <p className="order-again-title">{name}</p>
-      <p className="order-again-price">{price}</p>
-      <NavLink className="order-again-add" to={"/cart"}>
+      <p className={Style["order-again-title"]}>{name}</p>
+      <p className={Style["order-again-price"]}>{price}</p>
+      <NavLink className={Style.add} to={"/cart"}>
         Adicionar a sacola
       </NavLink>
     </section>

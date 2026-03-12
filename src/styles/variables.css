@@ -11,7 +11,7 @@
   --interface-border: hsla(20, 36%, 10%, 0.1);
   --interface-disabled: hsla(220, 14%, 96%, 1);
 
-  ---interface-shadow: hsla(220, 14%, 10%, 0.3);
+  --interface-shadow: hsla(220, 14%, 10%, 0.3);
 
   --interface-info: hsla(216, 100%, 57%, 1);
   --interface-success: hsla(140, 56%, 41%, 1);
@@ -64,3 +64,4 @@
   --common-light: hsla(0, 0%, 10%, 1);
   --common-dark: hsla(0, 0%, 100%, 1);
 }
+
