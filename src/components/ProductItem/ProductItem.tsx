@@ -16,10 +16,16 @@ export const ProductItem = ({
 }: ProductItemProps) => {
   return (
     <section className="product-item">
-      <img className="product-item-image" src={image} alt={title} />
+      <img
+        className="w-34.5 h-34.5 rounded-xl mr-3 float-left"
+        src={image}
+        alt={title}
+      />
       <Heading component="h3">{title}</Heading>
-      <p className="product-item-description">{description}</p>
-      <p className="product-item-price">R$ {price}</p>
+      <p className="text-xs font-medium mb-2">{description}</p>
+      <p className="text-base font-extrabold mb-2 text-brand-primary">
+        R$ {price}
+      </p>
     </section>
   );
 };

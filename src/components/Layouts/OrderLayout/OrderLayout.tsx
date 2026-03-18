@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, useNavigate, useOutletContext } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { Footer } from "../../Footer/Footer";
 import { Navigation } from "../../Navigation/Navigation";
 import { MainMenu, MainMenuItem } from "../../MainMenu/MainMenu";
@@ -10,14 +10,17 @@ import { IconButton } from "../../IconButton/IconButton";
 
 import "./OrderLayout.css";
 
+export type OrderLayoutContext = {
+  setTitle: React.Dispatch<React.SetStateAction<string>>;
+  setNavigationHistory: React.Dispatch<React.SetStateAction<string>>;
+};
+
 function OrderLayout() {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("Página Inicial");
+  const [title, setTitle] = useState<string>("Página Inicial");
   const [navigationHistory, setNavigationHistory] = useState<string>("");
 
   const handleBack = (navigation: string) => {
-    // Lógica para voltar à página anterior
-    console.log("Voltar para a página anterior", navigation);
     navigate(navigation);
   };
 

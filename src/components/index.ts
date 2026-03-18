@@ -12,3 +12,4 @@ export * from "./MainMenu/MainMenu";
 export * from "./Navigation/Navigation";
 export * from "./OrderAgain/OrderAgain";
 export * from "./ProductItem/ProductItem";
+export * from "./ProductListItem/ProductListItem";

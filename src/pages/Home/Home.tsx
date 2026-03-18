@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { mainMenuItems } from "../../utils/mainMenu";
 import {
+  Button,
   Carousel,
   CarouselItem,
   MainMenu,
@@ -30,6 +31,18 @@ const getData = async () => {
     return data;
   } catch (error) {
     console.error("Error fetching offers:", error);
+  }
+};
+const getDesserts = async () => {
+  try {
+    const response = await fetch(
+      "https://burgerlivery-esposito-api.onrender.com/beverage",
+    );
+    const data = await response.json();
+    // console.log("Desserts data:", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching desserts:", error);
   }
 };
 
@@ -85,10 +98,17 @@ const mockUserData = {
 function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
+  const [desserts, setDesserts] = useState<Array<Offer>>([]);
 
   useEffect(() => {
     getData().then((data) => {
       setOffers(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    getDesserts().then((data) => {
+      setDesserts(data);
     });
   }, []);
 
@@ -134,7 +154,7 @@ function Home() {
       />
       <article className="most-wanted">
         <Heading component="h2">As mais desejadas</Heading>
-        <div className="most-wanted-wrapper">
+        <div className="flex flex-col gap-6 xl:flex-row xl:justify-between">
           {mockMostWantedData.map((item) => (
             <ProductItem
               key={item.id}
@@ -152,7 +172,10 @@ function Home() {
         open={openModal}
         onClose={() => setOpenModal(false)}
       >
-        ola
+        <Button onClick={() => {}}>aa</Button>
+        <Button variant="primary" fullWidth onClick={() => {}}>
+          aa
+        </Button>
       </Dialog>
     </>
   );

@@ -48,13 +48,21 @@ function Orders() {
   return (
     <article className="container">
       <Heading component="h2">Histórico</Heading>
-      <Card>
-        <div className="flex items-center gap-4">
-          <img src={PizzaImage} alt="Pizza" className="w-16 h-16 rounded-xl" />
-          <h3 className="text-base font-bold">Pedido #1234</h3>
-        </div>
-      </Card>
-      <button onClick={handleCkick}>Ver pedido</button>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {mockOrders.map((order) => (
+          <Card key={order.id}>
+            <div className="flex items-center gap-4">
+              <img
+                src={order.image}
+                alt="Pizza"
+                className="w-16 h-16 rounded-xl"
+              />
+              <h3 className="text-base font-bold">Pedido #{order.id}</h3>
+            </div>
+          </Card>
+        ))}
+      </div>
+      {/* <button onClick={handleCkick}>Ver pedido</button> */}
     </article>
   );
 }
