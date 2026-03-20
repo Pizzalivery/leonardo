@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Heading, ProductListItem } from "../../components";
 import { useOutletContext } from "react-router";
-import type { OrderLayoutContext } from "../../components/Layouts/OrderLayout/OrderLayout";
 import getPizzas from "../../api/getPizzas";
+import type { NavigationLayoutContext } from "../../components/Layouts/NavigationLayout/NavigationLayout";
 
 type Pizza = {
   id: number;
@@ -14,13 +14,13 @@ type Pizza = {
 
 function Menu() {
   const { setTitle, setNavigationHistory } =
-    useOutletContext<OrderLayoutContext>();
+    useOutletContext<NavigationLayoutContext>();
 
   const [pizzas, setPizzas] = useState<Array<Pizza>>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  setTitle("Menu");
   setNavigationHistory("/");
+  setTitle("Menu");
 
   async function fetchPizzas() {
     setIsLoading(true);
@@ -48,12 +48,12 @@ function Menu() {
       ) : (
         pizzas.map((pizza: Pizza) => (
           <ProductListItem
-            key={pizza.id}
-            id={pizza.id}
-            image={pizza.image}
-            title={pizza.name}
-            description={pizza.description}
-            value={pizza.value}
+            key={pizza?.id}
+            id={pizza?.id}
+            image={pizza?.image}
+            title={pizza?.name}
+            description={pizza?.description}
+            value={pizza?.value}
           />
         ))
       )}

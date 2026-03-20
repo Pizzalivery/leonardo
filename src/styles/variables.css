@@ -23,6 +23,11 @@
   --text-base: hsla(215, 14%, 34%, 1);
   --text-light: hsla(240, 4%, 46%, 1);
 
+  --interface-text-darkest: hsla(221, 39%, 11%, 1);
+  --interface-text-dark: hsla(0, 0%, 0%, 1);
+  --interface-text-base: hsla(215, 14%, 34%, 1);
+  --interface-text-light: hsla(240, 4%, 46%, 1);
+
   --common-light: hsla(0, 0%, 100%, 1);
   --common-dark: hsla(0, 0%, 0%, 1);
 

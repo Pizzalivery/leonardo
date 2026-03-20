@@ -12,10 +12,10 @@
   --color-interface-success: var(--interface-success);
   --color-interface-warning: var(--interface-warning);
   --color-interface-error: var(--interface-error);
-  --color-text-darkest: var(--text-darkest);
-  --color-text-dark: var(--text-dark);
-  --color-text-base: var(--text-base);
-  --color-text-light: var(--text-light);
+  --color-typography-darkest: var(--interface-text-darkest);
+  --color-typography-dark: var(--interface-text-dark);
+  --color-typography-base: var(--interface-text-base);
+  --color-typography-light: var(--interface-text-light);
   --color-common-light: var(--common-light);
   --color-common-dark: var(--common-dark);
 

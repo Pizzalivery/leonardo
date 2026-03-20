@@ -8,14 +8,14 @@ import { Logo } from "../../Logo/Logo";
 import { ChevronLeft } from "lucide-react";
 import { IconButton } from "../../IconButton/IconButton";
 
-import "./OrderLayout.css";
+import "./NavigationLayout.css";
 
-export type OrderLayoutContext = {
+export type NavigationLayoutContext = {
   setTitle: React.Dispatch<React.SetStateAction<string>>;
   setNavigationHistory: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function OrderLayout() {
+function NavigationLayout() {
   const navigate = useNavigate();
   const [title, setTitle] = useState<string>("Página Inicial");
   const [navigationHistory, setNavigationHistory] = useState<string>("");
@@ -53,4 +53,4 @@ function OrderLayout() {
   );
 }
 
-export default OrderLayout;
+export default NavigationLayout;
