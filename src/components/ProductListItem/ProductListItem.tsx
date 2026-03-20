@@ -26,7 +26,7 @@ export const ProductListItem = ({
     <section className="my-4 border-b border-interface-border last:border-0">
       <NavLink
         className="grid grid-cols-3 gap-4 items-center"
-        to={`/menu/${id}`}
+        to={`/products/${id}`}
       >
         <div className="col-span-2">
           <Heading component="h3">{title}</Heading>
