@@ -5,6 +5,11 @@ A client-side web application that allows users to browse the menu and place piz
 # React + Typescript
 This project now uses React with Typescript.
 
+## API
+Access API Documentation in
+
+[https://burgerlivery-esposito-api.onrender.com/api#/](https://burgerlivery-esposito-api.onrender.com/api#/)
+
 ## Figma
 
 UI design and user flow for the web application.
