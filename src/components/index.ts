@@ -7,6 +7,7 @@ export * from "./Footer/Footer";
 export * from "./GrettingUser/GrettingUser";
 export * from "./Heading/Heading";
 export * from "./IconButton/IconButton";
+export * from "./Input/Input";
 export * from "./Logo/Logo";
 export * from "./MainMenu/MainMenu";
 export * from "./Navigation/Navigation";

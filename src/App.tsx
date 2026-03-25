@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import NavigationLayout from "./components/Layouts/NavigationLayout/NavigationLayout";
 import ProductLayout from "./components/Layouts/ProductLayout/ProductLayout";
+import AuthLayout from "./components/Layouts/AuthLayout/AuthLayout";
 import "./styles/style.css";
 
 const Home = lazy(() => import("./pages/Home/Home"));
-const Login = lazy(() => import("./pages/Login/Login"));
 const Search = lazy(() => import("./pages/Search/Search"));
 const Menu = lazy(() => import("./pages/Menu/Menu"));
 const Orders = lazy(() => import("./pages/Orders/Orders"));
@@ -14,6 +14,7 @@ const OrderDetails = lazy(() => import("./pages/OrderDetails/OrderDetails"));
 const ProductDetails = lazy(
   () => import("./pages/ProductDetails/ProductDetails"),
 );
+const Login = lazy(() => import("./pages/Auth/Login/Login"));
 
 function App() {
   return (
@@ -21,7 +22,6 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="login" element={<Login />} />
           <Route path="search" element={<NavigationLayout />}>
             <Route index element={<Search />} />
           </Route>
@@ -34,6 +34,9 @@ function App() {
           </Route>
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
+          </Route>
+          <Route path="auth/login" element={<AuthLayout />}>
+            <Route index element={<Login />} />
           </Route>
 
           {/* <Route path="orders?:orderId" element={<Orders />} /> */}

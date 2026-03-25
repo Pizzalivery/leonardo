@@ -23,7 +23,6 @@ export const Button = ({
   onClick,
 }: ButtonProps) => {
   return (
-    // <button onClick={onClick} className={`button ${variant}`}>
     <button
       onClick={onClick}
       className={`
