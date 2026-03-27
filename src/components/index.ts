@@ -12,5 +12,6 @@ export * from "./Logo/Logo";
 export * from "./MainMenu/MainMenu";
 export * from "./Navigation/Navigation";
 export * from "./OrderAgain/OrderAgain";
+export * from "./PrivateRoutes/PrivateRoutes";
 export * from "./ProductItem/ProductItem";
 export * from "./ProductListItem/ProductListItem";

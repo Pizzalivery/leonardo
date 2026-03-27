@@ -9,7 +9,7 @@ const variants: Record<ButtonVariant, string> = {
   secondary: "bg-brand-primary-light text-common-dark",
 };
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: ButtonVariant;
   fullWidth?: boolean;
@@ -21,12 +21,12 @@ export const Button = ({
   variant = "default",
   fullWidth = false,
   onClick,
+  ...props
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       className={`
-        
         text-base
         font-black
         rounded-4xl
@@ -43,6 +43,7 @@ export const Button = ({
         ${variants[variant]}
         ${fullWidth ? "w-full" : "min-w-3xs"}
       `}
+      {...props}
     >
       {children}
     </button>
