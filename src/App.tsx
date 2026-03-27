@@ -5,6 +5,7 @@ import NavigationLayout from "./components/Layouts/NavigationLayout/NavigationLa
 import ProductLayout from "./components/Layouts/ProductLayout/ProductLayout";
 import AuthLayout from "./components/Layouts/AuthLayout/AuthLayout";
 import "./styles/style.css";
+import { PrivateRoutes } from "./components";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -14,6 +15,7 @@ const OrderDetails = lazy(() => import("./pages/OrderDetails/OrderDetails"));
 const ProductDetails = lazy(
   () => import("./pages/ProductDetails/ProductDetails"),
 );
+const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
 
 function App() {
@@ -28,18 +30,21 @@ function App() {
           <Route path="menu" element={<NavigationLayout />}>
             <Route index element={<Menu />} />
           </Route>
-          <Route path="orders" element={<NavigationLayout />}>
-            <Route index element={<Orders />} />
-            <Route path=":orderId" element={<OrderDetails />} />
-          </Route>
+
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
           <Route path="auth/login" element={<AuthLayout />}>
             <Route index element={<Login />} />
           </Route>
+          <Route element={<PrivateRoutes />}>
+            <Route path="orders" element={<NavigationLayout />}>
+              <Route index element={<Orders />} />
+              <Route path=":orderId" element={<OrderDetails />} />
+            </Route>
 
-          {/* <Route path="orders?:orderId" element={<Orders />} /> */}
+            <Route path="profile" element={<Profile />} />
+          </Route>
         </Routes>
       </Suspense>
     </BrowserRouter>
