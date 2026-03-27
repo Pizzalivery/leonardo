@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router";
 import { Button, Heading, Input } from "../../../components";
 import { useState } from "react";
-import postAuthLogin from "../../../api/postAuthLogin";
+import postAuthLogin, { type LoginPayload } from "../../../api/postAuthLogin";
 
 function Login() {
   const navigate = useNavigate();
@@ -19,12 +19,11 @@ function Login() {
     setPassword(value);
   };
 
-  async function fetchLogin(payload) {
+  async function fetchLogin(payload: LoginPayload) {
     setIsLoading(true);
 
     try {
       const response = await postAuthLogin(payload);
-      console.log(response);
       sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
       sessionStorage.setItem("user", JSON.stringify(response.user));
       navigate("/");
@@ -89,7 +88,12 @@ function Login() {
             Esqueci minha senha
           </NavLink>
         </span>
-        <Button variant="primary" onClick={handleLogin} fullWidth>
+        <Button
+          variant="primary"
+          onClick={handleLogin}
+          fullWidth
+          disabled={isLoading}
+        >
           {isLoading ? "Entrando..." : "Entrar"}
         </Button>
       </div>
