@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { Heading, ProductListItem } from "../../components";
+import {
+  Heading,
+  ProductListItem,
+  ProductListItemSkeleton,
+} from "../../components";
 import { useOutletContext } from "react-router";
 import getPizzas from "../../api/getPizzas";
 import type { NavigationLayoutContext } from "../../components/Layouts/NavigationLayout/NavigationLayout";
@@ -44,7 +48,7 @@ function Menu() {
       <Heading component="h2">Pizzas</Heading>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <ProductListItemSkeleton />
       ) : (
         pizzas.map((pizza: Pizza) => (
           <ProductListItem

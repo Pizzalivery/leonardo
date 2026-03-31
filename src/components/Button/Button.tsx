@@ -40,6 +40,8 @@ export const Button = ({
         disabled:cursor-not-allowed
         disabled:pointer-events-none
         disabled:opacity-80
+        [&>svg]:text-center
+        [&>svg]:w-full
         ${variants[variant]}
         ${fullWidth ? "w-full" : "min-w-3xs"}
       `}

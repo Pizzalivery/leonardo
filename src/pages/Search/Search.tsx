@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router";
 import type { ProductLayoutContext } from "../../components/Layouts/ProductLayout/ProductLayout";
 import getSearchPizzas from "../../api/getSearchPizzas";
+import { Input } from "../../components";
 
 type SearchPizza = {
   id: number;
@@ -32,10 +33,8 @@ function Search() {
     }
   }
 
-  // handle
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // event.target.value;
-    const { value } = event.target; // desestruturando o valor do input
+    const { value } = event.target;
     setSearch(value);
   };
 
@@ -47,10 +46,14 @@ function Search() {
 
   return (
     <div className="mx-auto px-5">
-      <input
+      <Input
+        id="search"
+        name="search"
+        label="Buscar"
+        noLabel
         type="text"
+        fullWidth
         placeholder="Buscar pizza..."
-        className="border p-2 w-full"
         onChange={handleSearchChange}
         onKeyDown={handleSearchSubmit}
       />

@@ -40,3 +40,18 @@ export const ProductListItem = ({
     </section>
   );
 };
+
+export const ProductListItemSkeleton = () => {
+  return (
+    <section className="my-4 border-b border-interface-border last:border-0">
+      <div className="grid grid-cols-3 gap-4 items-center animate-pulse">
+        <div className="col-span-2">
+          <div className="h-6 bg-gray-300 rounded w-1/2 mb-2"></div>
+          <div className="h-8 bg-gray-300 rounded w-full mb-2"></div>
+          <div className="h-4 bg-gray-300 rounded w-1/3 mb-2"></div>
+        </div>
+        <div className="w-24 h-24 bg-gray-300 rounded-xl"></div>
+      </div>
+    </section>
+  );
+};

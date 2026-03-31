@@ -30,3 +30,17 @@ export const CarouselItem = ({
     </div>
   );
 };
+
+export const CarouselSkeleton = () => {
+  return (
+    <Carousel>
+      {[1, 2, 3].map((index) => (
+        <div key={index} className="carousel-item ">
+          <div className="skeleton-image h-36 bg-gray-200 animate-pulse rounded-lg mb-2" />
+          <div className="skeleton-title h-6 bg-gray-200 animate-pulse rounded-lg mb-1" />
+          <div className="skeleton-description h-4 bg-gray-200 animate-pulse rounded-lg" />
+        </div>
+      ))}
+    </Carousel>
+  );
+};

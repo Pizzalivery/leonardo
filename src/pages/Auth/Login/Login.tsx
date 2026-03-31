@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router";
 import { Button, Heading, Input } from "../../../components";
 import { useState } from "react";
 import postAuthLogin, { type LoginPayload } from "../../../api/postAuthLogin";
+import { LoaderCircle } from "lucide-react";
 
 function Login() {
   const navigate = useNavigate();
@@ -28,7 +29,6 @@ function Login() {
       sessionStorage.setItem("user", JSON.stringify(response.user));
       navigate("/");
     } catch (error) {
-      // Type Guard
       if (error instanceof Error) {
         const parsedError = JSON.parse(error.message);
 
@@ -94,7 +94,7 @@ function Login() {
           fullWidth
           disabled={isLoading}
         >
-          {isLoading ? "Entrando..." : "Entrar"}
+          {isLoading ? <LoaderCircle className="animate-spin" /> : "Entrar"}
         </Button>
       </div>
       <p className="text-center text-typography-base text-base">

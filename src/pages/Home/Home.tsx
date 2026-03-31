@@ -15,36 +15,14 @@ import {
   Dialog,
   DeliveryAddress,
   GrettingUser,
+  CarouselSkeleton,
 } from "../../components";
 
 import MargueritaImage from "../../assets/160572915436349060139189700225-1080p.jpg";
 import CalabresaImage from "../../assets/16057285666390640459715899877-1080p.jpg";
 import CalacheeseImage from "../../assets/160572872237340571510501432084-1080p.jpg";
+import getOffers from "../../api/getOffers";
 import "./Home.css";
-
-const getData = async () => {
-  try {
-    const response = await fetch(
-      "https://burgerlivery-esposito-api.onrender.com/offer-gallery",
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching offers:", error);
-  }
-};
-const getDesserts = async () => {
-  try {
-    const response = await fetch(
-      "https://burgerlivery-esposito-api.onrender.com/beverage",
-    );
-    const data = await response.json();
-    // console.log("Desserts data:", data);
-    return data;
-  } catch (error) {
-    console.error("Error fetching desserts:", error);
-  }
-};
 
 type Offer = {
   id: number;
@@ -98,18 +76,22 @@ const mockUserData = {
 function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
-  const [desserts, setDesserts] = useState<Array<Offer>>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function fetchOffers() {
+    setIsLoading(true);
+    try {
+      const response = await getOffers();
+      setOffers(response);
+    } catch (error) {
+      console.error("Error fetching offers:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   useEffect(() => {
-    getData().then((data) => {
-      setOffers(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    getDesserts().then((data) => {
-      setDesserts(data);
-    });
+    fetchOffers();
   }, []);
 
   return (
@@ -135,16 +117,20 @@ function Home() {
         <div className="container">
           <Heading component="h2">Promoções</Heading>
         </div>
-        <Carousel>
-          {offers.map((offer) => (
-            <CarouselItem
-              key={offer.id}
-              title={offer.title}
-              description={offer.description}
-              image={offer.image}
-            />
-          ))}
-        </Carousel>
+        {isLoading ? (
+          <CarouselSkeleton />
+        ) : (
+          <Carousel>
+            {offers.map((offer) => (
+              <CarouselItem
+                key={offer.id}
+                title={offer.title}
+                description={offer.description}
+                image={offer.image}
+              />
+            ))}
+          </Carousel>
+        )}
       </section>
       <OrderAgain
         title={mockOrderAgainData.title}

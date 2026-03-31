@@ -1,13 +1,7 @@
-async function getOrders(id: string) {
+async function getOffers() {
   const url = "https://burgerlivery-esposito-api.onrender.com";
-  const token = JSON.parse(sessionStorage.getItem("userToken") as string);
 
-  const response = await fetch(`${url}/orders/user/${id}`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const response = await fetch(`${url}/offer-gallery`);
 
   if (!response.ok) {
     const errorData = await response.json();
@@ -25,4 +19,4 @@ async function getOrders(id: string) {
   return data;
 }
 
-export default getOrders;
+export default getOffers;
