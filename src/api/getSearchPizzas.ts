@@ -1,10 +1,5 @@
-// https://burgerlivery-esposito-api.onrender.com -> Endepoint para buscar as pizzas
-// /pizzas -> Param
-// /search -> Param
-// ?query=calabresa -> queryparam
-
 async function getSearchPizzas(query: string) {
-  const url = "https://burgerlivery-esposito-api.onrender.com";
+  const url = import.meta.env.VITE_API_URL;
 
   const response = await fetch(`${url}/pizzas/search?query=${query}`);
 

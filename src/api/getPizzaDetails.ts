@@ -1,8 +1,5 @@
-// https://burgerlivery-esposito-api.onrender.com/
-// pizzas/
-// 10
 async function getPizzaDetails(id: string) {
-  const url = "https://burgerlivery-esposito-api.onrender.com";
+  const url = import.meta.env.VITE_API_URL;
   const response = await fetch(`${url}/pizzas/${id}`);
 
   if (!response.ok) {

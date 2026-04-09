@@ -16,6 +16,8 @@ import {
   DeliveryAddress,
   GrettingUser,
   CarouselSkeleton,
+  Input,
+  ErrorLabel,
 } from "../../components";
 
 import MargueritaImage from "../../assets/160572915436349060139189700225-1080p.jpg";
@@ -23,6 +25,8 @@ import CalabresaImage from "../../assets/16057285666390640459715899877-1080p.jpg
 import CalacheeseImage from "../../assets/160572872237340571510501432084-1080p.jpg";
 import getOffers from "../../api/getOffers";
 import "./Home.css";
+
+import { useForm } from "react-hook-form";
 
 type Offer = {
   id: number;
@@ -73,10 +77,30 @@ const mockUserData = {
   address: "Rua Mesquita, 248",
 };
 
+type AddressForm = {
+  cep: string;
+  city: string;
+  complement: string;
+  neighborhood: string;
+  number: string;
+  state: string;
+  street: string;
+};
+
 function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<AddressForm>();
+
+  const handleOnSubmit = (data: AddressForm) => {
+    console.log("Dados do formulário:", data);
+  };
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -154,14 +178,134 @@ function Home() {
       </article>
       <Footer />
       <Dialog
-        title="Título do Dialog"
+        title="Alterar endereço"
         open={openModal}
         onClose={() => setOpenModal(false)}
       >
-        <Button onClick={() => {}}>aa</Button>
-        <Button variant="primary" fullWidth onClick={() => {}}>
-          aa
-        </Button>
+        <form
+          className="flex flex-col gap-2"
+          onSubmit={handleSubmit(handleOnSubmit)}
+        >
+          <div>
+            <Input
+              type="text"
+              id="cep"
+              label="CEP"
+              // name="cep"
+              placeholder="Digite o CEP"
+              noLabel
+              {...register("cep", {
+                required: "CEP é obrigatório",
+                pattern: {
+                  // value: /^[0-9]+$/,
+                  value: /^[0-9]{5}-?[0-9]{3}$/,
+                  message: "Apenas números são permitidos",
+                },
+                max: 9,
+              })}
+            />
+            {errors.cep && (
+              <ErrorLabel id="cep">{errors.cep.message}</ErrorLabel>
+            )}
+          </div>
+          <div>
+            <Input
+              type="text"
+              id="street"
+              label="Rua"
+              // name="street"
+              placeholder="Rua"
+              noLabel
+              {...register("street", { required: "Rua é obrigatório" })}
+            />
+            {errors.street && (
+              <ErrorLabel id="cep">{errors.street.message}</ErrorLabel>
+            )}
+          </div>
+          <div className="flex gap-2">
+            <div>
+              <Input
+                type="text"
+                id="number"
+                label="Número"
+                // name="number"
+                placeholder="Número"
+                noLabel
+                {...register("number", { required: "Número é obrigatório" })}
+              />
+              {errors.number && (
+                <ErrorLabel id="cep">{errors.number.message}</ErrorLabel>
+              )}
+            </div>
+            <div className="flex-none">
+              <Input
+                type="text"
+                id="complement"
+                label="Complemento"
+                // name="complement"
+                placeholder="Complemento"
+                noLabel
+                {...register("complement")}
+              />
+            </div>
+          </div>
+          <div>
+            <Input
+              type="text"
+              id="neighborhood"
+              label="Bairro"
+              // name="neighborhood"
+              placeholder="Bairro"
+              noLabel
+              {...register("neighborhood", {
+                required: "Bairro é obrigatório",
+              })}
+            />
+            {errors.neighborhood && (
+              <ErrorLabel id="cep">{errors.neighborhood.message}</ErrorLabel>
+            )}
+          </div>
+          <div className="flex gap-2">
+            <div className="flex-none">
+              <Input
+                type="text"
+                id="city"
+                label="Cidade"
+                // name="city"
+                placeholder="Cidade"
+                noLabel
+                {...register("city", { required: "Cidade é obrigatório" })}
+              />
+              {errors.city && (
+                <ErrorLabel id="cep">{errors.city.message}</ErrorLabel>
+              )}
+            </div>
+            <div className="flex-1">
+              <Input
+                type="text"
+                id="state"
+                label="Estado"
+                // name="state"
+                placeholder="estado"
+                noLabel
+                {...register("state", {
+                  required: "Estado é obrigatório",
+                  pattern: {
+                    value: /^[A-Za-zÀ-ÿ\s]+$/,
+                    message: "Apenas letras são permitidas",
+                  },
+                })}
+              />
+              {errors.state && (
+                <ErrorLabel id="cep">{errors.state.message}</ErrorLabel>
+              )}
+            </div>
+          </div>
+
+          <Button variant="primary" fullWidth onClick={() => {}}>
+            Cadastrar
+          </Button>
+        </form>
       </Dialog>
     </>
   );

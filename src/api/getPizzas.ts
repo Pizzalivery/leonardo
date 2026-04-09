@@ -1,5 +1,5 @@
 async function getPizzas() {
-  const url = "https://burgerlivery-esposito-api.onrender.com";
+  const url = import.meta.env.VITE_API_URL;
   const response = await fetch(`${url}/pizzas`);
 
   if (!response.ok) {

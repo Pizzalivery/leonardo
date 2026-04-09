@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useOutletContext, useParams } from "react-router";
+import { useNavigate, useOutletContext, useParams } from "react-router";
 import type { ProductLayoutContext } from "../../components/Layouts/ProductLayout/ProductLayout";
 import getPizzaDetails from "../../api/getPizzaDetails";
 import { Button, Heading } from "../../components";
@@ -19,20 +19,25 @@ function ProductDetails() {
     useOutletContext<ProductLayoutContext>();
 
   const params = useParams();
+  const navigate = useNavigate();
 
   setNavigationHistory("/menu");
 
   const [productDetails, setProductDetails] = useState<PizzaDetails | null>(
     null,
   );
+  const [isLoading, setIsLoading] = useState(false);
 
   async function fetchProductDetails(id: string) {
+    setIsLoading(true);
     try {
       const details = await getPizzaDetails(id);
       setProductDetails(details);
       setTitle(details.name);
     } catch (error) {
       console.error("Error fetching product details:", error);
+    } finally {
+      setIsLoading(false);
     }
   }
 

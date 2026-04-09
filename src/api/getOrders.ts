@@ -1,5 +1,5 @@
 async function getOrders(id: string) {
-  const url = "https://burgerlivery-esposito-api.onrender.com";
+  const url = import.meta.env.VITE_API_URL;
   const token = JSON.parse(sessionStorage.getItem("userToken") as string);
 
   const response = await fetch(`${url}/orders/user/${id}`, {

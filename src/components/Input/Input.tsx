@@ -3,7 +3,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   name: string;
   fullWidth?: boolean;
-  placeholder: string;
+  placeholder?: string;
   type: string;
   noLabel?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,14 +21,14 @@ export const Input = ({
   ...props
 }: InputProps) => {
   return (
-    <div className={`${fullWidth ? "w-full" : "min-w-3xs"}`}>
+    <div className={`${fullWidth ? "w-full" : ""}`}>
       <label htmlFor={id} className={noLabel ? "sr-only" : "block"}>
         {label}
       </label>
       <input
         id={id}
         name={name}
-        className="
+        className={`
           border 
           border-interface-base 
           rounded-full 
@@ -39,12 +39,28 @@ export const Input = ({
           w-full
           disabled:bg-mix-interface-border-light
           disabled:pointer-events-none
-        "
+        `}
         type={type}
         placeholder={placeholder}
         onChange={onChange}
         {...props}
       />
     </div>
+  );
+};
+
+interface ErrorLabelProps {
+  children: React.ReactNode;
+  id: string;
+}
+
+export const ErrorLabel = ({ id, children }: ErrorLabelProps) => {
+  return (
+    <label
+      className="text-interface-error text-sm m-2 block"
+      htmlFor={`${id}-error`}
+    >
+      {children}
+    </label>
   );
 };
