@@ -18,6 +18,8 @@ const ProductDetails = lazy(
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
 
+const CartList = lazy(() => import("./pages/Cart/CartList/CartList"));
+
 function App() {
   return (
     <BrowserRouter>
@@ -44,6 +46,10 @@ function App() {
             </Route>
 
             <Route path="profile" element={<Profile />} />
+          </Route>
+
+          <Route path="cart" element={<ProductLayout />}>
+            <Route index element={<CartList />} />
           </Route>
         </Routes>
       </Suspense>
