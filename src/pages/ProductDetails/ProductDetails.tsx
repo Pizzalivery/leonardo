@@ -1,31 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useOutletContext, useParams } from "react-router";
 import type { ProductLayoutContext } from "../../components/Layouts/ProductLayout/ProductLayout";
 import getPizzaDetails from "../../api/getPizzaDetails";
 import { Button, Heading } from "../../components";
-
-type PizzaDetails = {
-  id: number;
-  name: string;
-  size: string[]; // Array<string>
-  category: string;
-  description: string;
-  image: string;
-  value: number;
-};
+import { OrderContext } from "../../context/OrderContext";
+import type { OrderContextProps, OrderItem, PizzaDetails } from "../../types";
 
 function ProductDetails() {
   const { setTitle, setNavigationHistory } =
     useOutletContext<ProductLayoutContext>();
+
+  const { setOrders } = useContext<OrderContextProps>(OrderContext);
 
   const params = useParams();
   const navigate = useNavigate();
 
   setNavigationHistory("/menu");
 
-  const [productDetails, setProductDetails] = useState<PizzaDetails | null>(
-    null,
-  );
+  const [productDetails, setProductDetails] = useState<PizzaDetails>();
   const [isLoading, setIsLoading] = useState(false);
 
   async function fetchProductDetails(id: string) {
@@ -46,6 +38,22 @@ function ProductDetails() {
       style: "currency",
       currency: "BRL",
     });
+
+  const handleAdd = () => {
+    const productToAdd = {
+      id: productDetails?.id || 0,
+      name: productDetails?.name || "",
+      size: productDetails?.size[0] || "",
+      category: productDetails?.category || "",
+      image: productDetails?.image || "",
+      value: productDetails?.value || 0,
+    };
+
+    // ...prevOrders => spread operator
+    setOrders((prevOrders: OrderItem[]) => [...prevOrders, productToAdd]);
+
+    navigate("/cart");
+  };
 
   useEffect(() => {
     if (params.productId) {
@@ -73,11 +81,7 @@ function ProductDetails() {
             {formattedValue(productDetails?.value ?? 0)}
           </span>
         </div>
-        <Button
-          fullWidth
-          onClick={() => console.log("Produto adicionado ao carrinho:")}
-          variant="primary"
-        >
+        <Button fullWidth onClick={handleAdd} variant="primary">
           Adicionar
         </Button>
       </div>

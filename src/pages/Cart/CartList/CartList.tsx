@@ -2,13 +2,35 @@ import { NavLink, useOutletContext } from "react-router";
 import type { ProductLayoutContext } from "../../../components/Layouts/ProductLayout/ProductLayout";
 import { Minus, Plus } from "lucide-react";
 import { Button } from "../../../components";
-import { access } from "fs";
+import { OrderContext } from "../../../context/OrderContext";
+import { useContext } from "react";
+import type { OrderContextProps, OrderItem } from "../../../types";
 
-const mockCartItems = [
+const formattedValue = (value: number) => {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(value);
+};
+
+// {formattedValue(
+//   mockCartItems.reduce(
+//     (acc, item) => acc + item.value, delveryFee),
+// )}
+
+const mockCartItems: Array<{
+  id: number;
+  name: string;
+  size: SizeKey;
+  category: string;
+  description: string;
+  image: string;
+  value: number;
+}> = [
   {
     id: 2,
     name: "Bráz",
-    size: ["LARGE"],
+    size: "LARGE",
     category: "pizza",
     description:
       "Fatias de abobrinha dourada em alho e azeite de oliva sobre base de muçarela especial, gratinada com lascas de parmesão argentino e finalizada com alecrim fresco. Homenagem à Bráz Pizzaria.",
@@ -19,7 +41,7 @@ const mockCartItems = [
   {
     id: 14,
     name: "Ibérica",
-    size: ["LARGE"],
+    size: "LARGE",
     category: "pizza",
     description:
       "Jamón serrano espanhol, lascas de parmesão argentino, Catupiry® e champignon sobre base de muçarela especial. Leva tomate em cubos na saída do forno.",
@@ -36,11 +58,7 @@ const Size = {
   LARGE: "Grande - 8 fatias",
 } as const;
 
-const formattedValue = (value: number) =>
-  value.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
+type SizeKey = keyof typeof Size;
 
 function CartList() {
   const { setTitle, setNavigationHistory } =
@@ -48,10 +66,12 @@ function CartList() {
   setTitle("Sacola");
   setNavigationHistory("/menu");
 
+  const { orders } = useContext<OrderContextProps>(OrderContext);
+
   return (
     <article className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
       <div>
-        {mockCartItems.map((item) => (
+        {orders.map((item: OrderItem) => (
           <section key={item.id} className="flex items-center gap-2 mb-6">
             <img
               src={item.image}
@@ -61,7 +81,7 @@ function CartList() {
             <div className="flex-1">
               <h2 className="font-bold text-typography-dark">{item.name}</h2>
               <p className="text-sm text-typography-base">
-                {Size[item.size[0] as keyof typeof Size]}
+                {Size[item.size as SizeKey]}
               </p>
             </div>
 
@@ -108,10 +128,9 @@ function CartList() {
             <li className="text-typography-darkest font-bold flex mb-2">
               Total
               <span className="text-right flex-1">
-                {/* {formattedValue(
+                {formattedValue(
                   mockCartItems[0].value + mockCartItems[1].value + delveryFee,
-                )} */}
-                {mockCartItems.reduce((acc, value) => acc + value + delveryFee)}
+                )}
               </span>
             </li>
           </ul>
