@@ -1,3 +1,4 @@
+export * from "./Badge/Badge";
 export * from "./Button/Button";
 export * from "./Card/Card";
 export * from "./Carousel/Carousel";
@@ -12,6 +13,8 @@ export * from "./Logo/Logo";
 export * from "./MainMenu/MainMenu";
 export * from "./Navigation/Navigation";
 export * from "./OrderAgain/OrderAgain";
+export * from "./PixPayment/PixPayment";
 export * from "./PrivateRoutes/PrivateRoutes";
 export * from "./ProductItem/ProductItem";
 export * from "./ProductListItem/ProductListItem";
+export * from "./Radio/Radio";

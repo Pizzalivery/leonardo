@@ -19,6 +19,7 @@ const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
 
 const CartList = lazy(() => import("./pages/Cart/CartList/CartList"));
+const CartPayment = lazy(() => import("./pages/Cart/CartPayment/CartPayment"));
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
             </Route>
 
             <Route path="profile" element={<Profile />} />
+            <Route element={<ProductLayout />}>
+              <Route path="payment" element={<CartPayment />} />
+            </Route>
           </Route>
 
           <Route path="cart" element={<ProductLayout />}>
