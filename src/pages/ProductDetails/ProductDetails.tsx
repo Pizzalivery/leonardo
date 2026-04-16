@@ -62,7 +62,7 @@ function ProductDetails() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
+    <div className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)] px-5">
       <div>
         <img
           src={productDetails?.image}

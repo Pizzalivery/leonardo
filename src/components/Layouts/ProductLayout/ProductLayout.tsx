@@ -30,7 +30,7 @@ function ProductLayout() {
         <h1 className=" text-center text-lg font-bold">{title}</h1>
         <span></span>
       </header>
-      <main className="mx-auto px-5">
+      <main className="mx-auto">
         <Outlet
           context={{
             setTitle,

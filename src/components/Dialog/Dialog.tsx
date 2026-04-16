@@ -23,7 +23,7 @@ export const Dialog = ({ title, children, open, onClose }: DialogProps) => {
           <X />
         </button>
       </header>
-      <div>{children}</div>
+      <>{children}</>
     </section>
   );
 };

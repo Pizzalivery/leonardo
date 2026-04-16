@@ -1,59 +1,16 @@
-import { NavLink, useOutletContext } from "react-router";
+import { NavLink, useNavigate, useOutletContext } from "react-router";
 import type { ProductLayoutContext } from "../../../components/Layouts/ProductLayout/ProductLayout";
 import { Minus, Plus } from "lucide-react";
 import { Button } from "../../../components";
 import { OrderContext } from "../../../context/OrderContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import type { OrderContextProps, OrderItem } from "../../../types";
+import { formatCurrency } from "../../../utils/numberFormat";
 
-const formattedValue = (value: number) => {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(value);
-};
-
-// {formattedValue(
-//   mockCartItems.reduce(
-//     (acc, item) => acc + item.value, delveryFee),
-// )}
-
-const mockCartItems: Array<{
-  id: number;
-  name: string;
-  size: SizeKey;
-  category: string;
-  description: string;
-  image: string;
-  value: number;
-}> = [
-  {
-    id: 2,
-    name: "Bráz",
-    size: "LARGE",
-    category: "pizza",
-    description:
-      "Fatias de abobrinha dourada em alho e azeite de oliva sobre base de muçarela especial, gratinada com lascas de parmesão argentino e finalizada com alecrim fresco. Homenagem à Bráz Pizzaria.",
-    image: "https://cdn.accon.app/16057285531372731965683438782-1080p.jpg",
-    value: 99,
-  },
-
-  {
-    id: 14,
-    name: "Ibérica",
-    size: "LARGE",
-    category: "pizza",
-    description:
-      "Jamón serrano espanhol, lascas de parmesão argentino, Catupiry® e champignon sobre base de muçarela especial. Leva tomate em cubos na saída do forno.",
-    image: "https://cdn.accon.app/16057289995918277376069242095-1080p.jpg",
-    value: 134,
-  },
-];
-
-const delveryFee = 5.9;
+const discount = 7.9;
 
 const Size = {
-  SMALL: " Pequena - 4 fatias",
+  SMALL: "Pequena - 4 fatias",
   MEDIUM: "Média - 6 fatias",
   LARGE: "Grande - 8 fatias",
 } as const;
@@ -63,13 +20,20 @@ type SizeKey = keyof typeof Size;
 function CartList() {
   const { setTitle, setNavigationHistory } =
     useOutletContext<ProductLayoutContext>();
+
+  const navigate = useNavigate();
   setTitle("Sacola");
   setNavigationHistory("/menu");
 
-  const { orders } = useContext<OrderContextProps>(OrderContext);
+  const { orders, totalValue, delveryFee } =
+    useContext<OrderContextProps>(OrderContext);
+
+  const handleNextStep = () => {
+    navigate("/payment");
+  };
 
   return (
-    <article className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
+    <article className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)] px-5">
       <div>
         {orders.map((item: OrderItem) => (
           <section key={item.id} className="flex items-center gap-2 mb-6">
@@ -83,6 +47,7 @@ function CartList() {
               <p className="text-sm text-typography-base">
                 {Size[item.size as SizeKey]}
               </p>
+              {/* <p className="text-sm text-typography-base">{item.size}</p> */}
             </div>
 
             <div className="flex items-center gap-2">
@@ -92,7 +57,7 @@ function CartList() {
               >
                 <Minus className="size-4" />
               </button>
-              <span className="text-typography-dark">{item.value}</span>
+              <span className="text-typography-dark">{1}</span>
               <button className="bg-brand-primary text-common-light rounded-full p-1">
                 <Plus className="size-4" />
               </button>
@@ -114,32 +79,24 @@ function CartList() {
             <li className="flex mb-2">
               Subtotal
               <span className="text-right flex-1">
-                {formattedValue(
-                  mockCartItems[0].value + mockCartItems[1].value,
-                )}
+                {formatCurrency(totalValue)}
               </span>
             </li>
             <li className="flex mb-2">
               Taxa de entrega
               <span className="text-right flex-1">
-                {formattedValue(delveryFee)}
+                {formatCurrency(delveryFee)}
               </span>
             </li>
             <li className="text-typography-darkest font-bold flex mb-2">
               Total
               <span className="text-right flex-1">
-                {formattedValue(
-                  mockCartItems[0].value + mockCartItems[1].value + delveryFee,
-                )}
+                {formatCurrency(totalValue + delveryFee)}
               </span>
             </li>
           </ul>
         </div>
-        <Button
-          fullWidth
-          onClick={() => console.log("Ir para checkout")}
-          variant="primary"
-        >
+        <Button fullWidth onClick={handleNextStep} variant="primary">
           Ir para o pagamento
         </Button>
       </div>

@@ -1,14 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import type { OrderContextProps, OrderItem } from "../types";
-
-// {formattedValue(
-//   mockCartItems.reduce(
-//     (acc, item) => acc + item.value, delveryFee),
-// )}
 
 const OrderContext = createContext<OrderContextProps>({
   orders: [],
   setOrders: () => {},
+  totalValue: 0,
+  setTotalValue: () => {},
+  delveryFee: 0,
 }); // Cria o contexto para o pedido, inicialmente com valor nulo
 
 interface OrderProviderProps {
@@ -16,16 +14,25 @@ interface OrderProviderProps {
 }
 
 export const OrderProvider = ({ children }: OrderProviderProps) => {
+  const delveryFee = 5.9;
+
   const [orders, setOrders] = useState<OrderItem[]>([]);
-  // const [totalValue, setTotalValue] = useState(0);
+  const [totalValue, setTotalValue] = useState(0);
+
+  useEffect(() => {
+    const orderValues = orders.reduce((total, items) => total + items.value, 0);
+
+    setTotalValue(orderValues);
+  }, [orders]);
 
   return (
     <OrderContext.Provider
       value={{
         orders,
         setOrders,
-        // totalValue,
-        // setTotalValue,
+        totalValue,
+        setTotalValue,
+        delveryFee,
       }}
     >
       {children}
@@ -34,3 +41,25 @@ export const OrderProvider = ({ children }: OrderProviderProps) => {
 };
 
 export { OrderContext };
+
+//   const [orders, setOrders] = useState<OrderItem[]>([]);
+
+//   // Compute totalValue as derived state using useMemo
+//   const totalValue = useMemo(() =>
+//     orders.reduce((total, item) => total + item.value, 0),
+//     [orders]
+//   );
+
+//   return (
+//     <OrderContext.Provider
+//       value={{
+//         orders,
+//         setOrders,
+//         totalValue,  // Now read-only, derived from orders
+//         // Removed setTotalValue since totalValue is no longer in state
+//       }}
+//     >
+//       {children}
+//     </OrderContext.Provider>
+//   );
+// };
