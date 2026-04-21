@@ -13,10 +13,17 @@ const Menu = lazy(() => import("./pages/Menu/Menu"));
 const Orders = lazy(() => import("./pages/Orders/Orders"));
 const OrderDetails = lazy(() => import("./pages/OrderDetails/OrderDetails"));
 const ProductDetails = lazy(
-  () => import("./pages/ProductDetails/ProductDetails"),
+  () => import("./pages/ProductDetails/ProductDetails")
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+const Register = lazy(() => import("./pages/Register/Register"));
+const RegisterCpf = lazy(() => import("./pages/Register/RegisterCpf"));
+const RegisterPhone = lazy(() => import("./pages/Register/RegisterPhone"));
+const RegisterCep = lazy(() => import("./pages/Register/RegisterCep"));
+const RegisterAddress = lazy(
+  () => import("./pages/Register/RegisterAddress")
+);
 
 function App() {
   return (
@@ -34,15 +41,24 @@ function App() {
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
+
           <Route path="auth/login" element={<AuthLayout />}>
             <Route index element={<Login />} />
           </Route>
+
+          <Route path="register" element={<AuthLayout />}>
+            <Route index element={<Register />} />
+            <Route path="cpf" element={<RegisterCpf />} />
+            <Route path="phone" element={<RegisterPhone />} />
+            <Route path="cep" element={<RegisterCep />} />
+            <Route path="address" element={<RegisterAddress />} />
+          </Route>
+
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
               <Route index element={<Orders />} />
               <Route path=":orderId" element={<OrderDetails />} />
             </Route>
-
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
