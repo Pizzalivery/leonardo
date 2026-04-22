@@ -99,8 +99,8 @@ function Login() {
       </div>
       <p className="text-center text-typography-base text-base">
         Não tem uma conta?{" "}
-        <NavLink to="/register" className="text-brand-primary underline">
-          Criar conta
+        <NavLink to="/auth/register" className="text-brand-primary underline">
+        Criar conta
         </NavLink>
       </p>
     </section>

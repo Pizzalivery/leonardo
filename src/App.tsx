@@ -17,6 +17,7 @@ const ProductDetails = lazy(
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+const Register = lazy(() => import("./pages/Auth/Register/Register"));
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="auth/login" element={<AuthLayout />}>
             <Route index element={<Login />} />
+          </Route>
+           <Route path="auth/register" element={<AuthLayout />}>
+            <Route index element={<Register />} />
           </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
