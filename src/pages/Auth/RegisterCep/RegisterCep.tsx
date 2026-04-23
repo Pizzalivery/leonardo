@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from "react-router";
 import { LoaderCircle } from "lucide-react";
 
 import { Button, Heading, Input } from "../../../components";
-import patchUserCpf from "../../../api/patchUserCpf";
+import getAddressByCep from "../../../api/getAddressByCep";
 import type { AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
 
 type StoredUser = {
@@ -16,22 +16,22 @@ type StoredUser = {
   hasAddress?: boolean;
 };
 
-function RegisterCpf() {
+function RegisterCep() {
   const navigate = useNavigate();
   const { setTitle, setNavigationHistory } =
     useOutletContext<AuthLayoutContext>();
 
-  const [cpf, setCpf] = useState("");
+  const [cep, setCep] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTitle("Pizzalivery");
-    setNavigationHistory("/auth/register");
+    setNavigationHistory("/auth/register/phone");
   }, [setNavigationHistory, setTitle]);
 
-  function handleCpfChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleCepChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
-    setCpf(value);
+    setCep(value);
   }
 
   function getStoredUser(): StoredUser | null {
@@ -54,36 +54,38 @@ function RegisterCpf() {
     navigate("/");
   }
 
-  async function handleContinue() {
-    const storedUser = getStoredUser();
-    const userId = storedUser?.id;
-
-    if (!cpf.trim()) {
-      alert("Digite seu CPF.");
+  async function fetchCep() {
+    if (!cep.trim()) {
+      alert("Digite seu CEP.");
       return;
     }
 
     setIsLoading(true);
 
     try {
-      if (userId) {
-        await patchUserCpf(userId, {
-          cpf,
-        });
-      }
-    } catch {
-      // continua o fluxo mesmo se a API falhar
-    } finally {
-      sessionStorage.setItem(
-        "user",
-        JSON.stringify({
-          ...storedUser,
-          cpf,
-        }),
-      );
+      const response = await getAddressByCep(cep);
 
+      navigate("/auth/register/address", {
+        state: {
+          cep: response.cep,
+          street: response.logradouro,
+          neighborhood: response.bairro,
+          city: response.localidade,
+          state: response.uf,
+          complement: response.complemento,
+        },
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        try {
+          const parsedError = JSON.parse(error.message);
+          alert(parsedError.message || "Não foi possível buscar o CEP.");
+        } catch {
+          alert("Não foi possível buscar o CEP.");
+        }
+      }
+    } finally {
       setIsLoading(false);
-      navigate("/auth/register/phone");
     }
   }
 
@@ -91,20 +93,20 @@ function RegisterCpf() {
     <section className="grid grid-rows-[1fr_auto] gap-4 min-h-[calc(100vh-88px)]">
       <div className="flex flex-col items-center justify-center gap-6">
         <div className="flex flex-col items-center gap-3 text-center">
-          <Heading component="h1">Parabéns! Sua conta foi criada</Heading>
+          <Heading component="h1">Qual seu endereço</Heading>
           <p className="max-w-[280px] text-sm text-typography-base">
-            Finalize seu cadastro adicionando mais informações.
+            Informe seu CEP para adicionar seu endereço.
           </p>
         </div>
 
         <Input
           type="text"
-          name="cpf"
-          id="cpf"
-          label="CPF"
-          placeholder="Digite seu CPF *"
-          value={cpf}
-          onChange={handleCpfChange}
+          name="cep"
+          id="cep"
+          label="CEP"
+          placeholder="Digite seu CEP *"
+          value={cep}
+          onChange={handleCepChange}
           fullWidth
           noLabel
           disabled={isLoading}
@@ -112,14 +114,14 @@ function RegisterCpf() {
 
         <Button
           variant="primary"
-          onClick={handleContinue}
+          onClick={fetchCep}
           fullWidth
           disabled={isLoading}
         >
           {isLoading ? (
             <LoaderCircle className="animate-spin" />
           ) : (
-            "Continuar"
+            "Buscar endereço"
           )}
         </Button>
 
@@ -131,4 +133,4 @@ function RegisterCpf() {
   );
 }
 
-export default RegisterCpf;
+export default RegisterCep;

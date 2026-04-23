@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from "react-router";
 import { LoaderCircle } from "lucide-react";
 
 import { Button, Heading, Input } from "../../../components";
-import patchUserCpf from "../../../api/patchUserCpf";
+import patchUserPhone from "../../../api/patchUserPhone";
 import type { AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
 
 type StoredUser = {
@@ -16,22 +16,22 @@ type StoredUser = {
   hasAddress?: boolean;
 };
 
-function RegisterCpf() {
+function RegisterPhone() {
   const navigate = useNavigate();
   const { setTitle, setNavigationHistory } =
     useOutletContext<AuthLayoutContext>();
 
-  const [cpf, setCpf] = useState("");
+  const [phone, setPhone] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTitle("Pizzalivery");
-    setNavigationHistory("/auth/register");
+    setNavigationHistory("/auth/register/cpf");
   }, [setNavigationHistory, setTitle]);
 
-  function handleCpfChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handlePhoneChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
-    setCpf(value);
+    setPhone(value);
   }
 
   function getStoredUser(): StoredUser | null {
@@ -54,12 +54,12 @@ function RegisterCpf() {
     navigate("/");
   }
 
-  async function handleContinue() {
+  async function fetchPhone() {
     const storedUser = getStoredUser();
     const userId = storedUser?.id;
 
-    if (!cpf.trim()) {
-      alert("Digite seu CPF.");
+    if (!phone.trim()) {
+      alert("Digite seu telefone.");
       return;
     }
 
@@ -67,8 +67,8 @@ function RegisterCpf() {
 
     try {
       if (userId) {
-        await patchUserCpf(userId, {
-          cpf,
+        await patchUserPhone(userId, {
+          phone,
         });
       }
     } catch {
@@ -78,12 +78,12 @@ function RegisterCpf() {
         "user",
         JSON.stringify({
           ...storedUser,
-          cpf,
+          phone,
         }),
       );
 
       setIsLoading(false);
-      navigate("/auth/register/phone");
+      navigate("/auth/register/cep");
     }
   }
 
@@ -91,20 +91,21 @@ function RegisterCpf() {
     <section className="grid grid-rows-[1fr_auto] gap-4 min-h-[calc(100vh-88px)]">
       <div className="flex flex-col items-center justify-center gap-6">
         <div className="flex flex-col items-center gap-3 text-center">
-          <Heading component="h1">Parabéns! Sua conta foi criada</Heading>
+          <Heading component="h1">Adicione seu telefone</Heading>
           <p className="max-w-[280px] text-sm text-typography-base">
-            Finalize seu cadastro adicionando mais informações.
+            Adicione seu telefone para um canal de contato mais agilidade e
+            praticidade.
           </p>
         </div>
 
         <Input
           type="text"
-          name="cpf"
-          id="cpf"
-          label="CPF"
-          placeholder="Digite seu CPF *"
-          value={cpf}
-          onChange={handleCpfChange}
+          name="phone"
+          id="phone"
+          label="Telefone"
+          placeholder="DDD + Número *"
+          value={phone}
+          onChange={handlePhoneChange}
           fullWidth
           noLabel
           disabled={isLoading}
@@ -112,7 +113,7 @@ function RegisterCpf() {
 
         <Button
           variant="primary"
-          onClick={handleContinue}
+          onClick={fetchPhone}
           fullWidth
           disabled={isLoading}
         >
@@ -131,4 +132,4 @@ function RegisterCpf() {
   );
 }
 
-export default RegisterCpf;
+export default RegisterPhone;

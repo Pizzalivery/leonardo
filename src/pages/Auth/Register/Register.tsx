@@ -43,36 +43,38 @@ function Register() {
     }));
   }
 
-  function validateForm() {
+  async function handleRegister() {
     if (!form.name.trim()) {
       alert("Preencha seu nome.");
-      return false;
+      return;
     }
 
     if (!form.email.trim()) {
       alert("Preencha seu e-mail.");
-      return false;
+      return;
     }
 
     if (!form.password.trim()) {
       alert("Preencha sua senha.");
-      return false;
+      return;
     }
 
     if (!form.confirmPassword.trim()) {
       alert("Confirme sua senha.");
-      return false;
+      return;
     }
 
     if (form.password !== form.confirmPassword) {
       alert("As senhas não coincidem.");
-      return false;
+      return;
     }
 
-    return true;
-  }
+    const payload: RegisterPayload = {
+      name: form.name,
+      email: form.email,
+      password: form.password,
+    };
 
-  async function fetchRegister(payload: RegisterPayload) {
     setIsLoading(true);
 
     try {
@@ -88,14 +90,16 @@ function Register() {
       if (response?.user) {
         sessionStorage.setItem("user", JSON.stringify(response.user));
       } else {
-        sessionStorage.setItem(
-          "user",
-          JSON.stringify({
-            name: payload.name,
-            email: payload.email,
-          }),
-        );
+        sessionStorage.setItem("user", JSON.stringify(response));
       }
+
+      sessionStorage.setItem(
+        "registerAuth",
+        JSON.stringify({
+          email: form.email,
+          password: form.password,
+        }),
+      );
 
       navigate("/auth/register/cpf");
     } catch (error) {
@@ -103,13 +107,16 @@ function Register() {
         try {
           const parsedError = JSON.parse(error.message);
 
-          if (parsedError.statusCode === 400) {
-            alert(parsedError.message || "Não foi possível criar a conta.");
+          if (
+            parsedError.message === "usuarios.errors.existingUser" ||
+            parsedError.error === "usuarios.errors.existingUser"
+          ) {
+            alert("Este e-mail já está cadastrado. Tente outro e-mail.");
             return;
           }
 
-          if (parsedError.statusCode === 409) {
-            alert("Este e-mail já está cadastrado.");
+          if (parsedError.statusCode === 400) {
+            alert(parsedError.message || "Não foi possível criar a conta.");
             return;
           }
 
@@ -126,20 +133,6 @@ function Register() {
     } finally {
       setIsLoading(false);
     }
-  }
-
-  function handleRegister() {
-    if (!validateForm()) {
-      return;
-    }
-
-    const payload: RegisterPayload = {
-      name: form.name,
-      email: form.email,
-      password: form.password,
-    };
-
-    fetchRegister(payload);
   }
 
   return (
