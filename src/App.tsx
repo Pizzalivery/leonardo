@@ -6,6 +6,10 @@ import ProductLayout from "./components/Layouts/ProductLayout/ProductLayout";
 import AuthLayout from "./components/Layouts/AuthLayout/AuthLayout";
 import "./styles/style.css";
 import { PrivateRoutes } from "./components";
+import RegisterCpf from "./pages/Register/RegisterCpf";
+import RegisterPhone from "./pages/Register/RegisterPhone";
+import RegisterCep from "./pages/Register/RegisterCep";
+import RegisterAddress from "./pages/Register/RegisAddress";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -41,7 +45,10 @@ function App() {
 
             <Route path="register" element={<AuthLayout />}>
             <Route index element={<Register />} />
-
+            <Route path="cpf" element={<RegisterCpf />} />
+            <Route path="phone" element={<RegisterPhone />} />
+            <Route path="cep" element={<RegisterCep />} />
+            <Route path="address" element={<RegisterAddress />} />
           </Route>
 
 
@@ -50,7 +57,6 @@ function App() {
               <Route index element={<Orders />} />
               <Route path=":orderId" element={<OrderDetails />} />
             </Route>
-
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
