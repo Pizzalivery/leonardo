@@ -19,6 +19,7 @@ const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
 const Register = lazy(() => import("./pages/Auth/Register/Register"));
 const AddCpf = lazy(() => import("./pages/Auth/AddCpf/AddCpf"));
+const AddPhone = lazy(() => import("./pages/Auth/AddPhone/AddPhone"));
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path="auth/add-cpf" element={<AuthLayout />}>
             <Route index element={<AddCpf />} />
+          </Route>
+          <Route path="auth/add-phone" element={<AuthLayout />}>
+            <Route index element={<AddPhone />} />
           </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
