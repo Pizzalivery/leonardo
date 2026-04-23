@@ -1,10 +1,13 @@
 import { NavLink, useNavigate } from "react-router";
 import { Button, Heading, Input } from "../../../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import postAuthLogin, { type LoginPayload } from "../../../api/postAuthLogin";
 import { LoaderCircle } from "lucide-react";
+import { useOutletContext } from "react-router";
+import { type AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
 
 function Login() {
+  const { setTitle, setNavigationHistory } = useOutletContext<AuthLayoutContext>();
   const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -54,6 +57,11 @@ function Login() {
     fetchLogin(payload);
   };
 
+  useEffect(() => {
+    setTitle("Pizzalivery");
+    setNavigationHistory("")
+  }, [])
+
   return (
     <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
       <div className="flex flex-col gap-6 items-center justify-center">
@@ -99,7 +107,7 @@ function Login() {
       </div>
       <p className="text-center text-typography-base text-base">
         Não tem uma conta?{" "}
-        <NavLink to="/register" className="text-brand-primary underline">
+        <NavLink to="/auth/register" className="text-brand-primary underline">
           Criar conta
         </NavLink>
       </p>
