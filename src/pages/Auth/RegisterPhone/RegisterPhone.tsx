@@ -12,6 +12,8 @@ function RegisterPhone() {
   const [phone, setPhone] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const isPhoneValid = phone.replace(/\D/g, "").length >= 10;
+
   useEffect(() => {
     setTitle("Pizzalivery");
     setNavigationHistory("");
@@ -26,7 +28,7 @@ function RegisterPhone() {
     setIsLoading(true);
 
     try {
-      await putUserPhone(user.id, phone);
+      await putUserPhone(user.id, phone.replace(/\D/g, ""));
       navigate("/cadastro/cep");
     } catch (error) {
       if (error instanceof Error) {
@@ -56,7 +58,7 @@ function RegisterPhone() {
   return (
     <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
       <div className="flex flex-col gap-6 items-center justify-center">
-        <div className="w-full">
+        <div className="w-full text-center">
           <Heading component="h1">Adicione seu telefone</Heading>
           <p className="text-typography-base text-sm mt-2">
             Adicione seu telefone para um canal de contato com mais agilidade e
@@ -78,7 +80,7 @@ function RegisterPhone() {
           variant="primary"
           onClick={handleContinue}
           fullWidth
-          disabled={isLoading}
+          disabled={isLoading || !isPhoneValid}
         >
           {isLoading ? <LoaderCircle className="animate-spin" /> : "Continuar"}
         </Button>

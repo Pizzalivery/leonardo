@@ -20,6 +20,8 @@ function RegisterCep() {
   const [cep, setCep] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const isCepValid = cep.replace(/\D/g, "").length === 8;
+
   useEffect(() => {
     setTitle("Pizzalivery");
     setNavigationHistory("");
@@ -31,12 +33,6 @@ function RegisterCep() {
 
   async function fetchCep() {
     const cleanedCep = cep.replace(/\D/g, "");
-
-    if (cleanedCep.length !== 8) {
-      alert("Por favor, informe um CEP válido com 8 dígitos.");
-      return;
-    }
-
     setIsLoading(true);
 
     try {
@@ -82,7 +78,7 @@ function RegisterCep() {
   return (
     <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
       <div className="flex flex-col gap-6 items-center justify-center">
-        <div className="w-full">
+        <div className="w-full text-center">
           <Heading component="h1">Qual seu endereço</Heading>
           <p className="text-typography-base text-sm mt-2">
             Informe seu CEP para adicionar seu endereço.
@@ -103,7 +99,7 @@ function RegisterCep() {
           variant="primary"
           onClick={handleSearch}
           fullWidth
-          disabled={isLoading}
+          disabled={isLoading || !isCepValid}
         >
           {isLoading ? (
             <LoaderCircle className="animate-spin" />

@@ -12,6 +12,8 @@ function RegisterCpf() {
   const [cpf, setCpf] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const isCpfValid = cpf.replace(/\D/g, "").length === 11;
+
   useEffect(() => {
     setTitle("Pizzalivery");
     setNavigationHistory("");
@@ -26,7 +28,7 @@ function RegisterCpf() {
     setIsLoading(true);
 
     try {
-      await putUserCpf(user.id, cpf);
+      await putUserCpf(user.id, cpf.replace(/\D/g, ""));
       navigate("/cadastro/telefone");
     } catch (error) {
       if (error instanceof Error) {
@@ -56,7 +58,7 @@ function RegisterCpf() {
   return (
     <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
       <div className="flex flex-col gap-6 items-center justify-center">
-        <div className="w-full">
+        <div className="w-full text-center">
           <Heading component="h1">Parabéns! Sua conta foi criada</Heading>
           <p className="text-typography-base text-sm mt-2">
             Finalize seu cadastro adicionando mais informações.
@@ -77,7 +79,7 @@ function RegisterCpf() {
           variant="primary"
           onClick={handleContinue}
           fullWidth
-          disabled={isLoading}
+          disabled={isLoading || !isCpfValid}
         >
           {isLoading ? <LoaderCircle className="animate-spin" /> : "Continuar"}
         </Button>

@@ -16,6 +16,13 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isFormValid =
+    name.trim() !== "" &&
+    isEmailValid &&
+    password !== "" &&
+    password === confirmPassword;
+
   useEffect(() => {
     setTitle("Pizzalivery");
     setNavigationHistory("/auth/login");
@@ -57,9 +64,7 @@ function Register() {
       if (error instanceof Error) {
         const parsedError = JSON.parse(error.message);
 
-        if (parsedError.statusCode === 409) {
-          alert("Este email já está em uso. Por favor, use outro email.");
-        } else if (parsedError.statusCode === 400) {
+        if (parsedError.statusCode === 409 || parsedError.statusCode === 400) {
           alert("Este email já está em uso. Por favor, use outro email.");
         } else if (parsedError.statusCode === 500) {
           alert(
@@ -75,20 +80,15 @@ function Register() {
   }
 
   const handleSubmit = () => {
-    if (password !== confirmPassword) {
-      alert("As senhas não coincidem. Por favor, verifique.");
-      return;
-    }
-
     fetchRegister();
   };
 
   return (
     <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
       <div className="flex flex-col gap-6 items-center justify-center">
-        <div className="w-full">
+        <div className="w-full text-center">
           <Heading component="h1">Crie sua conta</Heading>
-          <p className="text-brand-primary text-sm mt-2">
+          <p className="text-typography-base text-sm mt-2">
             É rápido e fácil. Insira seus dados para começar.
           </p>
         </div>
@@ -140,7 +140,7 @@ function Register() {
           variant="primary"
           onClick={handleSubmit}
           fullWidth
-          disabled={isLoading}
+          disabled={isLoading || !isFormValid}
         >
           {isLoading ? <LoaderCircle className="animate-spin" /> : "Criar conta"}
         </Button>

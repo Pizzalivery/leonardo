@@ -26,6 +26,8 @@ function RegisterAddress() {
   const [complemento, setComplemento] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const isNumeroValid = numero.trim() !== "";
+
   useEffect(() => {
     setTitle("Pizzalivery");
     setNavigationHistory("/cadastro/cep");
@@ -76,16 +78,12 @@ function RegisterAddress() {
   }
 
   const handleConclude = () => {
-    if (!numero) {
-      alert("Por favor, informe o número do endereço.");
-      return;
-    }
     fetchAddress();
   };
 
   return (
     <section className="flex flex-col gap-6 py-6 h-[calc(100vh-88px)] overflow-y-auto">
-      <div className="w-full">
+      <div className="w-full text-center">
         <Heading component="h1">Estamos quase lá</Heading>
         <p className="text-typography-base text-sm mt-2">
           Confira o endereço e adicione o número, se tiver complemento adicione
@@ -186,7 +184,7 @@ function RegisterAddress() {
         variant="primary"
         onClick={handleConclude}
         fullWidth
-        disabled={isLoading}
+        disabled={isLoading || !isNumeroValid}
       >
         {isLoading ? <LoaderCircle className="animate-spin" /> : "Concluir"}
       </Button>
