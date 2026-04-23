@@ -13,14 +13,14 @@ async function getAddressByCep(cep: string) {
     const response = await fetch(`https://viacep.com.br/ws/${cleanCep}/json/`)
 
     if (!response.ok) {
-        throw new Error(`Error fetching address for CEP ${cleanCep}`);
+        throw new Error(`Erro ao buscar endereço para o CEP ${cleanCep}`);
     }
 
 
     const data: AddressData = await response.json();
 
     if (data.erro) {
-        throw new Error(`Address not found for CEP ${cleanCep}`);
+        throw new Error(`Endereço não encontrado para o CEP ${cleanCep}`);
     }
 
     return data;
