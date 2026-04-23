@@ -42,7 +42,6 @@ function App() {
           <Route path="auth/login" element={<AuthLayout />}>
             <Route index element={<Login />} />
           </Route>
-
             <Route path="register" element={<AuthLayout />}>
             <Route index element={<Register />} />
             <Route path="cpf" element={<RegisterCpf />} />
