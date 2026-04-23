@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import { mainMenuItems } from "../../utils/mainMenu";
 import {
   Button,
@@ -68,15 +69,20 @@ const mockMostWantedData = [
   },
 ];
 
-const mockUserData = {
-  userName: "Daniela",
-  address: "Rua Mesquita, 248",
-};
-
 function Home() {
+  const location = useLocation();
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showAddress] = useState<boolean>(
+    location.state?.showAddress ?? false,
+  );
+
+  const sessionUser = JSON.parse(sessionStorage.getItem("user") || "null");
+  const userName = sessionUser?.name ?? "Visitante";
+  const userAddress =
+    JSON.parse(sessionStorage.getItem("userAddress") || "null") ??
+    "Endereço não cadastrado";
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -107,11 +113,13 @@ function Home() {
         </MainMenu>
       </Navigation>
       <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
+        <div style={{ display: showAddress ? "block" : "none" }}>
+          <DeliveryAddress
+            address={userAddress}
+            onClick={() => setOpenModal(true)}
+          />
+        </div>
+        <GrettingUser userName={userName} />
       </header>
       <section className="offers">
         <div className="container">

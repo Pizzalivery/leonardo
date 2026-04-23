@@ -17,27 +17,50 @@ const ProductDetails = lazy(
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+const Register = lazy(() => import("./pages/Auth/Register/Register"));
+const RegisterCpf = lazy(() => import("./pages/Auth/RegisterCpf/RegisterCpf"));
+const RegisterPhone = lazy(
+  () => import("./pages/Auth/RegisterPhone/RegisterPhone"),
+);
+const RegisterCep = lazy(() => import("./pages/Auth/RegisterCep/RegisterCep"));
+const RegisterAddress = lazy(
+  () => import("./pages/Auth/RegisterAddress/RegisterAddress"),
+);
 
 function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* Public routes */}
+          <Route path="auth/login" element={<AuthLayout />}>
+            <Route index element={<Login />} />
+          </Route>
+          <Route path="criar-conta" element={<AuthLayout />}>
+            <Route index element={<Register />} />
+          </Route>
+
           <Route path="search" element={<NavigationLayout />}>
             <Route index element={<Search />} />
           </Route>
           <Route path="menu" element={<NavigationLayout />}>
             <Route index element={<Menu />} />
           </Route>
-
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
-          <Route path="auth/login" element={<AuthLayout />}>
-            <Route index element={<Login />} />
-          </Route>
+
+          {/* Protected routes */}
           <Route element={<PrivateRoutes />}>
+            <Route path="/" element={<Home />} />
+
+            <Route path="cadastro" element={<AuthLayout />}>
+              <Route path="cpf" element={<RegisterCpf />} />
+              <Route path="telefone" element={<RegisterPhone />} />
+              <Route path="cep" element={<RegisterCep />} />
+              <Route path="endereco" element={<RegisterAddress />} />
+            </Route>
+
             <Route path="orders" element={<NavigationLayout />}>
               <Route index element={<Orders />} />
               <Route path=":orderId" element={<OrderDetails />} />
