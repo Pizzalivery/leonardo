@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
-import postAuthCpf, { type CpfPayload } from "../../../api/postAuthCpf";
-import { LoaderCircle } from "lucide-react";
 import { type AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
 
-function AddCpf(){
+function AddCpf() {
     const navigate = useNavigate();
     const { setTitle, setNavigationHistory } = useOutletContext<AuthLayoutContext>();
 
     const [cpf, setCpf] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setTitle("");
@@ -22,55 +19,24 @@ function AddCpf(){
         setCpf(value);
     };
 
-    async function fetchAddCpf(payload: CpfPayload) {
-        setIsLoading(true);
-
-        try {
-            const token = JSON.parse(sessionStorage.getItem("token") || "");
-
-            await postAuthCpf(payload, token);
-
-            navigate("/auth/add-phone");
-        } catch (error) {
-            if (error instanceof Error) {
-                const parsedError = JSON.parse(error.message);
-
-                if (parsedError.statusCode === 400){
-                    alert("CPF inválido, tente novamente")
-                }
-
-                if (parsedError.statusCode === 500) {
-                    alert("Erro no servidor, tente novamente mais tarde")
-                }
-            }
-            
-        } finally {
-            setIsLoading(false);
-        }
-    }
-
     const handleContinue = () => {
-        const payload: CpfPayload = {
-            cpf,
-        };
-        fetchAddCpf(payload);
-    }
+        sessionStorage.setItem("registerCpf", JSON.stringify(cpf));
+        navigate("/auth/add-phone");
+    };
 
     const handleSkip = () => {
         navigate("/");
-    }
+    };
 
     return (
         <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
             <div className="flex flex-col gap-6 items-center justify-center">
-
                 <div className="flex flex-col gap-2 text-center">
                     <Heading component="h1">Parabéns! Sua conta foi criada</Heading>
                     <p className="text-typography-base text-sm">
                         Finalize seu cadastro adicionando mais informações.
                     </p>
                 </div>
-
                 <Input
                     type="text"
                     name="cpf"
@@ -80,16 +46,13 @@ function AddCpf(){
                     onChange={handleCpfChange}
                     fullWidth
                     noLabel
-                    disabled={isLoading}
                 />
-
                 <Button
                     variant="primary"
                     onClick={handleContinue}
                     fullWidth
-                    disabled={isLoading}
                 >
-                    {isLoading ? <LoaderCircle className="animate-spin" /> : "Continuar"}
+                    Continuar
                 </Button>
                 <button
                     onClick={handleSkip}
@@ -97,7 +60,6 @@ function AddCpf(){
                 >
                     Pular
                 </button>
-
             </div>
         </section>
     );

@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
+import { LoaderCircle } from "lucide-react";
 import { type AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
+import postAuthRegister, { type RegisterPayload } from "../../../api/postAuthRegister";
 
 type AddressState = {
-    cep: string
-    street: string
-    neighborhood: string
-    city: string
-    state: string
-}
+    cep: string;
+    street: string;
+    neighborhood: string;
+    city: string;
+    state: string;
+};
 
-function Address(){
+function Address() {
     const navigate = useNavigate();
     const { setTitle, setNavigationHistory } = useOutletContext<AuthLayoutContext>();
-
     const location = useLocation();
     const addressState = location.state as AddressState;
 
@@ -22,20 +23,75 @@ function Address(){
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setTitle("")
-        setNavigationHistory("/auth/search-cep")
-    }, [])
+        setTitle("");
+        setNavigationHistory("/auth/search-cep");
+    }, []);
 
     const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setNumber(value);
+    };
+
+    async function fetchRegister() {
+        setIsLoading(true);
+
+        try {
+            const name = JSON.parse(sessionStorage.getItem("registerName") || "");
+            const email = JSON.parse(sessionStorage.getItem("registerEmail") || "");
+            const password = JSON.parse(sessionStorage.getItem("registerPassword") || "");
+            const cpf = sessionStorage.getItem("registerCpf") ? JSON.parse(sessionStorage.getItem("registerCpf")!) : undefined;
+            const phone = sessionStorage.getItem("registerPhone") ? JSON.parse(sessionStorage.getItem("registerPhone")!) : undefined;
+
+            const payload: RegisterPayload = {
+                name,
+                email,
+                password,
+                role: "customer",
+                cpf,
+                phone,
+                address: {
+                cep: addressState?.cep,
+                street: addressState?.street,
+                number,
+                neighborhood: addressState?.neighborhood,
+                city: addressState?.city,
+                state: addressState?.state,
+                },
+            };
+
+            const response = await postAuthRegister(payload);
+
+            sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
+            sessionStorage.setItem("user", JSON.stringify(response.user));
+            sessionStorage.setItem(
+                "userAddress",
+                JSON.stringify(`${addressState?.street}, ${number}`)
+            );
+            sessionStorage.removeItem("registerName");
+            sessionStorage.removeItem("registerEmail");
+            sessionStorage.removeItem("registerPassword");
+            sessionStorage.removeItem("registerCpf");
+            sessionStorage.removeItem("registerPhone");
+
+            navigate("/");
+        } catch (error) {
+            if (error instanceof Error) {
+                const parsedError = JSON.parse(error.message);
+                if (parsedError.statusCode === 409) {
+                    alert("Este e-mail já está cadastrado.");
+                }
+                if (parsedError.statusCode === 500) {
+                    alert("Erro no servidor. Tente novamente mais tarde.");
+                }
+            }
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     const handleConclude = () => {
-        const address = `${addressState?.street}, ${number}`;
-        sessionStorage.setItem("userAddress", JSON.stringify(address));
-        navigate("/")
-    }
+        fetchRegister();
+    };
 
     return (
         <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
@@ -47,7 +103,7 @@ function Address(){
                     </p>
                 </div>
                 <p className="w-full text-sm">
-                    CEP: 
+                    CEP:  
                     <span className="text-brand-primary font-bold">
                         {addressState?.cep}
                     </span>
@@ -119,9 +175,8 @@ function Address(){
                     fullWidth
                     disabled={isLoading}
                 >
-                    Concluir
+                    {isLoading ? <LoaderCircle className="animate-spin" /> : "Concluir"}
                 </Button>
-
             </div>
         </section>
     );

@@ -1,100 +1,64 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
-import postAuthRegister, { type RegisterPayload } from "../../../api/postAuthRegister";
-import { LoaderCircle } from "lucide-react";
 import { type AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
 
-function Register(){
+function Register() {
     const navigate = useNavigate();
-
     const { setTitle, setNavigationHistory } = useOutletContext<AuthLayoutContext>();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setTitle("Criar conta");
+        setTitle("");
         setNavigationHistory("/auth/login");
-    },[])
+    }, []);
 
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setName(value);
-    }
+    };
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setEmail(value);
-    }
+    };
 
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setPassword(value);
-    }
+    };
 
     const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setConfirmPassword(value);
-    }
-
-    async function fetchregister(payload: RegisterPayload){
-        setIsLoading(true);
-
-        try {
-            const response = await postAuthRegister(payload);
-
-            sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
-            sessionStorage.setItem("user", JSON.stringify(response.user));
-
-            navigate("/auth/add-cpf");
-
-        } catch (error) {
-            if (error instanceof Error) {
-                const parsedError = JSON.parse(error.message);
-
-                if (parsedError.statusCode === 409) {
-                    alert("Este e-mail já está cadastrado")
-                }
-
-                if (parsedError.statusCode === 500) {
-                    alert("Erro interno do servidor. Tente novamente mais tarde")
-                }
-            }
-        } finally {
-            setIsLoading(false);
-        }
-    }
+    };
 
     const handleRegister = () => {
         if (password !== confirmPassword) {
-            alert("As senhas não coincidem");
+            alert("As senhas não coincidem.");
             return;
         }
 
-        const payload: RegisterPayload = {
-            name,
-            email,
-            password
-        };
+        sessionStorage.setItem("registerName", JSON.stringify(name));
+        sessionStorage.setItem("registerEmail", JSON.stringify(email));
+        sessionStorage.setItem("registerPassword", JSON.stringify(password));
 
-        fetchregister(payload);
-    }
+        navigate("/auth/add-cpf");
+    };
 
     return (
         <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
             <div className="flex flex-col gap-6 items-center justify-center">
-
                 <div className="flex flex-col gap-2 text-center">
                     <Heading component="h1">Crie sua conta</Heading>
                     <p className="text-typography-base text-sm">
                         É rápido e fácil. Insira seus dados para começar.
                     </p>
                 </div>
-
                 <Input
                     type="text"
                     name="name"
@@ -104,7 +68,6 @@ function Register(){
                     onChange={handleNameChange}
                     fullWidth
                     noLabel
-                    disabled={isLoading}
                 />
                 <Input
                     type="email"
@@ -115,7 +78,6 @@ function Register(){
                     onChange={handleEmailChange}
                     fullWidth
                     noLabel
-                    disabled={isLoading}
                 />
                 <Input
                     type="password"
@@ -126,7 +88,6 @@ function Register(){
                     onChange={handlePasswordChange}
                     fullWidth
                     noLabel
-                    disabled={isLoading}
                 />
                 <Input
                     type="password"
@@ -137,18 +98,14 @@ function Register(){
                     onChange={handleConfirmPasswordChange}
                     fullWidth
                     noLabel
-                    disabled={isLoading}
                 />
-
                 <Button
                     variant="primary"
                     onClick={handleRegister}
                     fullWidth
-                    disabled={isLoading}
                 >
-                    {isLoading ? <LoaderCircle className="animate-spin" /> : "Criar conta"}
+                    Criar conta
                 </Button>
-
             </div>
         </section>
     );
