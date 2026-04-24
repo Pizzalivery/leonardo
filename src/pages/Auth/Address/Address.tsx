@@ -32,65 +32,62 @@ function Address() {
         setNumber(value);
     };
 
-    async function fetchRegister() {
+    const handleConclude = async () => {
         setIsLoading(true);
 
         try {
             const name = JSON.parse(sessionStorage.getItem("registerName") || "");
             const email = JSON.parse(sessionStorage.getItem("registerEmail") || "");
             const password = JSON.parse(sessionStorage.getItem("registerPassword") || "");
-            const cpf = sessionStorage.getItem("registerCpf") ? JSON.parse(sessionStorage.getItem("registerCpf")!) : undefined;
-            const phone = sessionStorage.getItem("registerPhone") ? JSON.parse(sessionStorage.getItem("registerPhone")!) : undefined;
+            const cpf = sessionStorage.getItem("registerCpf")
+            ? JSON.parse(sessionStorage.getItem("registerCpf")!)
+            : undefined;
+            const phone = sessionStorage.getItem("registerPhone")
+            ? JSON.parse(sessionStorage.getItem("registerPhone")!)
+            : undefined;
 
             const payload: RegisterPayload = {
-                name,
-                email,
-                password,
-                role: "customer",
-                cpf,
-                phone,
-                address: {
+            name,
+            email,
+            password,
+            role: "customer",
+            cpf,
+            phone,
+            address: {
                 cep: addressState?.cep,
                 street: addressState?.street,
                 number,
                 neighborhood: addressState?.neighborhood,
                 city: addressState?.city,
                 state: addressState?.state,
-                },
+            },
             };
-
+            
             const response = await postAuthRegister(payload);
+            sessionStorage.setItem("userToken", JSON.stringify(response.id));
+            sessionStorage.setItem("user", JSON.stringify(response));
 
-            sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
-            sessionStorage.setItem("user", JSON.stringify(response.user));
+        } catch (error) {
+            console.error("API indisponível, continuando fluxo local:", error);
+        } finally {
             sessionStorage.setItem(
-                "userAddress",
-                JSON.stringify(`${addressState?.street}, ${number}`)
+            "userAddress",
+            JSON.stringify(`${addressState?.street}, ${number}`)
             );
+            sessionStorage.setItem(
+            "userName",
+            sessionStorage.getItem("registerName") || ""
+            );
+
             sessionStorage.removeItem("registerName");
             sessionStorage.removeItem("registerEmail");
             sessionStorage.removeItem("registerPassword");
             sessionStorage.removeItem("registerCpf");
             sessionStorage.removeItem("registerPhone");
 
-            navigate("/");
-        } catch (error) {
-            if (error instanceof Error) {
-                const parsedError = JSON.parse(error.message);
-                if (parsedError.statusCode === 409) {
-                    alert("Este e-mail já está cadastrado.");
-                }
-                if (parsedError.statusCode === 500) {
-                    alert("Erro no servidor. Tente novamente mais tarde.");
-                }
-            }
-        } finally {
             setIsLoading(false);
+            navigate("/");
         }
-    }
-
-    const handleConclude = () => {
-        fetchRegister();
     };
 
     return (
