@@ -68,10 +68,10 @@ const mockMostWantedData = [
   },
 ];
 
-const mockUserData = {
-  userName: "Daniela",
-  address: "Rua Mesquita, 248",
-};
+const storedUser = JSON.parse(sessionStorage.getItem("user") || "{}");
+const storedAddress = JSON.parse(sessionStorage.getItem("userAddress") || "null");
+
+const [showAddress, setShowAddress] = useState(!!storedAddress);
 
 function Home() {
   const [openModal, setOpenModal] = useState(false);
@@ -108,10 +108,10 @@ function Home() {
       </Navigation>
       <header className="header">
         <DeliveryAddress
-          address={mockUserData.address}
+          address={storedAddress}
           onClick={() => setOpenModal(true)}
         />
-        <GrettingUser userName={mockUserData.userName} />
+        <GrettingUser userName={storedUser.name} />
       </header>
       <section className="offers">
         <div className="container">
