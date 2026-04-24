@@ -11,13 +11,11 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleUserChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setUser(value);
+    setUser(e.target.value);
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setPassword(value);
+    setPassword(e.target.value);
   };
 
   async function fetchLogin(payload: LoginPayload) {
@@ -58,6 +56,7 @@ function Login() {
     <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
       <div className="flex flex-col gap-6 items-center justify-center">
         <Heading component="h1">Seja bem vindo</Heading>
+
         <Input
           type="text"
           name="email"
@@ -69,6 +68,7 @@ function Login() {
           noLabel
           disabled={isLoading}
         />
+
         <Input
           type="password"
           name="password"
@@ -80,6 +80,7 @@ function Login() {
           noLabel
           disabled={isLoading}
         />
+
         <span className="text-right w-full ">
           <NavLink
             to="/forgot-password"
@@ -88,6 +89,7 @@ function Login() {
             Esqueci minha senha
           </NavLink>
         </span>
+
         <Button
           variant="primary"
           onClick={handleLogin}
@@ -97,9 +99,10 @@ function Login() {
           {isLoading ? <LoaderCircle className="animate-spin" /> : "Entrar"}
         </Button>
       </div>
+
       <p className="text-center text-typography-base text-base">
         Não tem uma conta?{" "}
-        <NavLink to="/register" className="text-brand-primary underline">
+        <NavLink to="/auth/register" className="text-brand-primary underline">
           Criar conta
         </NavLink>
       </p>
