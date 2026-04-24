@@ -119,7 +119,7 @@ function Address() {
                     noLabel
                     disabled
                 />
-                <div className="flex gap-4 w-full">
+                <div className="flex flex-col sm:flex-row gap-4 w-full">
                     <Input
                         type="text"
                         name="number"
@@ -149,7 +149,7 @@ function Address() {
                     noLabel
                     disabled
                 />
-                <div className="flex gap-4 w-full">
+                <div className="flex flex-col sm:flex-row gap-4 w-full">
                     <Input
                         type="text"
                         name="city"
