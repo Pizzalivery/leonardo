@@ -1,22 +1,14 @@
-export type LoginPayload = {
+export type RegisterPayload = {
+  name: string;
   email: string;
   password: string;
-};
-
-export type LoginResponse = {
-  accessToken: string;
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    [key: string]: unknown;
-  };
+  role: string;
 };
 
 const API_URL = "https://burgerlivery-esposito-api.onrender.com";
 
-async function postAuthLogin(payload: LoginPayload): Promise<LoginResponse> {
-  const response = await fetch(`${API_URL}/auth/login`, {
+async function postAuthRegister(payload: RegisterPayload) {
+  const response = await fetch(`${API_URL}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,4 +31,4 @@ async function postAuthLogin(payload: LoginPayload): Promise<LoginResponse> {
   return data;
 }
 
-export default postAuthLogin;
+export default postAuthRegister;
