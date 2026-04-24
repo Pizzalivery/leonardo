@@ -17,6 +17,8 @@ const ProductDetails = lazy(
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+
+// Novas páginas do fluxo de cadastro
 const Register = lazy(() => import("./pages/Auth/Register/Register"));
 const AddCpf = lazy(() => import("./pages/Auth/AddCpf/AddCpf"));
 const AddPhone = lazy(() => import("./pages/Auth/AddPhone/AddPhone"));
@@ -35,7 +37,6 @@ function App() {
           <Route path="menu" element={<NavigationLayout />}>
             <Route index element={<Menu />} />
           </Route>
-
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
@@ -62,7 +63,6 @@ function App() {
               <Route index element={<Orders />} />
               <Route path=":orderId" element={<OrderDetails />} />
             </Route>
-
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
