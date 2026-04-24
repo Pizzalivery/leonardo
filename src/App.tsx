@@ -21,6 +21,7 @@ const Register = lazy(() => import("./pages/Auth/Register/Register"));
 const AddCpf = lazy(() => import("./pages/Auth/AddCpf/AddCpf"));
 const AddPhone = lazy(() => import("./pages/Auth/AddPhone/AddPhone"));
 const SearchCep = lazy(() => import("./pages/Auth/SearchCep/SearchCep"));
+const Address = lazy(() => import("./pages/Auth/Address/Address"));
 
 function App() {
   return (
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path="auth/search-cep" element={<AuthLayout />}>
             <Route index element={<SearchCep />} />
+          </Route>
+          <Route path="auth/address" element={<AuthLayout />}>
+            <Route index element={<Address />} />
           </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
