@@ -30,7 +30,6 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="search" element={<NavigationLayout />}>
             <Route index element={<Search />} />
           </Route>
@@ -59,6 +58,7 @@ function App() {
             <Route index element={<Address />} />
           </Route>
           <Route element={<PrivateRoutes />}>
+            <Route path="/" element={<Home />} />
             <Route path="orders" element={<NavigationLayout />}>
               <Route index element={<Orders />} />
               <Route path=":orderId" element={<OrderDetails />} />
