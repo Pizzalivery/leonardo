@@ -68,15 +68,14 @@ const mockMostWantedData = [
   },
 ];
 
-const mockUserData = {
-  userName: "Daniela",
-  address: "Rua Mesquita, 248",
-};
-
 function Home() {
+  const storedUser = JSON.parse(sessionStorage.getItem("user") || "null") || {};
+  const storedAddress = JSON.parse(sessionStorage.getItem("userAddress") || "null");
+
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showAddress] = useState(!!storedAddress);
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -106,17 +105,23 @@ function Home() {
           ))}
         </MainMenu>
       </Navigation>
+
       <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
+        {showAddress && (
+          <DeliveryAddress
+            address={storedAddress}
+            onClick={() => setOpenModal(true)}
+          />
+        )}
+
+        <GrettingUser userName={storedUser.name} />
       </header>
+
       <section className="offers">
         <div className="container">
           <Heading component="h2">Promoções</Heading>
         </div>
+
         {isLoading ? (
           <CarouselSkeleton />
         ) : (
@@ -132,12 +137,14 @@ function Home() {
           </Carousel>
         )}
       </section>
+
       <OrderAgain
         title={mockOrderAgainData.title}
         image={mockOrderAgainData.image}
         name={mockOrderAgainData.name}
         price={mockOrderAgainData.price}
       />
+
       <article className="most-wanted">
         <Heading component="h2">As mais desejadas</Heading>
         <div className="flex flex-col gap-6 xl:flex-row xl:justify-between">
@@ -152,7 +159,9 @@ function Home() {
           ))}
         </div>
       </article>
+
       <Footer />
+
       <Dialog
         title="Título do Dialog"
         open={openModal}
