@@ -3,6 +3,7 @@ interface RadioProps {
   label: string;
   group: string;
   value?: string | null;
+  disabled?: boolean;
   onChange: (value: string) => void;
 }
 export const Radio = ({ id, label, group, value, onChange }: RadioProps) => {
@@ -28,6 +29,7 @@ export const RadioCard = ({
   label,
   group,
   value = null,
+  disabled = false,
   onChange,
 }: RadioProps) => {
   return (
@@ -39,6 +41,7 @@ export const RadioCard = ({
         id={id}
         checked={value === id}
         onChange={() => onChange(id)}
+        disabled={disabled}
       />
       <label htmlFor={id} className="w-full">
         {label}
