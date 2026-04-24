@@ -43,7 +43,7 @@ function Register() {
             return;
         }
 
-        sessionStorage.setItem("userName", JSON.stringify(name));
+        sessionStorage.setItem("user", JSON.stringify({ name, email }));
         sessionStorage.setItem("registerName", JSON.stringify(name));
         sessionStorage.setItem("registerEmail", JSON.stringify(email));
         sessionStorage.setItem("registerPassword", JSON.stringify(password));
