@@ -6,6 +6,7 @@ import ProductLayout from "./components/Layouts/ProductLayout/ProductLayout";
 import AuthLayout from "./components/Layouts/AuthLayout/AuthLayout";
 import "./styles/style.css";
 import { PrivateRoutes } from "./components";
+import Register from "./pages/Auth/Register/Register";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -24,9 +25,11 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
+          
           <Route path="search" element={<NavigationLayout />}>
             <Route index element={<Search />} />
           </Route>
+
           <Route path="menu" element={<NavigationLayout />}>
             <Route index element={<Menu />} />
           </Route>
@@ -34,9 +37,15 @@ function App() {
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
+
           <Route path="auth/login" element={<AuthLayout />}>
             <Route index element={<Login />} />
           </Route>
+
+          <Route path="register" element={<AuthLayout />}>
+            <Route index element={<Register />} />
+          </Route>
+
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
               <Route index element={<Orders />} />
