@@ -68,15 +68,12 @@ const mockMostWantedData = [
   },
 ];
 
-const mockUserData = {
-  userName: "Daniela",
-  address: "Rua Mesquita, 248",
-};
-
 function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userAddress, setUserAddress] = useState("");
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -90,8 +87,18 @@ function Home() {
     }
   }
 
+  function loadUserData() {
+    const storedUser = sessionStorage.getItem("user");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setUserName(user.name || "");
+      setUserAddress(user.address || "");
+    }
+  }
+
   useEffect(() => {
     fetchOffers();
+    loadUserData();
   }, []);
 
   return (
@@ -106,13 +113,15 @@ function Home() {
           ))}
         </MainMenu>
       </Navigation>
-      <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
-      </header>
+
+        <header className="header">
+          <DeliveryAddress
+            address={userAddress}
+            onClick={() => setOpenModal(true)}
+          />
+          <GrettingUser userName={userName} />
+        </header>
+
       <section className="offers">
         <div className="container">
           <Heading component="h2">Promoções</Heading>
@@ -132,12 +141,14 @@ function Home() {
           </Carousel>
         )}
       </section>
+
+
       <OrderAgain
         title={mockOrderAgainData.title}
         image={mockOrderAgainData.image}
         name={mockOrderAgainData.name}
-        price={mockOrderAgainData.price}
-      />
+        price={mockOrderAgainData.price}/>
+
       <article className="most-wanted">
         <Heading component="h2">As mais desejadas</Heading>
         <div className="flex flex-col gap-6 xl:flex-row xl:justify-between">
