@@ -44,21 +44,14 @@ function Register() {
     setConfirmPassword(value);
   };
 
-
-  
 async function fetchRegister(payload: RegisterPayload) {
   setIsLoading(true);
   try {
-    await postRegister(payload);
-    
-    const loginResponse = await postAuthLogin({
-      email: payload.email,
-      password: payload.password,
-    });
-
-    sessionStorage.setItem("user", JSON.stringify(loginResponse.user));
-    sessionStorage.setItem("userToken", JSON.stringify(loginResponse.token));
-    
+    const registerResponse = await postRegister(payload);
+    sessionStorage.setItem("user", JSON.stringify(registerResponse));
+    sessionStorage.setItem("userPass", payload.password);
+    // aq deu algum erro na api que só vai funcionar se Limpar o token antigo para forçar o login na próxima tela
+    sessionStorage.removeItem("userToken");
     navigate("/register/cpf");
   } catch (error) {
     if (error instanceof Error) {
