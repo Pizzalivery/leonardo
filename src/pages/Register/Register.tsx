@@ -4,7 +4,6 @@ import { Button, Heading, Input } from "../../components";
 import postRegister, { type RegisterPayload } from "../../api/postRegister";
 import { LoaderCircle } from "lucide-react";
 import { type AuthLayoutContext } from "../../components/Layouts/AuthLayout/AuthLayout";
-import postAuthLogin from "../../api/postAuthLogin";
 
 function Register() {
   const navigate = useNavigate();
@@ -50,7 +49,7 @@ async function fetchRegister(payload: RegisterPayload) {
     const registerResponse = await postRegister(payload);
     sessionStorage.setItem("user", JSON.stringify(registerResponse));
     sessionStorage.setItem("userPass", payload.password);
-    // aq deu algum erro na api que só vai funcionar se Limpar o token antigo para forçar o login na próxima tela
+
     sessionStorage.removeItem("userToken");
     navigate("/register/cpf");
   } catch (error) {
