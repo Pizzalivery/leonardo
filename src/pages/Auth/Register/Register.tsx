@@ -48,8 +48,12 @@ function Register() {
         role: "USER",
       });
 
-      sessionStorage.setItem("token", response?.token || "");
-      sessionStorage.setItem("userName", response?.name || name);
+      const accessToken = response?.accessToken || response?.token || "";
+
+      sessionStorage.setItem("userToken", JSON.stringify(accessToken));
+      sessionStorage.setItem("user", JSON.stringify({ name, email }));
+
+      
 
       navigate("/auth/add-cpf");
     } catch (error) {
