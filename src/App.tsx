@@ -7,6 +7,8 @@ import AuthLayout from "./components/Layouts/AuthLayout/AuthLayout";
 import "./styles/style.css";
 import { PrivateRoutes } from "./components";
 import Register from "./pages/Auth/Register/Register";
+import AddCpf from "./pages/Auth/AddCpf/AddCpf";
+import AddPhone from "./pages/Auth/AddPhone/AddPhone";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -44,6 +46,8 @@ function App() {
 
           <Route path="register" element={<AuthLayout />}>
             <Route index element={<Register />} />
+            <Route path="cpf" element={<AddCpf />} />
+            <Route path="phone" element={<AddPhone />} />
           </Route>
 
           <Route element={<PrivateRoutes />}>
