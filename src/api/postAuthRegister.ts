@@ -1,23 +1,31 @@
 
 export const API_BASE_URL = "";
 
-export type LoginPayload = {
+export type RegisterPayload = {
+  name: string;
   email: string;
   password: string;
 };
 
+export type RegisterResponse = {
+  accessToken: string;
+  user: { id: string; name: string; email: string };
+};
 
-async function postAuthLogin(payload: LoginPayload) {
+
+async function postAuthRegister(
+  payload: RegisterPayload
+): Promise<RegisterResponse> {
 
   if (!API_BASE_URL) {
-    console.warn("[postAuthLogin] API_BASE_URL vazia — usando mock local.");
+    console.warn("[postAuthRegister] API_BASE_URL vazia — usando mock local.");
     return {
       accessToken: "mock-token",
-      user: { id: "1", name: payload.email, email: payload.email },
+      user: { id: "1", name: payload.name, email: payload.email },
     };
   }
 
-  const response = await fetch(`${API_BASE_URL}/auth/login`, {
+  const response = await fetch(`${API_BASE_URL}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -36,4 +44,4 @@ async function postAuthLogin(payload: LoginPayload) {
   return response.json();
 }
 
-export default postAuthLogin;
+export default postAuthRegister;

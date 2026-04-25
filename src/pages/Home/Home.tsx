@@ -78,6 +78,16 @@ function Home() {
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Lê o usuário do sessionStorage (salvo após login/cadastro)
+  const storedUser = JSON.parse(sessionStorage.getItem("user") || "null");
+
+  // Exibe o primeiro nome do usuário logado; fallback para o mock se não houver sessão
+  const userName: string =
+    storedUser?.name?.split(" ")[0] ?? mockUserData.userName;
+
+  // userAddress pode ser null se o usuário pulou a etapa de endereço
+  const userAddress: string | null = storedUser?.address ?? null;
+
   async function fetchOffers() {
     setIsLoading(true);
     try {
@@ -107,11 +117,19 @@ function Home() {
         </MainMenu>
       </Navigation>
       <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
+        {/* 
+          DeliveryAddress permanece no DOM sempre.
+          Quando não há endereço (usuário pulou), usamos "hidden" do Tailwind:
+          → mantém o espaço e o elemento no DOM, remove visualmente mas mantém o elemento no DOM com display:none.
+          Quando há endereço, usamos "block" para exibir normalmente.
+        */}
+        <span className={userAddress ? "block" : "hidden"}>
+          <DeliveryAddress
+            address={userAddress ?? mockUserData.address}
+            onClick={() => setOpenModal(true)}
+          />
+        </span>
+        <GrettingUser userName={userName} />
       </header>
       <section className="offers">
         <div className="container">

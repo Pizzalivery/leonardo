@@ -17,6 +17,11 @@ const ProductDetails = lazy(
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+const Register = lazy(() => import("./pages/Auth/Register/Register"));
+const AddCpf = lazy(() => import("./pages/Auth/AddCpf/AddCpf"));
+const AddPhone = lazy(() => import("./pages/Auth/AddPhone/AddPhone"));
+const SearchCep = lazy(() => import("./pages/Auth/SearchCep/SearchCep"));
+const AddAddress = lazy(() => import("./pages/Auth/AddAddress/AddAddress"));
 
 function App() {
   return (
@@ -24,9 +29,11 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="search" element={<NavigationLayout />}>
             <Route index element={<Search />} />
           </Route>
+
           <Route path="menu" element={<NavigationLayout />}>
             <Route index element={<Menu />} />
           </Route>
@@ -34,15 +41,22 @@ function App() {
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
-          <Route path="auth/login" element={<AuthLayout />}>
-            <Route index element={<Login />} />
+
+          {/* Todas as rotas de autenticação compartilham o AuthLayout */}
+          <Route path="auth" element={<AuthLayout />}>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="add-cpf" element={<AddCpf />} />
+            <Route path="add-phone" element={<AddPhone />} />
+            <Route path="search-cep" element={<SearchCep />} />
+            <Route path="add-address" element={<AddAddress />} />
           </Route>
+
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
               <Route index element={<Orders />} />
               <Route path=":orderId" element={<OrderDetails />} />
             </Route>
-
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
