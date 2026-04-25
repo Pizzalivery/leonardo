@@ -20,20 +20,21 @@ function AddCpf() {
   };
 
   const handleContinue = async () => {
-    try {
-      const token = sessionStorage.getItem("token") || "";
+  try {
+    const storedToken = sessionStorage.getItem("userToken");
+    const token = storedToken ? JSON.parse(storedToken) : "";
 
-      await postAuthCpf(
-        { cpf },
-        token
-      );
+    await postAuthCpf(
+      { cpf: cpf.replace(/\D/g, "") },
+      token
+    );
 
-      navigate("/auth/add-phone");
-    } catch (error) {
-      console.error(error);
-      alert("Erro ao enviar CPF");
-    }
-  };
+    navigate("/auth/add-phone");
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao enviar CPF");
+  }
+};
 
   const handleSkip = () => {
     navigate("/");
