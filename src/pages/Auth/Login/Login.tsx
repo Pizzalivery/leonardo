@@ -63,7 +63,7 @@ function Login() {
           name="email"
           id="email"
           label="Email"
-          placeholder="Seu e-mail"
+          placeholder="e-mail ou nome de usuário"
           onChange={handleUserChange}
           fullWidth
           noLabel
@@ -80,9 +80,9 @@ function Login() {
           noLabel
           disabled={isLoading}
         />
-        <span className="text-right w-full ">
+        <span className="text-right w-full">
           <NavLink
-            to="/forgot-password"
+            to="/auth/forgot-password"
             className="text-brand-primary text-sm underline"
           >
             Esqueci minha senha
@@ -99,7 +99,7 @@ function Login() {
       </div>
       <p className="text-center text-typography-base text-base">
         Não tem uma conta?{" "}
-        <NavLink to="/register" className="text-brand-primary underline">
+        <NavLink to="/auth/register" className="text-brand-primary underline">
           Criar conta
         </NavLink>
       </p>
