@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
-
 import NavigationLayout from "./components/Layouts/NavigationLayout/NavigationLayout";
 import ProductLayout from "./components/Layouts/ProductLayout/ProductLayout";
 import AuthLayout from "./components/Layouts/AuthLayout/AuthLayout";
@@ -17,6 +16,11 @@ const ProductDetails = lazy(
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+const Register = lazy(() => import("./pages/Auth/Register/Register"));
+const AddCpf = lazy(() => import("./pages/Auth/AddCpf/AddCpf"));
+const AddPhone = lazy(() => import("./pages/Auth/AddPhone/AddPhone"));
+const SearchCep = lazy(() => import("./pages/Auth/SearchCep/SearchCep"));
+const Address = lazy(() => import("./pages/Auth/Address/Address"));
 
 function App() {
   return (
@@ -30,19 +34,32 @@ function App() {
           <Route path="menu" element={<NavigationLayout />}>
             <Route index element={<Menu />} />
           </Route>
-
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
           <Route path="auth/login" element={<AuthLayout />}>
             <Route index element={<Login />} />
           </Route>
+          <Route path="register" element={<AuthLayout />}>
+            <Route index element={<Register />} />
+          </Route>
+          <Route path="register/cpf" element={<AuthLayout />}>
+            <Route index element={<AddCpf />} />
+          </Route>
+          <Route path="register/phone" element={<AuthLayout />}>
+            <Route index element={<AddPhone />} />
+          </Route>
+          <Route path="register/cep" element={<AuthLayout />}>
+            <Route index element={<SearchCep />} />
+          </Route>
+          <Route path="register/address" element={<AuthLayout />}>
+            <Route index element={<Address />} />
+          </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
               <Route index element={<Orders />} />
               <Route path=":orderId" element={<OrderDetails />} />
             </Route>
-
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
