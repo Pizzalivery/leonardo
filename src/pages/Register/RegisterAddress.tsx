@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext, useLocation } from "react-router";
 import { Button, Heading, Input } from "../../components";
-import patchUserAddress, {
-  type UpdateAddressPayload,
-} from "../../api/patchUserAddress";
+import patchUserAddress, { type UpdateAddressPayload, } from "../../api/patchUserAddress";
 import { LoaderCircle } from "lucide-react";
 import { type AuthLayoutContext } from "../../components/Layouts/AuthLayout/AuthLayout";
 
