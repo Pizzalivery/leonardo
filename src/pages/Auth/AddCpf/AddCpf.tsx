@@ -2,7 +2,6 @@ import { useState, useEffect, type ChangeEvent } from "react";
 import { useNavigate, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
 import { type AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
-import postAuthCpf from "../../../api/postAuthCpf";
 
 function AddCpf() {
   const navigate = useNavigate();
@@ -19,22 +18,10 @@ function AddCpf() {
     setCpf(e.target.value);
   };
 
-  const handleContinue = async () => {
-  try {
-    const storedToken = sessionStorage.getItem("userToken");
-    const token = storedToken ? JSON.parse(storedToken) : "";
-
-    await postAuthCpf(
-      { cpf: cpf.replace(/\D/g, "") },
-      token
-    );
-
+  const handleContinue = () => {
+    sessionStorage.setItem("registerCpf", JSON.stringify(cpf));
     navigate("/auth/add-phone");
-  } catch (error) {
-    console.error(error);
-    alert("Erro ao enviar CPF");
-  }
-};
+  };
 
   const handleSkip = () => {
     navigate("/");

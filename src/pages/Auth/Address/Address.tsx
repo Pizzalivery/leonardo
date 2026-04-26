@@ -34,10 +34,9 @@ function Address() {
   const handleConclude = () => {
     setIsLoading(true);
 
-    sessionStorage.setItem(
-      "userAddress",
-      `${addressState?.street || ""}, ${number}`
-    );
+    const fullAddress = `${addressState?.street || ""}, ${number}`;
+
+    sessionStorage.setItem("userAddress", JSON.stringify(fullAddress));
 
     setIsLoading(false);
     navigate("/");

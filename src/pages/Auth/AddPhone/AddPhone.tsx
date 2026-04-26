@@ -2,7 +2,6 @@ import { useState, useEffect, type ChangeEvent } from "react";
 import { useNavigate, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
 import { type AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
-import postAuthPhone from "../../../api/postAuthPhone";
 
 function AddPhone() {
   const navigate = useNavigate();
@@ -19,20 +18,9 @@ function AddPhone() {
     setPhone(e.target.value);
   };
 
-  const handleContinue = async () => {
-    try {
-      const token = sessionStorage.getItem("token") || "";
-
-      await postAuthPhone(
-        { phone },
-        token
-      );
-
-      navigate("/auth/search-cep");
-    } catch (error) {
-      console.error(error);
-      alert("Erro ao enviar telefone");
-    }
+  const handleContinue = () => {
+    sessionStorage.setItem("registerPhone", JSON.stringify(phone));
+    navigate("/auth/search-cep");
   };
 
   const handleSkip = () => {

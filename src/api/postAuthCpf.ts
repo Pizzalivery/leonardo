@@ -5,11 +5,11 @@ export type CpfPayload = {
 async function postAuthCpf(payload: CpfPayload, token: string) {
   const url = "https://burgerlivery-esposito-api.onrender.com";
 
-  const response = await fetch(`${url}/auth/cpf`, {
+  const response = await fetch(`${url}/users/cpf`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(payload),
   });
