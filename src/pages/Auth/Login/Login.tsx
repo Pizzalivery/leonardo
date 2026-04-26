@@ -27,6 +27,8 @@ function Login() {
       const response = await postAuthLogin(payload);
       sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
       sessionStorage.setItem("user", JSON.stringify(response.user));
+      sessionStorage.setItem("hasAddress", "true");
+      sessionStorage.setItem("address", response.user.address || "");
       navigate("/");
     } catch (error) {
       if (error instanceof Error) {
@@ -99,7 +101,7 @@ function Login() {
       </div>
       <p className="text-center text-typography-base text-base">
         Não tem uma conta?{" "}
-        <NavLink to="/register" className="text-brand-primary underline">
+        <NavLink to="/auth/register" className="text-brand-primary underline">
           Criar conta
         </NavLink>
       </p>

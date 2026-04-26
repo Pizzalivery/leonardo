@@ -17,6 +17,11 @@ const ProductDetails = lazy(
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+const Register = lazy(() => import("./pages/Auth/Register/Register"));
+const AddCPF = lazy(() => import("./pages/Auth/AddCPF/AddCPF"));
+const AddPhone = lazy(() => import("./pages/Auth/AddPhone/AddPhone"));
+const SearchCEP = lazy(() => import("./pages/Auth/SearchCEP/SearchCEP"));
+const Address = lazy(() => import("./pages/Auth/Address/Address"));
 
 function App() {
   return (
@@ -34,9 +39,16 @@ function App() {
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
-          <Route path="auth/login" element={<AuthLayout />}>
-            <Route index element={<Login />} />
+
+          <Route path="auth" element={<AuthLayout />}>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="add-cpf" element={<AddCPF />} />
+            <Route path="add-phone" element={<AddPhone />} />
+            <Route path="search-cep" element={<SearchCEP />} />
+            <Route path="address" element={<Address />} />
           </Route>
+
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
               <Route index element={<Orders />} />

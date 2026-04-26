@@ -68,15 +68,13 @@ const mockMostWantedData = [
   },
 ];
 
-const mockUserData = {
-  userName: "Daniela",
-  address: "Rua Mesquita, 248",
-};
-
 function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  const [hasAddress, setHasAddress] = useState(false);
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -92,6 +90,22 @@ function Home() {
 
   useEffect(() => {
     fetchOffers();
+
+    const userSaved = sessionStorage.getItem("user");
+    if (userSaved) {
+      const user = JSON.parse(userSaved);
+      setUserName(user.name);
+    }
+
+    const hasAddressSaved = sessionStorage.getItem("hasAddress");
+    const addressSaved = sessionStorage.getItem("address");
+
+    if (hasAddressSaved === "true" && addressSaved) {
+      setHasAddress(true);
+      setUserAddress(addressSaved);
+    } else {
+      setHasAddress(false);
+    }
   }, []);
 
   return (
@@ -107,11 +121,13 @@ function Home() {
         </MainMenu>
       </Navigation>
       <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
+        {hasAddress && (
+          <DeliveryAddress
+            address={userAddress}
+            onClick={() => setOpenModal(true)}
+          />
+        )}
+        <GrettingUser userName={userName} />
       </header>
       <section className="offers">
         <div className="container">
