@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { mainMenuItems } from "../../utils/mainMenu";
+import { useLocation } from "react-router-dom";
+
 import {
   Button,
   Carousel,
@@ -74,9 +76,13 @@ const mockUserData = {
 };
 
 function Home() {
+  const location = useLocation();
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userName, setUserName] = useState<string>(mockUserData.userName);
+  const [address, setAddress] = useState<string>(mockUserData.address);
+  const [hideAddress, setHideAddress] = useState(false);
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -92,6 +98,21 @@ function Home() {
 
   useEffect(() => {
     fetchOffers();
+
+    const storedUser = JSON.parse(
+      sessionStorage.getItem("user") || "null",
+    );
+    if (storedUser && typeof storedUser === "object") {
+      setUserName(storedUser.name || storedUser.userName || mockUserData.userName);
+      if (storedUser.address) {
+        setAddress(storedUser.address);
+      }
+    }
+
+    const skip = JSON.parse(
+      sessionStorage.getItem("skipAddress") || "false",
+    );
+    setHideAddress(Boolean(skip));
   }, []);
 
   return (
@@ -108,10 +129,11 @@ function Home() {
       </Navigation>
       <header className="header">
         <DeliveryAddress
-          address={mockUserData.address}
+          address={address}
           onClick={() => setOpenModal(true)}
+          hidden={hideAddress}
         />
-        <GrettingUser userName={mockUserData.userName} />
+        <GrettingUser userName={userName} />
       </header>
       <section className="offers">
         <div className="container">

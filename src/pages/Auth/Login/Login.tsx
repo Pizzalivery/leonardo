@@ -1,110 +1,95 @@
-import { NavLink, useNavigate } from "react-router";
-import { Button, Heading, Input } from "../../../components";
 import { useState } from "react";
-import postAuthLogin, { type LoginPayload } from "../../../api/postAuthLogin";
-import { LoaderCircle } from "lucide-react";
+import { useNavigate, Link } from "react-router"; 
+import postAuthLogin from "../../../api/postAuthLogin"; 
 
-function Login() {
+function LoginPage() {
   const navigate = useNavigate();
-  const [user, setUser] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleUserChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setUser(value);
-  };
-
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setPassword(value);
-  };
-
-  async function fetchLogin(payload: LoginPayload) {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsLoading(true);
-
     try {
-      const response = await postAuthLogin(payload);
-      sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
-      sessionStorage.setItem("user", JSON.stringify(response.user));
-      navigate("/");
-    } catch (error) {
-      if (error instanceof Error) {
-        const parsedError = JSON.parse(error.message);
-
-        if (parsedError.statusCode === 401) {
-          alert("Email ou senha incorretos. Por favor, tente novamente.");
-        }
-        if (parsedError.statusCode === 500) {
-          alert(
-            "Ocorreu um erro no servidor. Por favor, tente novamente mais tarde.",
-          );
-        }
+      const response = await postAuthLogin({ email: identifier, password });
+      if (response.accessToken) {
+        sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
+        sessionStorage.setItem("user", JSON.stringify(response.user ?? response));
+        navigate("/profile", { replace: true });
       }
+    } catch (error) {
+      alert("Erro ao entrar. Verifique suas credenciais.");
     } finally {
       setIsLoading(false);
     }
-  }
-
-  const handleLogin = () => {
-    const payload = {
-      email: user,
-      password: password,
-    };
-    fetchLogin(payload);
   };
 
   return (
-    <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
-      <div className="flex flex-col gap-6 items-center justify-center">
-        <Heading component="h1">Seja bem vindo</Heading>
-        <Input
-          type="text"
-          name="email"
-          id="email"
-          label="Email"
-          placeholder="Seu e-mail"
-          onChange={handleUserChange}
-          fullWidth
-          noLabel
-          disabled={isLoading}
-        />
-        <Input
-          type="password"
-          name="password"
-          id="password"
-          label="Senha"
-          placeholder="Senha"
-          onChange={handlePasswordChange}
-          fullWidth
-          noLabel
-          disabled={isLoading}
-        />
-        <span className="text-right w-full ">
-          <NavLink
-            to="/forgot-password"
-            className="text-brand-primary text-sm underline"
-          >
-            Esqueci minha senha
-          </NavLink>
-        </span>
-        <Button
-          variant="primary"
-          onClick={handleLogin}
-          fullWidth
-          disabled={isLoading}
+    <div className="flex justify-center items-center min-h-screen bg-[#F7F8FA] p-4">
+      {/* O container precisa ser 'relative' para a seta 'absolute' funcionar */}
+      <main
+        className="relative flex w-full max-w-[358px] flex-col px-8 py-10 bg-white shadow-xl rounded-[32px]"
+        style={{ minHeight: "660px" }}
+      >
+        {/* ESTA É A SETA QUE VOCÊ PRECISA */}
+        <Link 
+          to="/auth/cpf" 
+          className="absolute top-10 left-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
         >
-          {isLoading ? <LoaderCircle className="animate-spin" /> : "Entrar"}
-        </Button>
-      </div>
-      <p className="text-center text-typography-base text-base">
-        Não tem uma conta?{" "}
-        <NavLink to="/register" className="text-brand-primary underline">
-          Criar conta
-        </NavLink>
-      </p>
-    </section>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="#1D2129" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </Link>
+
+        <h2 className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mt-2">
+          Pizzalivery
+        </h2>
+
+        <h1 className="mt-16 text-center text-[32px] font-bold text-[#1D2129] leading-tight">
+          Seja bem vindo
+        </h1>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-10">
+          <input
+            type="text"
+            placeholder="e-mail ou nome de usuário"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+            required
+            className="h-14 w-full rounded-full border border-gray-200 bg-[#F7F8FA] px-6 text-black focus:border-[#F25D27] outline-none"
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="h-14 w-full rounded-full border border-gray-200 bg-[#F7F8FA] px-6 text-black focus:border-[#F25D27] outline-none"
+          />
+
+          <Link to="/auth/forgot" className="self-end text-xs font-semibold text-[#F25D27]">
+            Esqueci minha senha
+          </Link>
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="mt-4 h-14 w-full rounded-full bg-[#F25D27] text-white font-bold text-lg shadow-md hover:opacity-90 disabled:bg-gray-300"
+          >
+            {isLoading ? "Entrando..." : "Entrar"}
+          </button>
+        </form>
+
+        <p className="mt-auto text-center text-sm text-gray-500">
+          Não tem uma conta?{" "}
+          <Link to="/auth/register" className="font-bold text-[#F25D27]">
+            Criar conta
+          </Link>
+        </p>
+      </main>
+    </div>
   );
 }
 
-export default Login;
+export default LoginPage;

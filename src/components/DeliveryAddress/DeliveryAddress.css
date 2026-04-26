@@ -60,3 +60,7 @@
     }
   }
 }
+
+.delivery-address--hidden {
+  display: none;
+}

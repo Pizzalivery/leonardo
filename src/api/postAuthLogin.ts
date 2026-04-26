@@ -1,33 +1,15 @@
-export type LoginPayload = {
-  email: string;
-  password: string;
-};
+export type LoginPayload = { email: string; password: string; };
 
-async function postAuthLogin(payload: LoginPayload) {
+const postAuthLogin = async (payload: LoginPayload) => {
   const url = "https://burgerlivery-esposito-api.onrender.com";
-
   const response = await fetch(`${url}/auth/login`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
 
-  if (!response.ok) {
-    const errorData = await response.json();
-
-    const errorMessage = {
-      error: errorData.error,
-      statusCode: response.status,
-      message: errorData.message,
-    };
-
-    throw new Error(JSON.stringify(errorMessage));
-  }
-
-  const data = await response.json();
-  return data;
-}
+  if (!response.ok) throw new Error("Erro no login");
+  return await response.json();
+};
 
 export default postAuthLogin;

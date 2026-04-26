@@ -8,12 +8,17 @@ async function patchUserCpf(payload: UpdateCpfPayload) {
   const user = JSON.parse(sessionStorage.getItem("user") || "{}");
   const userId = user.id;
 
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
   const response = await fetch(`${url}/users/${userId}`, {
     method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
+    headers,
     body: JSON.stringify({ cpf: payload.cpf }),
   });
 
@@ -24,6 +29,10 @@ async function patchUserCpf(payload: UpdateCpfPayload) {
   }
 
   const data = await response.json();
+
+  const updatedUser = { ...user, cpf: payload.cpf, ...data };
+  sessionStorage.setItem("user", JSON.stringify(updatedUser));
+  
   return data;
 }
 

@@ -4,11 +4,16 @@ import "./DeliveryAddress.css";
 interface DeliveryAddressProps {
   address: string;
   onClick: () => void;
+  hidden?: boolean;
 }
 
-export const DeliveryAddress = ({ address, onClick }: DeliveryAddressProps) => {
+export const DeliveryAddress = ({
+  address,
+  onClick,
+  hidden = false,
+}: DeliveryAddressProps) => {
   return (
-    <div className="delivery-address">
+    <div className={`delivery-address ${hidden ? "delivery-address--hidden" : ""}`}>
       <span className="delivery-text">
         <span>Entregando no endereço:</span>
         {address}

@@ -1,7 +1,6 @@
-import { Navigate, Outlet } from "react-router";
+import { Outlet } from "react-router";
 
 export const PrivateRoutes = () => {
-  const userToken = JSON.parse(sessionStorage.getItem("userToken") || "null");
-
-  return userToken ? <Outlet /> : <Navigate to="/auth/login" />;
+  // Permite navegação sem login para todas as páginas.
+  return <Outlet />;
 };

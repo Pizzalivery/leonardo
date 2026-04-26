@@ -1,8 +1,9 @@
 import { useOutletContext, useParams } from "react-router";
+import type { NavigationLayoutContext } from "../../components/Layouts/NavigationLayout/NavigationLayout";
 
 function OrderDetails() {
   const params = useParams();
-  const { setTitle, setNavigationHistory } = useOutletContext();
+  const { setTitle, setNavigationHistory } = useOutletContext<NavigationLayoutContext>();
 
   setTitle("Detalhes do Pedido");
   setNavigationHistory("/orders");

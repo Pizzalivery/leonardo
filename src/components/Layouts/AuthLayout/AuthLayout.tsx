@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, useNavigate } from "react-router";
+import { Outlet, useNavigate, useLocation } from "react-router";
 import { Footer } from "../../Footer/Footer";
 import { ChevronLeft } from "lucide-react";
 import { IconButton } from "../../IconButton/IconButton";
@@ -11,21 +11,51 @@ export type AuthLayoutContext = {
 
 function AuthLayout() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [title, setTitle] = useState<string>("Pizzalivery");
   const [navigationHistory, setNavigationHistory] = useState<string>("");
 
-  const handleBack = (navigation: string) => {
-    navigate(navigation);
+  const canGoBack = window.history.state?.idx > 0;
+  const handleBack = () => {
+    if (canGoBack) {
+      navigate(-1);
+      return;
+    }
+
+    const currentPath = location.pathname;
+    const explicitBackNavigation = currentPath === "/auth/cpf"
+      ? "/auth/register"
+      : currentPath === "/auth/register"
+      ? "/auth/login"
+      : currentPath === "/auth/login"
+      ? "/auth/register"
+      : "";
+
+    if (explicitBackNavigation) {
+      navigate(explicitBackNavigation);
+    }
   };
+
+  const currentPath = location.pathname;
+  const explicitBackNavigation = currentPath === "/auth/cpf"
+    ? "/auth/register"
+    : currentPath === "/auth/register"
+    ? "/auth/login"
+    : currentPath === "/auth/login"
+    ? "/auth/register"
+    : "";
+
+  const showBackButton = Boolean(explicitBackNavigation || canGoBack);
+  const backNavigation = explicitBackNavigation;
 
   return (
     <>
-      <header className="grid grid-cols-[1fr_auto_1fr] mx-auto px-5 w-full gap-4 my-6 ">
+      <header className="grid grid-cols-[1fr_auto_1fr] mx-auto px-4 w-full gap-4 my-6">
         <span>
-          {navigationHistory && (
+          {showBackButton && (
             <IconButton
               label="Voltar"
-              onClick={() => handleBack(navigationHistory)}
+              onClick={() => handleBack(backNavigation)}
             >
               <ChevronLeft />
             </IconButton>
@@ -34,7 +64,7 @@ function AuthLayout() {
         <h1 className="text-center text-lg font-bold">{title}</h1>
         <span></span>
       </header>
-      <main className="mx-auto px-5">
+      <main className="min-h-screen flex items-start justify-center px-4 pt-[88px]">
         <Outlet
           context={{
             setTitle,
