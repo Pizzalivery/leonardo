@@ -74,6 +74,17 @@ const mockUserData = {
 };
 
 function Home() {
+  const storedUser = JSON.parse(sessionStorage.getItem("user") || "null");
+  const storedAddress = JSON.parse(
+    sessionStorage.getItem("address") || "null",
+  );
+
+  const userName = storedUser?.name?.split(" ")[0] ?? mockUserData.userName;
+  const userAddress = storedAddress
+    ? `${storedAddress.logradouro}, ${storedAddress.number}`
+    : null;
+  const showAddress = userAddress !== null || storedUser === null;
+
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -107,11 +118,13 @@ function Home() {
         </MainMenu>
       </Navigation>
       <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
+        {showAddress && (
+          <DeliveryAddress
+            address={userAddress ?? mockUserData.address}
+            onClick={() => setOpenModal(true)}
+          />
+        )}
+        <GrettingUser userName={userName} />
       </header>
       <section className="offers">
         <div className="container">

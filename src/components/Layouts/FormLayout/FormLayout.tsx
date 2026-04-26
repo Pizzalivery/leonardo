@@ -4,12 +4,12 @@ import { Footer } from "../../Footer/Footer";
 import { ChevronLeft } from "lucide-react";
 import { IconButton } from "../../IconButton/IconButton";
 
-export type AuthLayoutContext = {
+export type FormLayoutContext = {
   setTitle: React.Dispatch<React.SetStateAction<string>>;
   setNavigationHistory: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function AuthLayout() {
+function FormLayout() {
   const navigate = useNavigate();
   const [title, setTitle] = useState<string>("Pizzalivery");
   const [navigationHistory, setNavigationHistory] = useState<string>("");
@@ -47,4 +47,4 @@ function AuthLayout() {
   );
 }
 
-export default AuthLayout;
+export default FormLayout;

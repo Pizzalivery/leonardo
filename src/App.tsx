@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import NavigationLayout from "./components/Layouts/NavigationLayout/NavigationLayout";
 import ProductLayout from "./components/Layouts/ProductLayout/ProductLayout";
-import AuthLayout from "./components/Layouts/AuthLayout/AuthLayout";
+import FormLayout from "./components/Layouts/FormLayout/FormLayout";
 import "./styles/style.css";
 import { PrivateRoutes } from "./components";
 
@@ -17,6 +17,11 @@ const ProductDetails = lazy(
 );
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+const Register = lazy(() => import("./pages/Auth/Register/Register"));
+const AddCpf = lazy(() => import("./pages/AddCpf/AddCpf"));
+const AddPhone = lazy(() => import("./pages/AddPhone/AddPhone"));
+const SearchCep = lazy(() => import("./pages/SearchCep/SearchCep"));
+const Address = lazy(() => import("./pages/Address/Address"));
 
 function App() {
   return (
@@ -34,8 +39,15 @@ function App() {
           <Route path="products" element={<ProductLayout />}>
             <Route path=":productId" element={<ProductDetails />} />
           </Route>
-          <Route path="auth/login" element={<AuthLayout />}>
-            <Route index element={<Login />} />
+          <Route element={<FormLayout />}>
+            <Route path="auth/login" element={<Login />} />
+            <Route path="register">
+              <Route index element={<Register />} />
+              <Route path="cpf" element={<AddCpf />} />
+              <Route path="phone" element={<AddPhone />} />
+              <Route path="cep" element={<SearchCep />} />
+              <Route path="address" element={<Address />} />
+            </Route>
           </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="orders" element={<NavigationLayout />}>
