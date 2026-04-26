@@ -1,0 +1,35 @@
+@import "./variables.css";
+@import "./theme.css";
+@import "tailwindcss";
+
+* {
+  /* margin: 0; */
+  /* padding: 0; */
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.25;
+  font-family: "Epilogue", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--interface-light);
+}
+
+img {
+  max-width: 100%;
+  /* height: auto; */
+  /* object-fit: cover; */
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
