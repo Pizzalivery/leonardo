@@ -9,6 +9,8 @@ import { PrivateRoutes } from "./components";
 import Register from "./pages/Auth/Register/Register";
 import AddCpf from "./pages/Auth/AddCpf/AddCpf";
 import AddPhone from "./pages/Auth/AddPhone/AddPhone";
+import AddCep from "./pages/Auth/AddCep/AddCep";
+import AddAddress from "./pages/Auth/AddAddress/AddAddress";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Search = lazy(() => import("./pages/Search/Search"));
@@ -48,6 +50,8 @@ function App() {
             <Route index element={<Register />} />
             <Route path="cpf" element={<AddCpf />} />
             <Route path="phone" element={<AddPhone />} />
+            <Route path="cep" element={<AddCep />} />
+            <Route path="address" element={<AddAddress />} />
           </Route>
 
           <Route element={<PrivateRoutes />}>
