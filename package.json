@@ -31,5 +31,17 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
     "vite": "^7.3.1"
-  }
+  },
+  "description": "A client-side web application that allows users to browse the menu and place pizza orders online.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pizzalivery/leonardo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pizzalivery/leonardo/issues"
+  },
+  "homepage": "https://github.com/Pizzalivery/leonardo#readme"
 }
