@@ -1,8 +1,9 @@
 import { useOutletContext, useParams } from "react-router";
+import type { AuthLayoutContext } from "../../components/Layouts/AuthLayout/AuthLayout";
 
 function OrderDetails() {
   const params = useParams();
-  const { setTitle, setNavigationHistory } = useOutletContext();
+  const { setTitle, setNavigationHistory } = useOutletContext<AuthLayoutContext>();
 
   setTitle("Detalhes do Pedido");
   setNavigationHistory("/orders");

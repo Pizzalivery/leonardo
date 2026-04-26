@@ -1,6 +1,4 @@
-// https://burgerlivery-esposito-api.onrender.com/
-// pizzas/
-// 10
+
 async function getPizzaDetails(id: string) {
   const url = "https://burgerlivery-esposito-api.onrender.com";
   const response = await fetch(`${url}/pizzas/${id}`);
