@@ -11,7 +11,7 @@ function SearchCep() {
     useOutletContext<FormLayoutContext>();
 
   useEffect(() => {
-    setTitle("Buscar endereço");
+    setTitle("Pizzalivery");
     setNavigationHistory("");
   }, [setTitle, setNavigationHistory]);
 
@@ -53,41 +53,44 @@ function SearchCep() {
   };
 
   return (
-    <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
-      <div className="flex flex-col gap-6 items-center justify-center">
-        <Heading component="h1">Buscar endereço</Heading>
-        <Input
-          type="text"
-          name="cep"
-          id="cep"
-          label="CEP"
-          placeholder="Digite seu CEP"
-          onChange={handleCepChange}
-          fullWidth
-          noLabel
-          disabled={isLoading}
-        />
-        <Button
-          variant="primary"
-          onClick={handleSearchAddress}
-          fullWidth
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <LoaderCircle className="animate-spin" />
-          ) : (
-            "Buscar endereço"
-          )}
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={handleSkip}
-          fullWidth
-          disabled={isLoading}
-        >
-          Pular
-        </Button>
+    <section className="flex flex-col gap-6 items-center justify-center min-h-[calc(100vh-88px)]">
+      <div className="text-center">
+        <Heading component="h1">Qual seu endereço</Heading>
+        <p className="text-typography-base text-sm mt-2">
+          Informe seu CEP para adicionar seu endereço.
+        </p>
       </div>
+      <Input
+        type="text"
+        name="cep"
+        id="cep"
+        label="CEP"
+        placeholder="Digite seu CEP *"
+        onChange={handleCepChange}
+        fullWidth
+        noLabel
+        disabled={isLoading}
+      />
+      <Button
+        variant="primary"
+        onClick={handleSearchAddress}
+        fullWidth
+        disabled={isLoading}
+      >
+        {isLoading ? (
+          <LoaderCircle className="animate-spin" />
+        ) : (
+          "Buscar endereço"
+        )}
+      </Button>
+      <button
+        type="button"
+        onClick={handleSkip}
+        disabled={isLoading}
+        className="bg-interface-disabled text-typography-base font-bold text-base py-4 w-full text-center rounded-4xl cursor-pointer border-0 disabled:opacity-50"
+      >
+        Pular
+      </button>
     </section>
   );
 }

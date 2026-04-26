@@ -1,4 +1,4 @@
-import { NavLink, useNavigate, useOutletContext } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
 import { useEffect, useState } from "react";
 import postAuthRegister, {
@@ -20,6 +20,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +36,13 @@ function Register() {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setPassword(value);
+  };
+
+  const handleConfirmPasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { value } = e.target;
+    setConfirmPassword(value);
   };
 
   async function fetchRegister(payload: RegisterPayload) {
@@ -66,6 +74,10 @@ function Register() {
   }
 
   const handleRegister = () => {
+    if (password !== confirmPassword) {
+      alert("As senhas não coincidem. Por favor, verifique.");
+      return;
+    }
     const payload = {
       name: name,
       email: email,
@@ -75,57 +87,65 @@ function Register() {
   };
 
   return (
-    <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
-      <div className="flex flex-col gap-6 items-center justify-center">
+    <section className="flex flex-col gap-6 items-center justify-center min-h-[calc(100vh-88px)]">
+      <div className="text-center">
         <Heading component="h1">Crie sua conta</Heading>
-        <Input
-          type="text"
-          name="name"
-          id="name"
-          label="Nome"
-          placeholder="Seu nome"
-          onChange={handleNameChange}
-          fullWidth
-          noLabel
-          disabled={isLoading}
-        />
-        <Input
-          type="text"
-          name="email"
-          id="email"
-          label="Email"
-          placeholder="Seu e-mail"
-          onChange={handleEmailChange}
-          fullWidth
-          noLabel
-          disabled={isLoading}
-        />
-        <Input
-          type="password"
-          name="password"
-          id="password"
-          label="Senha"
-          placeholder="Senha"
-          onChange={handlePasswordChange}
-          fullWidth
-          noLabel
-          disabled={isLoading}
-        />
-        <Button
-          variant="primary"
-          onClick={handleRegister}
-          fullWidth
-          disabled={isLoading}
-        >
-          {isLoading ? <LoaderCircle className="animate-spin" /> : "Criar conta"}
-        </Button>
+        <p className="text-typography-base text-sm mt-2">
+          É rápido e fácil. Insira seus dados para começar.
+        </p>
       </div>
-      <p className="text-center text-typography-base text-base">
-        Já tem uma conta?{" "}
-        <NavLink to="/auth/login" className="text-brand-primary underline">
-          Entrar
-        </NavLink>
-      </p>
+      <Input
+        type="text"
+        name="name"
+        id="name"
+        label="Nome completo"
+        placeholder="Daniela Isabela Sales"
+        onChange={handleNameChange}
+        fullWidth
+        noLabel
+        disabled={isLoading}
+      />
+      <Input
+        type="email"
+        name="email"
+        id="email"
+        label="Email"
+        placeholder="email *"
+        onChange={handleEmailChange}
+        fullWidth
+        noLabel
+        disabled={isLoading}
+      />
+      <Input
+        type="password"
+        name="password"
+        id="password"
+        label="Senha"
+        placeholder="Senha *"
+        onChange={handlePasswordChange}
+        fullWidth
+        noLabel
+        disabled={isLoading}
+      />
+      <Input
+        type="password"
+        name="confirmPassword"
+        id="confirmPassword"
+        label="Confirmar senha"
+        placeholder="Confirmar senha *"
+        onChange={handleConfirmPasswordChange}
+        fullWidth
+        noLabel
+        disabled={isLoading}
+      />
+      <Button
+        variant="primary"
+        onClick={handleRegister}
+        fullWidth
+        disabled={isLoading}
+      >
+        {isLoading ? <LoaderCircle className="animate-spin" /> : "Criar conta"}
+      </Button>
     </section>
   );
 }

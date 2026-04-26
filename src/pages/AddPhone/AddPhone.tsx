@@ -11,7 +11,7 @@ function AddPhone() {
     useOutletContext<FormLayoutContext>();
 
   useEffect(() => {
-    setTitle("Adicionar telefone");
+    setTitle("Pizzalivery");
     setNavigationHistory("");
   }, [setTitle, setNavigationHistory]);
 
@@ -61,37 +61,41 @@ function AddPhone() {
   };
 
   return (
-    <section className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)]">
-      <div className="flex flex-col gap-6 items-center justify-center">
+    <section className="flex flex-col gap-6 items-center justify-center min-h-[calc(100vh-88px)]">
+      <div className="text-center">
         <Heading component="h1">Adicione seu telefone</Heading>
-        <Input
-          type="text"
-          name="phone"
-          id="phone"
-          label="Telefone"
-          placeholder="Digite seu telefone"
-          onChange={handlePhoneChange}
-          fullWidth
-          noLabel
-          disabled={isLoading}
-        />
-        <Button
-          variant="primary"
-          onClick={handleContinue}
-          fullWidth
-          disabled={isLoading}
-        >
-          {isLoading ? <LoaderCircle className="animate-spin" /> : "Continuar"}
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={handleSkip}
-          fullWidth
-          disabled={isLoading}
-        >
-          Pular
-        </Button>
+        <p className="text-typography-base text-sm mt-2">
+          Adicione seu telefone para um canal de contato mais agilidade e
+          praticidade.
+        </p>
       </div>
+      <Input
+        type="tel"
+        name="phone"
+        id="phone"
+        label="Telefone"
+        placeholder="DDD + Número *"
+        onChange={handlePhoneChange}
+        fullWidth
+        noLabel
+        disabled={isLoading}
+      />
+      <Button
+        variant="primary"
+        onClick={handleContinue}
+        fullWidth
+        disabled={isLoading}
+      >
+        {isLoading ? <LoaderCircle className="animate-spin" /> : "Continuar"}
+      </Button>
+      <button
+        type="button"
+        onClick={handleSkip}
+        disabled={isLoading}
+        className="text-typography-dark font-bold text-base py-2 w-full text-center cursor-pointer bg-transparent border-0 disabled:opacity-50"
+      >
+        Pular
+      </button>
     </section>
   );
 }
