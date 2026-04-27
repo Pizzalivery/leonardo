@@ -1,20 +1,8 @@
-export type RegisterAddress = {
-  cep: string;
-  street: string;
-  number: string;
-  neighborhood: string;
-  city: string;
-  state: string;
-};
-
 export type RegisterPayload = {
   name: string;
   email: string;
   password: string;
-  cpf: string;
-  phone: string;
-  role: "customer";
-  address: RegisterAddress;
+  role?: "customer";
 };
 
 async function postAuthRegister(payload: RegisterPayload) {

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
 import type { AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
+import postAuthRegister, {
+  type RegisterPayload,
+} from "../../../api/postAuthRegister";
 
 function Register() {
   const navigate = useNavigate();
@@ -12,6 +15,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTitle("Crie sua conta");
@@ -40,20 +44,55 @@ function Register() {
     setConfirmPassword(value);
   };
 
+  async function fetchRegister(payload: RegisterPayload) {
+    setIsLoading(true);
+
+    try {
+      const response = await postAuthRegister(payload);
+      const accessToken =
+        response.accessToken || response.token || response.access_token || null;
+
+      if (accessToken) {
+        sessionStorage.setItem("userToken", JSON.stringify(accessToken));
+      }
+
+      sessionStorage.setItem("user", JSON.stringify(response.user));
+      navigate("/register/cpf");
+    } catch (error) {
+      if (error instanceof Error) {
+        alert("Nao foi possivel criar a conta. Tente novamente.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   const handleRegister = () => {
+    if (!name || !email || !password || !confirmPassword) {
+      alert("Preencha todos os campos antes de continuar.");
+      return;
+    }
+
+    const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!emailIsValid) {
+      alert("Informe um email valido.");
+      return;
+    }
+
     if (password !== confirmPassword) {
       alert("As senhas nao conferem. Por favor, tente novamente.");
       return;
     }
 
-    const registerDraft = {
+    const payload: RegisterPayload = {
       name,
       email,
       password,
+      role: "customer",
     };
 
-    sessionStorage.setItem("registerDraft", JSON.stringify(registerDraft));
-    navigate("/register/cpf");
+    fetchRegister(payload);
   };
 
   return (
@@ -62,7 +101,7 @@ function Register() {
         <div className="text-center">
           <Heading component="h1">Crie sua conta</Heading>
           <p className="text-typography-base text-base">
-            E rapido e facil. Insira seus dados para comecar.
+            E rápido e fácil. Insira seus dados para começar.
           </p>
         </div>
         <Input
@@ -74,6 +113,7 @@ function Register() {
           onChange={handleNameChange}
           fullWidth
           noLabel
+          disabled={isLoading}
         />
         <Input
           type="email"
@@ -84,6 +124,7 @@ function Register() {
           onChange={handleEmailChange}
           fullWidth
           noLabel
+          disabled={isLoading}
         />
         <Input
           type="password"
@@ -94,6 +135,7 @@ function Register() {
           onChange={handlePasswordChange}
           fullWidth
           noLabel
+          disabled={isLoading}
         />
         <Input
           type="password"
@@ -104,8 +146,14 @@ function Register() {
           onChange={handleConfirmPasswordChange}
           fullWidth
           noLabel
+          disabled={isLoading}
         />
-        <Button variant="primary" onClick={handleRegister} fullWidth>
+        <Button
+          variant="primary"
+          onClick={handleRegister}
+          fullWidth
+          disabled={isLoading}
+        >
           Criar conta
         </Button>
       </div>

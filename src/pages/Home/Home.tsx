@@ -77,6 +77,9 @@ function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userName, setUserName] = useState(mockUserData.userName);
+  const [userAddress, setUserAddress] = useState(mockUserData.address);
+  const [hideAddress, setHideAddress] = useState(false);
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -94,6 +97,30 @@ function Home() {
     fetchOffers();
   }, []);
 
+  useEffect(() => {
+    const storedUser = sessionStorage.getItem("user");
+    const storedAddress = sessionStorage.getItem("userAddress");
+    const storedHideAddress = sessionStorage.getItem("hideAddress");
+
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      const user = typeof parsedUser === "string" ? JSON.parse(parsedUser) : parsedUser;
+
+      if (user?.name) {
+        setUserName(user.name);
+      }
+    }
+
+    if (storedAddress) {
+      const parsedAddress = JSON.parse(storedAddress);
+      setUserAddress(parsedAddress);
+    }
+
+    if (storedHideAddress === "true") {
+      setHideAddress(true);
+    }
+  }, []);
+
   return (
     <>
       <Navigation>
@@ -107,11 +134,13 @@ function Home() {
         </MainMenu>
       </Navigation>
       <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
+        <div className={hideAddress ? "hidden" : ""} aria-hidden={hideAddress}>
+          <DeliveryAddress
+            address={userAddress}
+            onClick={() => setOpenModal(true)}
+          />
+        </div>
+        <GrettingUser userName={userName} />
       </header>
       <section className="offers">
         <div className="container">
