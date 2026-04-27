@@ -25,19 +25,49 @@ function Login() {
 
     try {
       const response = await postAuthLogin(payload);
-      sessionStorage.setItem("userToken", JSON.stringify(response.accessToken));
-      sessionStorage.setItem("user", JSON.stringify(response.user));
+
+      console.log("Login response completo:", response);
+
+      const token =
+        response.accessToken || response.token || response.access_token || null;
+
+      const userData =
+        response.user ||
+        response.data ||
+        response.customer ||
+        (response.id ? response : null);
+
+      console.log("Token extraído:", token);
+      console.log("User extraído:", userData);
+
+      if (token) {
+        sessionStorage.setItem("userToken", JSON.stringify(token));
+      }
+      if (userData) {
+        sessionStorage.setItem("user", JSON.stringify(userData));
+      }
+
+      const storedShowAddress = sessionStorage.getItem("showAddress");
+      if (storedShowAddress === null) {
+        sessionStorage.setItem("showAddress", JSON.stringify(true));
+      }
+
       navigate("/");
     } catch (error) {
       if (error instanceof Error) {
-        const parsedError = JSON.parse(error.message);
+        try {
+          const parsedError = JSON.parse(error.message);
 
-        if (parsedError.statusCode === 401) {
-          alert("Email ou senha incorretos. Por favor, tente novamente.");
-        }
-        if (parsedError.statusCode === 500) {
+          if (parsedError.statusCode === 401) {
+            alert("Email ou senha incorretos. Por favor, tente novamente.");
+          } else {
+            alert(
+              "Ocorreu um erro no servidor. Por favor, tente novamente mais tarde.",
+            );
+          }
+        } catch {
           alert(
-            "Ocorreu um erro no servidor. Por favor, tente novamente mais tarde.",
+            "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.",
           );
         }
       }
@@ -99,7 +129,7 @@ function Login() {
       </div>
       <p className="text-center text-typography-base text-base">
         Não tem uma conta?{" "}
-        <NavLink to="/register" className="text-brand-primary underline">
+        <NavLink to="/auth/register" className="text-brand-primary underline">
           Criar conta
         </NavLink>
       </p>

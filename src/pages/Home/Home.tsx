@@ -68,15 +68,32 @@ const mockMostWantedData = [
   },
 ];
 
-const mockUserData = {
-  userName: "Daniela",
-  address: "Rua Mesquita, 248",
-};
-
 function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const getFromStorage = (key: string, fallback: unknown = null) => {
+    try {
+      return JSON.parse(sessionStorage.getItem(key) || "null") ?? fallback;
+    } catch {
+      return fallback;
+    }
+  };
+
+  const user = getFromStorage("user");
+  const userAddress = getFromStorage("userAddress");
+  const userToken = getFromStorage("userToken");
+  const storedShowAddress = sessionStorage.getItem("showAddress");
+
+  // showAddress: respeita valor explícito no storage; se não há nada, mostra só se logado
+  const showAddress =
+    storedShowAddress !== null
+      ? getFromStorage("showAddress", false)
+      : Boolean(userToken);
+
+  const userName = user?.name?.split(" ")[0] || "Visitante";
+  const address = userAddress || "Rua Mesquita, 248";
 
   async function fetchOffers() {
     setIsLoading(true);
@@ -107,11 +124,13 @@ function Home() {
         </MainMenu>
       </Navigation>
       <header className="header">
-        <DeliveryAddress
-          address={mockUserData.address}
-          onClick={() => setOpenModal(true)}
-        />
-        <GrettingUser userName={mockUserData.userName} />
+        {showAddress && (
+          <DeliveryAddress
+            address={address}
+            onClick={() => setOpenModal(true)}
+          />
+        )}
+        <GrettingUser userName={userName} />
       </header>
       <section className="offers">
         <div className="container">

@@ -39,6 +39,8 @@ export const Input = ({
           w-full
           disabled:bg-mix-interface-border-light
           disabled:pointer-events-none
+          focus:outline-none
+          focus:border-(--brand-primary)
         "
         type={type}
         placeholder={placeholder}
