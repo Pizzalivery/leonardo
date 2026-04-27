@@ -22,13 +22,73 @@ function Phone() {
     setPhone(value);
   };
 
-  async function updatePhone(userId: string) {
+  const getStoredToken = () => {
+    const storedToken = sessionStorage.getItem("userToken");
+
+    if (!storedToken) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(storedToken);
+    } catch {
+      return storedToken;
+    }
+  };
+
+  const getStoredUser = () => {
+    const storedUser = sessionStorage.getItem("user");
+
+    if (!storedUser) {
+      return null;
+    }
+
+    try {
+      const parsedUser = JSON.parse(storedUser);
+      return typeof parsedUser === "string" ? JSON.parse(parsedUser) : parsedUser;
+    } catch {
+      return null;
+    }
+  };
+
+  const persistPhoneLocally = (value: string) => {
+    const user = getStoredUser();
+
+    if (!user) {
+      return;
+    }
+
+    sessionStorage.setItem(
+      "user",
+      JSON.stringify({
+        ...user,
+        phone: value,
+      }),
+    );
+  };
+
+  async function updatePhone(userId: string, value: string) {
     setIsLoading(true);
 
     try {
-      await putUser(userId, { phone });
+      await putUser(userId, { phone: value });
+      persistPhoneLocally(value);
       navigate("/register/cep");
     } catch (error) {
+      if (error instanceof Error) {
+        try {
+          const parsedError = JSON.parse(error.message);
+
+          if (parsedError.statusCode === 401) {
+            persistPhoneLocally(value);
+            navigate("/register/cep");
+            return;
+          }
+        } catch {
+          console.error("Erro ao salvar telefone:", error);
+        }
+      }
+
       alert("Nao foi possivel salvar o telefone. Tente novamente.");
     } finally {
       setIsLoading(false);
@@ -36,8 +96,13 @@ function Phone() {
   }
 
   const handleContinue = () => {
-    const storedUser = sessionStorage.getItem("user");
-    const userData = storedUser ? JSON.parse(storedUser) : null;
+    const userData = getStoredUser();
+    const sanitizedPhone = phone.replace(/\D/g, "");
+
+    if (!sanitizedPhone) {
+      alert("Informe o telefone para continuar.");
+      return;
+    }
 
     if (!userData?.id) {
       alert("Usuario nao encontrado. Tente novamente.");
@@ -45,7 +110,13 @@ function Phone() {
       return;
     }
 
-    updatePhone(userData.id);
+    if (!getStoredToken()) {
+      persistPhoneLocally(sanitizedPhone);
+      navigate("/register/cep");
+      return;
+    }
+
+    updatePhone(userData.id, sanitizedPhone);
   };
 
   const handleSkip = () => {

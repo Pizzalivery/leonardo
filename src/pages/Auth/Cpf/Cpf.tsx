@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router";
 import { Button, Heading, Input } from "../../../components";
 import type { AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
-import patchUserCpf from "../../../api/patchUserCpf";
 
 function Cpf() {
   const navigate = useNavigate();
@@ -10,7 +9,6 @@ function Cpf() {
     useOutletContext<AuthLayoutContext>();
 
   const [cpf, setCpf] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTitle("Parabens! Sua conta foi criada");
@@ -22,29 +20,20 @@ function Cpf() {
     setCpf(value);
   };
 
-  async function updateCpf(value: string) {
-    setIsLoading(true);
+  const getStoredUser = () => {
+    const storedUser = sessionStorage.getItem("user");
+
+    if (!storedUser) {
+      return null;
+    }
 
     try {
-      await patchUserCpf({ cpf: value });
-      sessionStorage.removeItem("hideAddress");
-      navigate("/register/phone");
-    } catch (error) {
-      if (error instanceof Error) {
-        try {
-          const parsedError = JSON.parse(error.message);
-          const message = parsedError.message || parsedError.error;
-          alert(message || "Nao foi possivel salvar o CPF. Tente novamente.");
-        } catch {
-          alert("Nao foi possivel salvar o CPF. Tente novamente.");
-        }
-        return;
-      }
-      alert("Nao foi possivel salvar o CPF. Tente novamente.");
-    } finally {
-      setIsLoading(false);
+      const parsedUser = JSON.parse(storedUser);
+      return typeof parsedUser === "string" ? JSON.parse(parsedUser) : parsedUser;
+    } catch {
+      return null;
     }
-  }
+  };
 
   const handleContinue = () => {
     if (!cpf.trim()) {
@@ -53,7 +42,22 @@ function Cpf() {
     }
 
     const sanitizedCpf = cpf.replace(/\D/g, "");
-    updateCpf(sanitizedCpf);
+    const user = getStoredUser();
+
+    if (user) {
+      sessionStorage.setItem(
+        "user",
+        JSON.stringify({
+          ...user,
+          cpf: sanitizedCpf,
+        }),
+      );
+    } else {
+      sessionStorage.setItem("userCpf", JSON.stringify(sanitizedCpf));
+    }
+
+    sessionStorage.removeItem("hideAddress");
+    navigate("/register/phone");
   };
 
   const handleSkip = () => {
@@ -79,17 +83,16 @@ function Cpf() {
           onChange={handleCpfChange}
           fullWidth
           noLabel
-          disabled={isLoading}
         />
         <Button
           variant="primary"
           onClick={handleContinue}
           fullWidth
-          disabled={isLoading}
+          type="button"
         >
           Continuar
         </Button>
-        <Button onClick={handleSkip} fullWidth disabled={isLoading}>
+        <Button onClick={handleSkip} fullWidth type="button">
           Pular
         </Button>
       </div>

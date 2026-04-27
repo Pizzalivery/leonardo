@@ -54,9 +54,58 @@ function Address() {
     setComplement(value);
   };
 
-  const handleFinish = () => {
+  const getStoredToken = () => {
+    const storedToken = sessionStorage.getItem("userToken");
+
+    if (!storedToken) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(storedToken);
+    } catch {
+      return storedToken;
+    }
+  };
+
+  const getStoredUser = () => {
     const storedUser = sessionStorage.getItem("user");
-    const userData = storedUser ? JSON.parse(storedUser) : null;
+
+    if (!storedUser) {
+      return null;
+    }
+
+    try {
+      const parsedUser = JSON.parse(storedUser);
+      return typeof parsedUser === "string" ? JSON.parse(parsedUser) : parsedUser;
+    } catch {
+      return null;
+    }
+  };
+
+  const persistAddressLocally = (payload: UpdateAddressPayload) => {
+    sessionStorage.setItem(
+      "userAddress",
+      JSON.stringify(`${payload.street}, ${payload.number}`),
+    );
+
+    const user = getStoredUser();
+
+    if (user) {
+      sessionStorage.setItem(
+        "user",
+        JSON.stringify({
+          ...user,
+          address: payload,
+        }),
+      );
+    }
+
+    sessionStorage.removeItem("hideAddress");
+  };
+
+  const handleFinish = () => {
+    const userData = getStoredUser();
 
     if (!userData?.id) {
       alert("Usuario nao encontrado. Tente novamente.");
@@ -79,6 +128,12 @@ function Address() {
       complement: complement || undefined,
     };
 
+    if (!getStoredToken()) {
+      persistAddressLocally(payload);
+      navigate("/");
+      return;
+    }
+
     updateAddress(userData.id, payload);
   };
 
@@ -87,14 +142,25 @@ function Address() {
 
     try {
       await putUserAddress(userId, payload);
-      sessionStorage.setItem(
-        "userAddress",
-        JSON.stringify(`${payload.street}, ${payload.number}`),
-      );
-      sessionStorage.removeItem("hideAddress");
+      persistAddressLocally(payload);
       navigate("/");
     } catch (error) {
-      alert("Nao foi possivel salvar o endereco. Tente novamente.");
+      if (error instanceof Error) {
+        try {
+          const parsedError = JSON.parse(error.message);
+
+          if (parsedError.statusCode === 401) {
+            persistAddressLocally(payload);
+            navigate("/");
+            return;
+          }
+        } catch {
+          console.error("Erro ao salvar endereco:", error);
+        }
+      }
+
+      persistAddressLocally(payload);
+      navigate("/");
     } finally {
       setIsLoading(false);
     }

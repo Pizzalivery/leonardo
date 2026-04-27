@@ -17,6 +17,25 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const getResponseUser = (response: unknown) => {
+    if (!response || typeof response !== "object") {
+      return null;
+    }
+
+    const data = response as Record<string, unknown>;
+    const directUser = data.user;
+
+    if (directUser && typeof directUser === "object") {
+      return directUser;
+    }
+
+    if ("id" in data) {
+      return data;
+    }
+
+    return null;
+  };
+
   useEffect(() => {
     setTitle("Crie sua conta");
     setNavigationHistory("/auth/login");
@@ -51,12 +70,16 @@ function Register() {
       const response = await postAuthRegister(payload);
       const accessToken =
         response.accessToken || response.token || response.access_token || null;
+      const user = getResponseUser(response);
 
       if (accessToken) {
         sessionStorage.setItem("userToken", JSON.stringify(accessToken));
       }
 
-      sessionStorage.setItem("user", JSON.stringify(response.user));
+      if (user) {
+        sessionStorage.setItem("user", JSON.stringify(user));
+      }
+
       navigate("/register/cpf");
     } catch (error) {
       if (error instanceof Error) {
