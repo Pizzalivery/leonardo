@@ -7,6 +7,7 @@ interface ProductListItemProps {
   title: string;
   description: string;
   value: number;
+  onClickAdd?: (id: number) => void;
 }
 
 export const ProductListItem = ({
@@ -15,12 +16,18 @@ export const ProductListItem = ({
   title,
   description,
   value,
+  onClickAdd,
 }: ProductListItemProps) => {
   const formattedValue = (value: number) =>
     value.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
     });
+
+  const handleAdd = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    onClickAdd?.(id);
+  };
 
   return (
     <section className="my-4 border-b border-interface-border last:border-0">
@@ -35,7 +42,19 @@ export const ProductListItem = ({
             {formattedValue(value)}
           </p>
         </div>
-        <img className="w-24 h-24 rounded-xl" src={image} alt={title} />
+        <div className="w-24 flex gap-1 flex-col items-end mb-2">
+          <img
+            className="w-24 h-24 rounded-xl object-contain bg-common-light"
+            src={image}
+            alt={title}
+          />
+          <button
+            className="w-full bg-brand-primary text-common-light p-1 rounded-lg text-sm font-medium"
+            onClick={handleAdd}
+          >
+            Adicionar
+          </button>
+        </div>
       </NavLink>
     </section>
   );

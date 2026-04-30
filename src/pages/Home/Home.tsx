@@ -27,6 +27,7 @@ import getOffers from "../../api/getOffers";
 import "./Home.css";
 
 import { useForm } from "react-hook-form";
+import type { Address } from "../../types";
 
 type Offer = {
   id: number;
@@ -72,11 +73,6 @@ const mockMostWantedData = [
   },
 ];
 
-const mockUserData = {
-  userName: "Daniela",
-  address: "Rua Mesquita, 248",
-};
-
 type AddressForm = {
   cep: string;
   city: string;
@@ -91,6 +87,8 @@ function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userData, setUserData] = useState<string | null>(null);
+  const [userAddress, setUserAddress] = useState<Address | null>(null);
 
   const {
     register,
@@ -115,6 +113,17 @@ function Home() {
   }
 
   useEffect(() => {
+    if (!userData) {
+      const userStorage = sessionStorage.getItem("user");
+      if (userStorage) {
+        const parsedUserData = JSON.parse(userStorage);
+        setUserData(parsedUserData.name);
+        setUserAddress(parsedUserData.address);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     fetchOffers();
   }, []);
 
@@ -132,10 +141,10 @@ function Home() {
       </Navigation>
       <header className="header">
         <DeliveryAddress
-          address={mockUserData.address}
+          address={userAddress}
           onClick={() => setOpenModal(true)}
         />
-        <GrettingUser userName={mockUserData.userName} />
+        <GrettingUser userName={userData} />
       </header>
       <section className="offers">
         <div className="container">
