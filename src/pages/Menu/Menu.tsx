@@ -1,4 +1,11 @@
-import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from "react";
 import {
   Heading,
   ProductListItem,
@@ -33,9 +40,6 @@ function Menu() {
   const [desserts, setDesserts] = useState<Array<Product>>([]);
 
   const [isLoading, setIsLoading] = useState(false);
-
-  setNavigationHistory("/");
-  setTitle("Menu");
 
   // async function fetchPizzas() {
   //   setIsLoading(true);
@@ -83,6 +87,11 @@ function Menu() {
       setIsLoading(false);
     }
   }
+
+  useLayoutEffect(() => {
+    setNavigationHistory("/");
+    setTitle("Menu");
+  }, [setTitle, setNavigationHistory]);
 
   useEffect(() => {
     fetchProducts();

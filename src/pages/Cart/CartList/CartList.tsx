@@ -3,11 +3,9 @@ import type { ProductLayoutContext } from "../../../components/Layouts/ProductLa
 import { Minus, Plus } from "lucide-react";
 import { Button } from "../../../components";
 import { OrderContext } from "../../../context/OrderContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useLayoutEffect } from "react";
 import type { OrderContextProps, OrderItem } from "../../../types";
 import { formatCurrency } from "../../../utils/numberFormat";
-
-const discount = 7.9;
 
 const Size = {
   SMALL: "Pequena - 4 fatias",
@@ -22,8 +20,6 @@ function CartList() {
     useOutletContext<ProductLayoutContext>();
 
   const navigate = useNavigate();
-  setTitle("Sacola");
-  setNavigationHistory("/menu");
 
   const { orders, totalValue, delveryFee } =
     useContext<OrderContextProps>(OrderContext);
@@ -31,6 +27,11 @@ function CartList() {
   const handleNextStep = () => {
     navigate("/payment");
   };
+
+  useLayoutEffect(() => {
+    setNavigationHistory("/cart");
+    setTitle("Sacola");
+  }, []);
 
   return (
     <article className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)] px-5">
@@ -47,7 +48,6 @@ function CartList() {
               <p className="text-sm text-typography-base">
                 {Size[item.size as SizeKey]}
               </p>
-              {/* <p className="text-sm text-typography-base">{item.size}</p> */}
             </div>
 
             <div className="flex items-center gap-2">

@@ -28,6 +28,7 @@ import "./Home.css";
 
 import { useForm } from "react-hook-form";
 import type { Address } from "../../types";
+import useFetch from "../../hooks/useFetch";
 
 type Offer = {
   id: number;
@@ -84,8 +85,11 @@ type AddressForm = {
 };
 
 function Home() {
+  const url = `${import.meta.env.VITE_API_URL}/offer-gallery`;
+  const { data } = useFetch(url);
+
   const [openModal, setOpenModal] = useState(false);
-  const [offers, setOffers] = useState<Array<Offer>>([]);
+  // const [offers, setOffers] = useState<Array<Offer>>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState<string | null>(null);
   const [userAddress, setUserAddress] = useState<Address | null>(null);
@@ -100,17 +104,20 @@ function Home() {
     console.log("Dados do formulário:", data);
   };
 
-  async function fetchOffers() {
-    setIsLoading(true);
-    try {
-      const response = await getOffers();
-      setOffers(response);
-    } catch (error) {
-      console.error("Error fetching offers:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  // const url = import.meta.env.VITE_API_URL;
+  // `${url}/offer-gallery`
+
+  // async function fetchOffers() {
+  //   setIsLoading(true);
+  //   try {
+  //     const response = await getOffers();
+  //     setOffers(response);
+  //   } catch (error) {
+  //     console.error("Error fetching offers:", error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // }
 
   useEffect(() => {
     if (!userData) {
@@ -123,9 +130,9 @@ function Home() {
     }
   }, []);
 
-  useEffect(() => {
-    fetchOffers();
-  }, []);
+  // useEffect(() => {
+  //  fetchOffers();
+  // }, []);
 
   return (
     <>
@@ -140,10 +147,12 @@ function Home() {
         </MainMenu>
       </Navigation>
       <header className="header">
-        <DeliveryAddress
-          address={userAddress}
-          onClick={() => setOpenModal(true)}
-        />
+        {userAddress ? (
+          <DeliveryAddress
+            address={userAddress}
+            onClick={() => setOpenModal(true)}
+          />
+        ) : null}
         <GrettingUser userName={userData} />
       </header>
       <section className="offers">
@@ -154,7 +163,7 @@ function Home() {
           <CarouselSkeleton />
         ) : (
           <Carousel>
-            {offers.map((offer) => (
+            {(data as Array<Offer>)?.map((offer: Offer) => (
               <CarouselItem
                 key={offer.id}
                 title={offer.title}

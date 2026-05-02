@@ -49,7 +49,6 @@ function ProductDetails() {
       value: productDetails?.value || 0,
     };
 
-    // ...prevOrders => spread operator
     setOrders((prevOrders: OrderItem[]) => [...prevOrders, productToAdd]);
 
     navigate("/cart");

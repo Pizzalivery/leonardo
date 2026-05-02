@@ -21,6 +21,20 @@ const Login = lazy(() => import("./pages/Auth/Login/Login"));
 const CartList = lazy(() => import("./pages/Cart/CartList/CartList"));
 const CartPayment = lazy(() => import("./pages/Cart/CartPayment/CartPayment"));
 
+const CreateAccount = lazy(
+  () => import("./pages/Register/CreateAccount/CreateAccount"),
+);
+const AddDocument = lazy(
+  () => import("./pages/Register/AddDocument/AddDocument"),
+);
+const AddPhoneNumber = lazy(
+  () => import("./pages/Register/AddPhoneNumber/AddPhoneNumber"),
+);
+const SearchAddress = lazy(
+  () => import("./pages/Register/SearchAddress/SearchAddress"),
+);
+const AddAddress = lazy(() => import("./pages/Register/AddAddress/AddAddress"));
+
 function App() {
   return (
     <BrowserRouter>
@@ -50,6 +64,14 @@ function App() {
             <Route element={<ProductLayout />}>
               <Route path="payment" element={<CartPayment />} />
             </Route>
+          </Route>
+
+          <Route path="register" element={<AuthLayout />}>
+            <Route index element={<CreateAccount />} />
+            <Route path="documents" element={<AddDocument />} />
+            <Route path="phone" element={<AddPhoneNumber />} />
+            <Route path="search-address" element={<SearchAddress />} />
+            <Route path="add-address" element={<AddAddress />} />
           </Route>
 
           <Route path="cart" element={<ProductLayout />}>

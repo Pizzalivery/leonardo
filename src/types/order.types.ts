@@ -38,6 +38,5 @@ export interface OrderContextProps {
   orders: OrderItem[];
   setOrders: React.Dispatch<React.SetStateAction<OrderItem[]>>;
   totalValue: number;
-  setTotalValue: React.Dispatch<React.SetStateAction<number>>;
   delveryFee: number;
 }

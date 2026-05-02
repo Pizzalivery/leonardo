@@ -1,11 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import type { OrderContextProps, OrderItem } from "../types";
 
 const OrderContext = createContext<OrderContextProps>({
   orders: [],
   setOrders: () => {},
   totalValue: 0,
-  setTotalValue: () => {},
   delveryFee: 0,
 }); // Cria o contexto para o pedido, inicialmente com valor nulo
 
@@ -17,13 +16,11 @@ export const OrderProvider = ({ children }: OrderProviderProps) => {
   const delveryFee = 5.9;
 
   const [orders, setOrders] = useState<OrderItem[]>([]);
-  const [totalValue, setTotalValue] = useState(0);
 
-  useEffect(() => {
-    const orderValues = orders.reduce((total, items) => total + items.value, 0);
-
-    setTotalValue(orderValues);
-  }, [orders]);
+  const totalValue = useMemo(
+    () => orders.reduce((total, item) => total + item.value, 0),
+    [orders],
+  );
 
   return (
     <OrderContext.Provider
@@ -31,7 +28,6 @@ export const OrderProvider = ({ children }: OrderProviderProps) => {
         orders,
         setOrders,
         totalValue,
-        setTotalValue,
         delveryFee,
       }}
     >

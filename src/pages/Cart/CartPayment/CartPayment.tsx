@@ -141,12 +141,12 @@ function CartPayment() {
     }
   };
 
-  // useEffect(() => {
-  //   if (orders.length === 0) {
-  //     navigate("/");
-  //     return;
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (orders.length === 0) {
+      navigate("/");
+      return;
+    }
+  }, []);
 
   useEffect(() => {
     if (!userAddress) {
