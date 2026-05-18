@@ -4,7 +4,7 @@ import { Check, Copy } from "lucide-react";
 import type { PixData } from "../../types";
 
 export type PixPaymentProps = {
-  pixData: PixData;
+  pixData: PixData | null;
 };
 
 export const PixPayment = ({ pixData }: PixPaymentProps) => {
@@ -24,6 +24,8 @@ export const PixPayment = ({ pixData }: PixPaymentProps) => {
   }, [timeLeft]);
 
   const handleCopy = async () => {
+    if (!pixData?.copyPaste) return;
+
     try {
       await navigator.clipboard.writeText(pixData.copyPaste);
       setCopied(true);
@@ -39,7 +41,7 @@ export const PixPayment = ({ pixData }: PixPaymentProps) => {
         Valor da transição
       </h3>
       <p className="text-typography-dark font-semibold text-3xl mb-4">
-        {formatCurrency(pixData?.amount)}
+        {formatCurrency(pixData?.amount ?? 0)}
       </p>
       <img
         src={pixData?.qrCode}

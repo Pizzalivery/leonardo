@@ -43,7 +43,7 @@ function CartPayment() {
   const [orderLoading, setOrderLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [pixData, setPixData] = useState<PixData>();
+  const [pixData, setPixData] = useState<PixData | null>(null);
 
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
 

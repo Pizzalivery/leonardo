@@ -28,8 +28,6 @@ import "./Home.css";
 
 import { useForm } from "react-hook-form";
 import type { Address } from "../../types";
-import useFetch from "../../hooks/useFetch";
-import { useStorage } from "../../hooks/useStorage";
 
 type Offer = {
   id: number;

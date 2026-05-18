@@ -21,7 +21,7 @@ function Orders() {
   setTitle("Pedidos");
   setNavigationHistory("/");
 
-  const [orders, setOrders] = useState<Array<Order>>([]);
+  const [, setOrders] = useState<Array<Order>>([]);
   const [activeOrder, setActiveOrder] = useState<Order | null>(null);
   const [finishedOrders, setFinishedOrders] = useState<Array<Order>>([]);
   const [isLoading, setIsLoading] = useState(false);

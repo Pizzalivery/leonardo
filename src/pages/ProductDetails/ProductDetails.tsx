@@ -62,28 +62,34 @@ function ProductDetails() {
 
   return (
     <div className="grid grid-rows-[1fr_auto] gap-4 h-[calc(100vh-88px)] px-5">
-      <div>
-        <img
-          src={productDetails?.image}
-          alt={productDetails?.name}
-          className="w-full h-40 mb-6 rounded-xl object-cover"
-        />
-        <Heading component="h1">{productDetails?.name}</Heading>
-        <p className="text-base text-typography-base">
-          {productDetails?.description}
-        </p>
-      </div>
-      <div>
-        <div className="flex items-center justify-between py-4 border-t border-interface-border">
-          <p className="text-xl text-typography-dark font-black">Valor:</p>
-          <span className="text-3xl font-bold text-brand-primary">
-            {formattedValue(productDetails?.value ?? 0)}
-          </span>
-        </div>
-        <Button fullWidth onClick={handleAdd} variant="primary">
-          Adicionar
-        </Button>
-      </div>
+      {isLoading ? (
+        <p className="text-center text-typography-base">Carregando...</p>
+      ) : (
+        <>
+          <div>
+            <img
+              src={productDetails?.image}
+              alt={productDetails?.name}
+              className="w-full h-40 mb-6 rounded-xl object-cover"
+            />
+            <Heading component="h1">{productDetails?.name}</Heading>
+            <p className="text-base text-typography-base">
+              {productDetails?.description}
+            </p>
+          </div>
+          <div>
+            <div className="flex items-center justify-between py-4 border-t border-interface-border">
+              <p className="text-xl text-typography-dark font-black">Valor:</p>
+              <span className="text-3xl font-bold text-brand-primary">
+                {formattedValue(productDetails?.value ?? 0)}
+              </span>
+            </div>
+            <Button fullWidth onClick={handleAdd} variant="primary">
+              Adicionar
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

@@ -66,6 +66,7 @@ function AddAddress() {
       address: {
         cep: addressData.cep,
         street: addressData.street,
+        complement: complement,
         neighborhood: addressData.neighborhood,
         city: addressData.city,
         state: addressData.state,
