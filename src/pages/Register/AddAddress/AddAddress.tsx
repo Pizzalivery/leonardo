@@ -5,10 +5,12 @@ import { LoaderCircle } from "lucide-react";
 import type { AuthLayoutContext } from "../../../components/Layouts/AuthLayout/AuthLayout";
 import type { Address, AddressParams, UpdateAccount } from "../../../types";
 import putUpdateAddress from "../../../api/putUpdateAddress";
+import { useStorage } from "../../../hooks/useStorage";
 
 function AddAddress() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [setStorageValue] = useStorage<string | null>("user", null);
 
   const { addressData } = location.state as { addressData: Address };
 
@@ -27,7 +29,8 @@ function AddAddress() {
       const response = await putUpdateAddress(payload);
 
       if (response) {
-        sessionStorage.setItem("user", JSON.stringify(response));
+        setStorageValue(response);
+        // sessionStorage.setItem("user", JSON.stringify(response));
 
         navigate("/");
       }
