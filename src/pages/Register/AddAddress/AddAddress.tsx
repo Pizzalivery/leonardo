@@ -30,8 +30,6 @@ function AddAddress() {
 
       if (response) {
         setStorageValue(response);
-        // sessionStorage.setItem("user", JSON.stringify(response));
-
         navigate("/");
       }
     } catch (error) {

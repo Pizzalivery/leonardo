@@ -42,12 +42,10 @@ function Orders() {
         response.filter((order: Order) => order.status !== "preparation"),
       );
     } catch (error) {
-      // Type Guard
       if (error instanceof Error) {
         const parsedError = JSON.parse(error.message);
 
         if (parsedError.statusCode === 401) {
-          // alert("Email ou senha incorretos. Por favor, tente novamente.");
           navigate("/auth/login");
         }
         if (parsedError.statusCode === 500) {

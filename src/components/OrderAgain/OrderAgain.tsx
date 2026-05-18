@@ -1,6 +1,5 @@
 import { NavLink } from "react-router";
 import { Heading } from "../Heading/Heading";
-// import "./OrderAgain.css"
 import Style from "./OrderAgain.module.css";
 
 interface OrderAgainProps {

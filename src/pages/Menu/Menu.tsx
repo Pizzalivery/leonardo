@@ -41,33 +41,6 @@ function Menu() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  // async function fetchPizzas() {
-  //   setIsLoading(true);
-
-  //   try {
-  //     const response = await getPizzas();
-  //     setPizzas(response);
-  //   } catch (error) {
-  //     console.error("Error fetching pizzas:", error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // }
-
-  // function fetchPizzas() {
-  //   setIsLoading(true);
-
-  //   getPizzas().then((response) => {
-  //     setPizzas(response);
-
-  //   }).catch((error) => {
-  //     console.error("Error fetching pizzas:", error);
-
-  //   }).finally(() => {
-  //     setIsLoading(false);
-  //   })
-  // }
-
   async function fetchProducts() {
     setIsLoading(true);
 

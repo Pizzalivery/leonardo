@@ -53,7 +53,7 @@ function CartPayment() {
       const response = await getPaymentMethods();
       const filteredMethods = response.filter(
         (method: PaymentMethod) => method.available === true,
-      ); // Filter => Retorna um novo array
+      );
 
       setPaymentMethods(filteredMethods);
     } catch (error) {

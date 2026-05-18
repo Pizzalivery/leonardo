@@ -207,13 +207,11 @@ function Home() {
               type="text"
               id="cep"
               label="CEP"
-              // name="cep"
               placeholder="Digite o CEP"
               noLabel
               {...register("cep", {
                 required: "CEP é obrigatório",
                 pattern: {
-                  // value: /^[0-9]+$/,
                   value: /^[0-9]{5}-?[0-9]{3}$/,
                   message: "Apenas números são permitidos",
                 },
@@ -229,7 +227,6 @@ function Home() {
               type="text"
               id="street"
               label="Rua"
-              // name="street"
               placeholder="Rua"
               noLabel
               {...register("street", { required: "Rua é obrigatório" })}
@@ -244,7 +241,6 @@ function Home() {
                 type="text"
                 id="number"
                 label="Número"
-                // name="number"
                 placeholder="Número"
                 noLabel
                 {...register("number", { required: "Número é obrigatório" })}
@@ -258,7 +254,6 @@ function Home() {
                 type="text"
                 id="complement"
                 label="Complemento"
-                // name="complement"
                 placeholder="Complemento"
                 noLabel
                 {...register("complement")}
@@ -270,7 +265,6 @@ function Home() {
               type="text"
               id="neighborhood"
               label="Bairro"
-              // name="neighborhood"
               placeholder="Bairro"
               noLabel
               {...register("neighborhood", {
@@ -287,7 +281,6 @@ function Home() {
                 type="text"
                 id="city"
                 label="Cidade"
-                // name="city"
                 placeholder="Cidade"
                 noLabel
                 {...register("city", { required: "Cidade é obrigatório" })}
@@ -301,7 +294,6 @@ function Home() {
                 type="text"
                 id="state"
                 label="Estado"
-                // name="state"
                 placeholder="estado"
                 noLabel
                 {...register("state", {
