@@ -20,8 +20,19 @@ function useFetch(url: string) {
 
         const json = await response.json();
         setData(json);
-      } catch (err: any) {
-        console.error(err.message || "Erro inesperado");
+      } catch (error) {
+        if (error instanceof Error) {
+          const parsedError = JSON.parse(error.message);
+
+          if (parsedError.statusCode === 401) {
+            alert("Email ou senha incorretos. Por favor, tente novamente.");
+          }
+          if (parsedError.statusCode === 500) {
+            alert(
+              "Ocorreu um erro no servidor. Por favor, tente novamente mais tarde.",
+            );
+          }
+        }
       }
     }
 
